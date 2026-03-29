@@ -23,6 +23,7 @@ codex-home/
 
 # Runs and large artifacts
 runs/
+.runlogs/
 tmp/
 snapshots/cache/
 downloads/

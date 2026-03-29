@@ -29,7 +29,7 @@
 
 | Collection | Status | Latest Stage | Progress % | Repo Items | ETA h | Review | Next Stage |
 | --- | --- | --- | ---: | ---: | ---: | --- | --- |
-| ntua | queued_wave1 |  |  |  |  |  |  |
-| psepheda | queued_wave1 |  |  |  |  |  |  |
-| pyxida | feasibility_incomplete | feasibility |  | 12265 |  |  |  |
-| uth_rep | queued_wave1 |  |  |  |  |  |  |
+| ntua | discover_running | discover |  |  |  |  |  |
+| psepheda | discover_running | discover |  |  |  |  |  |
+| pyxida | discover_running | discover | 87.39 | 12265 |  |  |  |
+| uth_rep | discover_running | discover | 94.38 | 55141 | 29.808214279214923 |  | feasibility |

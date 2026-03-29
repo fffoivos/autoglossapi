@@ -1,0 +1,60 @@
+{
+  "collection_slug": "pyxida",
+  "stage": "discover",
+  "failure_class": "partial",
+  "overall_progress_percent": 96.68,
+  "stage_completion_percent": 95.83,
+  "count_completeness_percent": 100.0,
+  "eta_health_percent": 91.72,
+  "quality_fit_percent": 100.0,
+  "success_threshold_percent": 80.0,
+  "issue_labels": [
+    "stage_completion:95.83%:strong",
+    "count_completeness:100.0%:complete",
+    "eta_health:91.72%:strong",
+    "quality_fit:100.0%:complete",
+    "overall_progress:96.68%:strong"
+  ],
+  "decision": "retry_same_stage",
+  "decision_reason": "User approved one more discover retry focused on finding a low-error or no-error file-download cadence and recomputing ETA from that safe cadence. User-approved ETA ceiling for this branch: 72.0 hours. Notes: Approved to override the prior ETA stop once in order to map a safer file-download envelope..",
+  "problem_tags": [
+    "failure:partial",
+    "checklist:request_capacity",
+    "issue:eta_health",
+    "decision:user_pending",
+    "rate_limit:bitstream_429",
+    "throughput:file_lane_single_stream",
+    "eta:over_48h",
+    "scope:completeness_vs_timeline_tradeoff",
+    "decision:human_override"
+  ],
+  "matched_solution_ids": [
+    "dspace_429_backoff",
+    "slow_eta_investigation"
+  ],
+  "knowledge_refs": [
+    "/home/foivos/Projects/automated-glossapi/knowledge/reviewer/stages/discover.md",
+    "/home/foivos/Projects/automated-glossapi/tracking/manual/problem_solution_index.csv",
+    "/home/foivos/Projects/automated-glossapi/tracking/generated/reviewer_problem_solution_index.csv",
+    "/home/foivos/Projects/automated-glossapi/tracking/generated/reviewer_recovery_stats.csv",
+    "/home/foivos/Projects/automated-glossapi/tracking/generated/reviewer_recovery_summary.md",
+    "/home/foivos/Projects/automated-glossapi/tracking/generated/reviewer_recovery_cases.csv"
+  ],
+  "improvement_hypotheses": [
+    "Probe file downloads much more conservatively to find a cadence with no errors or only very low errors.",
+    "Keep metadata and file lanes separate and preserve exact 429 headers, timestamps, and inter-request spacing.",
+    "Recompute ETA only from the safer measured cadence and report whether that new ETA is still above the preferred threshold.",
+    "Do not start bulk downloading yet; this retry is for capacity characterization and ETA recalculation."
+  ],
+  "changes_to_try": [
+    "Probe file downloads much more conservatively to find a cadence with no errors or only very low errors.",
+    "Keep metadata and file lanes separate and preserve exact 429 headers, timestamps, and inter-request spacing.",
+    "Recompute ETA only from the safer measured cadence and report whether that new ETA is still above the preferred threshold.",
+    "Do not start bulk downloading yet; this retry is for capacity characterization and ETA recalculation."
+  ],
+  "expected_gain_percent": 0.0,
+  "target_progress_percent": 100.0,
+  "user_decision_required": false,
+  "user_decision_question": null,
+  "confidence": "high"
+}

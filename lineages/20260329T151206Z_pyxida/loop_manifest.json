@@ -1,0 +1,495 @@
+{
+  "collection_slug": "pyxida",
+  "lineage_dir": "/home/foivos/Projects/automated-glossapi/lineages/20260329T151206Z_pyxida",
+  "start_stage": "discover",
+  "through_stage": "feasibility",
+  "current_stage": "discover",
+  "attempt_index": 2,
+  "human_decisions": [
+    {
+      "decision_path": "/home/foivos/Projects/automated-glossapi/lineages/20260329T151206Z_pyxida/human_decisions/pyxida_discover_20260329T154339Z.json",
+      "review_plan_path": "/home/foivos/Projects/automated-glossapi/lineages/20260329T151206Z_pyxida/human_decisions/pyxida_discover_20260329T154339Z_review_plan.json",
+      "applied_to_stage": "discover",
+      "approved_by": "foivos",
+      "approved_at": "2026-03-29T15:43:39.385565+00:00"
+    }
+  ],
+  "history": [
+    {
+      "collection_slug": "pyxida",
+      "stage": "discover",
+      "attempt_index": 1,
+      "run_dir": "/home/foivos/Projects/automated-glossapi/runs/20260329T151206Z_discover",
+      "job_dir": "/home/foivos/Projects/automated-glossapi/runs/20260329T151206Z_discover/jobs/pyxida",
+      "report_path": "/home/foivos/Projects/automated-glossapi/runs/20260329T151206Z_discover/jobs/pyxida/final.json",
+      "validation_path": "/home/foivos/Projects/automated-glossapi/runs/20260329T151206Z_discover/jobs/pyxida/validation.json",
+      "next_action_path": "/home/foivos/Projects/automated-glossapi/runs/20260329T151206Z_discover/jobs/pyxida/next_action.json",
+      "progress_path": "/home/foivos/Projects/automated-glossapi/runs/20260329T151206Z_discover/jobs/pyxida/progress_evaluation.json",
+      "improvement_plan_path": "/home/foivos/Projects/automated-glossapi/runs/20260329T151206Z_discover/jobs/pyxida/improvement_plan.json",
+      "validation": {
+        "collection_slug": "pyxida",
+        "stage": "discover",
+        "schema_valid": true,
+        "failure_class": "partial",
+        "promotable": false,
+        "missing_checklist_ids": [],
+        "non_done_checklist_ids": [
+          "request_capacity"
+        ],
+        "artifact_issues": [],
+        "notes": []
+      },
+      "next_action": {
+        "collection_slug": "pyxida",
+        "current_stage": "discover",
+        "failure_class": "partial",
+        "decision": "retry_same_stage",
+        "next_stage": null,
+        "retry_prompt_mode": "unresolved_checklist",
+        "reason": "stage completed only partially"
+      },
+      "progress": {
+        "collection_slug": "pyxida",
+        "stage": "discover",
+        "attempt_index": 1,
+        "max_attempts": 4,
+        "failure_class": "partial",
+        "success_threshold_percent": 80.0,
+        "checklist_scores": [
+          {
+            "id": "website",
+            "label": "Find the canonical repository home URL.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "Canonical home is `https://pyxida.aueb.gr/`; HTML head reports `Generator: DSpace 7.6.2-SNAPSHOT`."
+          },
+          {
+            "id": "collections_available",
+            "label": "List the collections or subcollections available on the website.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "Top-level communities are `Ακαδημαϊκό Αποθετήριο`, `Ιστορικό Αρχείο ΟΠΑ`, and `Ψηφιακές Συλλογές Οικονομικών και Κοινωνικών Επιστημών`. Community/collection summaries were captured from `core/communities` and per-community `.../collections` endpoints."
+          },
+          {
+            "id": "entry_path",
+            "label": "Show how to enter the relevant collection from the repository home.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "Home SSR calls `core/communities/search/top?page=0&size=5`; from there the path is Home -> `Ακαδημαϊκό Αποθετήριο` -> department community -> `Μεταπτυχιακές Εργασίες` collection. Handle routes also redirect directly to canonical UUID pages."
+          },
+          {
+            "id": "website_levels",
+            "label": "Describe the page levels from repo home to collection to list to item to PDF.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "Verified home (`/`), community (`/communities/{uuid}`), collection (`/collections/{uuid}`), item (`/items/{uuid}` via handle redirect), and PDF download (`/bitstreams/{uuid}/download` -> `/server/api/core/bitstreams/{uuid}/content`)."
+          },
+          {
+            "id": "platform",
+            "label": "Identify the platform or architecture family.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "DSpace 7 Angular SSR front-end with `/server/api` HAL REST API, OAI-PMH at `/server/oai/request`, and signposting endpoints."
+          },
+          {
+            "id": "api_surface",
+            "label": "Identify any public APIs or machine-readable endpoints for metadata or file discovery.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "Confirmed `/server/api` HAL REST routes, OAI-PMH at `/server/oai/request` (`oai_identify.xml`), signposting linkset JSON (`sample_item_linkset.json`), and DataCite `describedby` links on item pages."
+          },
+          {
+            "id": "count_claims",
+            "label": "Find any claim about total files overall and per collection, and record how site claims compare to API-reported counts.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "Current direct probes show 12,265 items via `discover_global_count.json`. Collection/community counts such as 9,965 for `Ακαδημαϊκό Αποθετήριο`, 1,483 for collection `0981f406...`, 1,481, 1,467, 1,294, and 1,228 matched between `communities_top.json`, `collections_page0.json`, `discover_scope_0981f406_page0.json`, and preserved community summaries."
+          },
+          {
+            "id": "throughput_surfaces",
+            "label": "Identify which metadata/API routes and file-download routes should be benchmarked for real throughput.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "Benchmarked `server/api/discover/search/objects?...scope=...` for metadata and `/bitstreams/{uuid}/download` -> `/server/api/core/bitstreams/{uuid}/content` for files. `sample_pdf_head_headers.txt` and `slow_file_probe_req3.headers.txt` show that the front-end route redirects normally until the backend/content path starts 429ing."
+          },
+          {
+            "id": "content_types",
+            "label": "List the dominant content types and low-priority content.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "Born-digital theses dominate value and volume. Historical scanned books, yearbooks, and issue-level journal collections are meaningful but OCR-weak. Auxiliaries (`TEXT`, `THUMBNAIL`, license files) and the empty photo archive are low priority."
+          },
+          {
+            "id": "priority_scope",
+            "label": "Define the subcollections worth crawling first.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "Crawl the eight departmental `Μεταπτυχιακές Εργασίες` collections first, then doctoral collections, then optionally the stronger Greek scanned-book collections (`Σπάνιες εκδόσεις`, `Παλαιά Συγγράμματα`) if OCR quality is acceptable."
+          },
+          {
+            "id": "request_capacity",
+            "label": "Probe request tolerance conservatively and record what metadata/file request frequency appears safe.",
+            "status": "partial",
+            "percent": 50.0,
+            "note": "Metadata tolerated 6 sequential requests at about 2.28 rps with no 429. File delivery returned 200 for PDFs at 2026-03-29T15:14:59Z and 2026-03-29T15:15:09Z, then 429 on the third download at 2026-03-29T15:15:20Z despite a 10-second gap; a later retry at 2026-03-29T15:15:59Z still 429ed. No safe sustained file cadence meeting the 48-hour target was established."
+          },
+          {
+            "id": "priority_assessment",
+            "label": "Assess Greek fit, content quality, and extraction ease.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "Greek fit is high at repository level and strongest in legacy theses and scanned Greek collections. Content quality and extraction ease are highest for born-digital theses; scanned historical branches are lower-ease follow-ons."
+          }
+        ],
+        "stage_completion_percent": 95.83,
+        "count_completeness_percent": 100.0,
+        "eta_health_percent": 91.72,
+        "quality_fit_percent": 100.0,
+        "overall_progress_percent": 96.68,
+        "issue_labels": [
+          {
+            "label": "stage_completion",
+            "percent": 95.83,
+            "status": "strong",
+            "note": "Progress against the stage checklist."
+          },
+          {
+            "label": "count_completeness",
+            "percent": 100.0,
+            "status": "complete",
+            "note": "Observed coverage relative to reported counts."
+          },
+          {
+            "label": "eta_health",
+            "percent": 91.72,
+            "status": "strong",
+            "note": "Download ETA health versus the 48-hour target."
+          },
+          {
+            "label": "quality_fit",
+            "percent": 100.0,
+            "status": "complete",
+            "note": "Greek fit, content quality, and extraction ease."
+          },
+          {
+            "label": "overall_progress",
+            "percent": 96.68,
+            "status": "strong",
+            "note": "Weighted summary of current stage health."
+          }
+        ],
+        "user_decision_pending": true,
+        "user_decision_reason": "worker explicitly requested human input",
+        "can_advance": false,
+        "should_retry": false,
+        "exact_numbers": {
+          "claimed_total": 12265.0,
+          "observed_total": 12265.0,
+          "count_unit": "items",
+          "estimated_eta_hours": 52.335209739960526,
+          "slow_eta_threshold_hours": 48.0,
+          "metadata_probe_rps": 2.2798073387712776,
+          "file_probe_bytes_per_second": 628991.5531151413,
+          "suggested_parallel_downloads": 1,
+          "threshold_breach": true
+        }
+      },
+      "improvement": {
+        "collection_slug": "pyxida",
+        "stage": "discover",
+        "failure_class": "partial",
+        "overall_progress_percent": 96.68,
+        "stage_completion_percent": 95.83,
+        "count_completeness_percent": 100.0,
+        "eta_health_percent": 91.72,
+        "quality_fit_percent": 100.0,
+        "success_threshold_percent": 80.0,
+        "issue_labels": [
+          "stage_completion:95.83%:strong",
+          "count_completeness:100.0%:complete",
+          "eta_health:91.72%:strong",
+          "quality_fit:100.0%:complete",
+          "overall_progress:96.68%:strong"
+        ],
+        "decision": "decision_pending_user",
+        "decision_reason": "Discover is already strong on scope and counts at 96.68% overall progress with 12,265.0 claimed and 12,265.0 observed items, but request capacity is still partial: metadata tolerated 2.2798073387712776 rps, bitstream delivery fell to 628991.5531151413 bytes/second, and the estimated full-download ETA is 52.335209739960526 hours versus the 48.0-hour target. File probing returned 200 at 2026-03-29T15:14:59Z and 2026-03-29T15:15:09Z, then 429 on the third PDF at 2026-03-29T15:15:20Z despite a 10-second gap, with another 429 at 2026-03-29T15:15:59Z. Reviewer recovery stats show 1 discover failure:partial case with 1 paired case, 0 improved cases, avg_end_progress_percent 96.68, and 0 promotable_next_cases, so there is no evidence that another routine retry will clear the remaining gap without a user-approved tradeoff.",
+        "problem_tags": [
+          "failure:partial",
+          "checklist:request_capacity",
+          "issue:eta_health",
+          "decision:user_pending",
+          "rate_limit:bitstream_429",
+          "throughput:file_lane_single_stream",
+          "eta:over_48h",
+          "scope:completeness_vs_timeline_tradeoff"
+        ],
+        "matched_solution_ids": [
+          "dspace_429_backoff",
+          "slow_eta_investigation"
+        ],
+        "knowledge_refs": [
+          "/home/foivos/Projects/automated-glossapi/knowledge/reviewer/stages/discover.md",
+          "/home/foivos/Projects/automated-glossapi/tracking/manual/problem_solution_index.csv",
+          "/home/foivos/Projects/automated-glossapi/tracking/generated/reviewer_problem_solution_index.csv",
+          "/home/foivos/Projects/automated-glossapi/tracking/generated/reviewer_recovery_stats.csv",
+          "/home/foivos/Projects/automated-glossapi/tracking/generated/reviewer_recovery_summary.md",
+          "/home/foivos/Projects/automated-glossapi/tracking/generated/reviewer_recovery_cases.csv"
+        ],
+        "improvement_hypotheses": [
+          "A longer backend cooldown than the visible front-end reset window is governing bitstream delivery, so a sparse timed probe could still establish a safe sustained cadence.",
+          "Separating metadata enumeration from file delivery, using REST or OAI-PMH for metadata and a single throttled file lane for PDFs, is the most plausible way to preserve completeness without increasing 429 risk.",
+          "If the user prefers time-bounded value over whole-repository completeness, the eight departmental masters-thesis collections plus the doctoral lane (10,392 items total) are the best Greek-text-first scope reduction."
+        ],
+        "changes_to_try": [
+          "If full coverage is still required, run a longer low-frequency file probe that spaces requests well beyond 10 seconds, records reset headers for every attempt, and recomputes ETA from the observed sustainable cadence before starting download work.",
+          "Keep metadata discovery on the proven machine-readable surfaces and split it from file delivery so the file lane can stay at one conservative stream with strict 429 backoff and exact throughput logging.",
+          "If the user wants a faster path, narrow the first crawl to the 10,029-item masters-thesis collections plus 363 doctoral items and defer scan-heavy collections such as Σπάνιες εκδόσεις and Παλαιά Συγγράμματα."
+        ],
+        "expected_gain_percent": 0.0,
+        "target_progress_percent": 100.0,
+        "user_decision_required": true,
+        "user_decision_question": "Should the next step be a slower-than-target full crawl at the current one-stream boundary, a longer cooldown-mapping probe to try to recover a sub-48-hour path, or a narrowed high-value crawl focused on the 10,392 thesis/dissertation items?",
+        "confidence": "medium"
+      }
+    },
+    {
+      "collection_slug": "pyxida",
+      "stage": "discover",
+      "attempt_index": 2,
+      "run_dir": "/home/foivos/Projects/automated-glossapi/runs/20260329T154359Z_discover",
+      "job_dir": "/home/foivos/Projects/automated-glossapi/runs/20260329T154359Z_discover/jobs/pyxida",
+      "report_path": "/home/foivos/Projects/automated-glossapi/runs/20260329T154359Z_discover/jobs/pyxida/final.json",
+      "validation_path": "/home/foivos/Projects/automated-glossapi/runs/20260329T154359Z_discover/jobs/pyxida/validation.json",
+      "next_action_path": "/home/foivos/Projects/automated-glossapi/runs/20260329T154359Z_discover/jobs/pyxida/next_action.json",
+      "progress_path": "/home/foivos/Projects/automated-glossapi/runs/20260329T154359Z_discover/jobs/pyxida/progress_evaluation.json",
+      "improvement_plan_path": "/home/foivos/Projects/automated-glossapi/runs/20260329T154359Z_discover/jobs/pyxida/improvement_plan.json",
+      "validation": {
+        "collection_slug": "pyxida",
+        "stage": "discover",
+        "schema_valid": true,
+        "failure_class": "partial",
+        "promotable": false,
+        "missing_checklist_ids": [],
+        "non_done_checklist_ids": [
+          "request_capacity"
+        ],
+        "artifact_issues": [],
+        "notes": []
+      },
+      "next_action": {
+        "collection_slug": "pyxida",
+        "current_stage": "discover",
+        "failure_class": "partial",
+        "decision": "retry_same_stage",
+        "next_stage": null,
+        "retry_prompt_mode": "unresolved_checklist",
+        "reason": "stage completed only partially"
+      },
+      "progress": {
+        "collection_slug": "pyxida",
+        "stage": "discover",
+        "attempt_index": 2,
+        "max_attempts": 4,
+        "failure_class": "partial",
+        "success_threshold_percent": 80.0,
+        "checklist_scores": [
+          {
+            "id": "website",
+            "label": "Find the canonical repository home URL.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "Canonical home is `https://pyxida.aueb.gr/`; HTML head reports `Generator: DSpace 7.6.2-SNAPSHOT`."
+          },
+          {
+            "id": "collections_available",
+            "label": "List the collections or subcollections available on the website.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "Top-level communities are `Ακαδημαϊκό Αποθετήριο`, `Ιστορικό Αρχείο ΟΠΑ`, and `Ψηφιακές Συλλογές Οικονομικών και Κοινωνικών Επιστημών`. Community/collection summaries were captured from `core/communities` and per-community `.../collections` endpoints."
+          },
+          {
+            "id": "entry_path",
+            "label": "Show how to enter the relevant collection from the repository home.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "Home SSR calls `core/communities/search/top?page=0&size=5`; from there the path is Home -> `Ακαδημαϊκό Αποθετήριο` -> department community -> `Μεταπτυχιακές Εργασίες` collection. Handle routes also redirect directly to canonical UUID pages."
+          },
+          {
+            "id": "website_levels",
+            "label": "Describe the page levels from repo home to collection to list to item to PDF.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "Verified home (`/`), community (`/communities/{uuid}`), collection (`/collections/{uuid}`), item (`/items/{uuid}` via handle redirect), and PDF download (`/bitstreams/{uuid}/download` -> `/server/api/core/bitstreams/{uuid}/content`)."
+          },
+          {
+            "id": "platform",
+            "label": "Identify the platform or architecture family.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "DSpace 7 Angular SSR front-end with `/server/api` HAL REST API, OAI-PMH at `/server/oai/request`, and signposting endpoints."
+          },
+          {
+            "id": "api_surface",
+            "label": "Identify any public APIs or machine-readable endpoints for metadata or file discovery.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "Confirmed `/server/api` HAL REST routes, OAI-PMH at `/server/oai/request` (`oai_identify.xml`), signposting linkset JSON (`sample_item_linkset.json`), and DataCite `describedby` links on item pages."
+          },
+          {
+            "id": "count_claims",
+            "label": "Find any claim about total files overall and per collection, and record how site claims compare to API-reported counts.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "Current direct probes show 12,265 items via `discover_global_count.json`. Collection/community counts such as 9,965 for `Ακαδημαϊκό Αποθετήριο`, 1,483 for collection `0981f406...`, 1,481, 1,467, 1,294, and 1,228 matched between `communities_top.json`, `collections_page0.json`, `discover_scope_0981f406_page0.json`, and preserved community summaries."
+          },
+          {
+            "id": "throughput_surfaces",
+            "label": "Identify which metadata/API routes and file-download routes should be benchmarked for real throughput.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "Benchmarked `server/api/discover/search/objects?...scope=...` for metadata and `/bitstreams/{uuid}/download` -> `/server/api/core/bitstreams/{uuid}/content` for files. `sample_pdf_head_headers.txt`, `slow_file_probe_req3.headers.txt`, and the new `file_probe_30_30_attempt3.headers.txt` all show the same pattern: the front-end redirect stays 302/200 while the backend content route eventually emits HTTP 429."
+          },
+          {
+            "id": "content_types",
+            "label": "List the dominant content types and low-priority content.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "Born-digital theses dominate value and volume. Historical scanned books, yearbooks, and issue-level journal collections are meaningful but OCR-weak. Auxiliaries (`TEXT`, `THUMBNAIL`, license files) and the empty photo archive are low priority."
+          },
+          {
+            "id": "priority_scope",
+            "label": "Define the subcollections worth crawling first.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "Crawl the eight departmental `Μεταπτυχιακές Εργασίες` collections first, then doctoral collections, then optionally the stronger Greek scanned-book collections (`Σπάνιες εκδόσεις`, `Παλαιά Συγγράμματα`) if OCR quality is acceptable."
+          },
+          {
+            "id": "request_capacity",
+            "label": "Probe request tolerance conservatively and record what metadata/file request frequency appears safe.",
+            "status": "partial",
+            "percent": 50.0,
+            "note": "Metadata still tolerated 6 sequential requests at about 2.28 rps with no 429. Full-PDF delivery succeeded twice and then 429ed on the third request with 20-second gaps (200 at 2026-03-29T15:50:19Z and 15:50:40Z; 429 at 15:51:01Z) and again with 30-second gaps after a 447-second quiet period (200 at 2026-03-29T15:58:29Z and 15:59:00Z; 429 at 15:59:31Z). No sustained no-error file cadence was established."
+          },
+          {
+            "id": "priority_assessment",
+            "label": "Assess Greek fit, content quality, and extraction ease.",
+            "status": "done",
+            "percent": 100.0,
+            "note": "Greek fit is high at repository level and strongest in legacy theses and scanned Greek collections. Content quality and extraction ease are highest for born-digital theses; scanned historical branches are lower-ease follow-ons."
+          }
+        ],
+        "stage_completion_percent": 95.83,
+        "count_completeness_percent": 100.0,
+        "eta_health_percent": 45.28,
+        "quality_fit_percent": 100.0,
+        "overall_progress_percent": 87.39,
+        "issue_labels": [
+          {
+            "label": "stage_completion",
+            "percent": 95.83,
+            "status": "strong",
+            "note": "Progress against the stage checklist."
+          },
+          {
+            "label": "count_completeness",
+            "percent": 100.0,
+            "status": "complete",
+            "note": "Observed coverage relative to reported counts."
+          },
+          {
+            "label": "eta_health",
+            "percent": 45.28,
+            "status": "weak",
+            "note": "Download ETA health versus the 48-hour target."
+          },
+          {
+            "label": "quality_fit",
+            "percent": 100.0,
+            "status": "complete",
+            "note": "Greek fit, content quality, and extraction ease."
+          },
+          {
+            "label": "overall_progress",
+            "percent": 87.39,
+            "status": "strong",
+            "note": "Weighted summary of current stage health."
+          }
+        ],
+        "user_decision_pending": true,
+        "user_decision_reason": "worker explicitly requested human input",
+        "can_advance": false,
+        "should_retry": false,
+        "exact_numbers": {
+          "claimed_total": 12265.0,
+          "observed_total": 12265.0,
+          "count_unit": "items",
+          "estimated_eta_hours": 106.0023270269235,
+          "slow_eta_threshold_hours": 48.0,
+          "metadata_probe_rps": 2.2798073387712776,
+          "file_probe_bytes_per_second": 310544.17181411036,
+          "suggested_parallel_downloads": 1,
+          "threshold_breach": true
+        }
+      },
+      "improvement": {
+        "collection_slug": "pyxida",
+        "stage": "discover",
+        "failure_class": "partial",
+        "overall_progress_percent": 87.39,
+        "stage_completion_percent": 95.83,
+        "count_completeness_percent": 100.0,
+        "eta_health_percent": 45.28,
+        "quality_fit_percent": 100.0,
+        "success_threshold_percent": 80.0,
+        "issue_labels": [
+          "stage_completion:95.83%:strong",
+          "count_completeness:100.0%:complete",
+          "eta_health:45.28%:weak",
+          "quality_fit:100.0%:complete",
+          "overall_progress:87.39%:strong"
+        ],
+        "decision": "decision_pending_user",
+        "decision_reason": "Discover remains strong on repository shape and Greek-text fit (`overall_progress_percent` 87.39, `stage_completion_percent` 95.83, `count_completeness_percent` 100.0, `quality_fit_percent` 100.0) with 12,265.0 claimed and 12,265.0 observed items, but `request_capacity` is still unresolved: metadata tolerated 6 requests in 2.6318013359996257 seconds (2.2798073387712776 rps), while the file lane returned 200, 200, then 429 at 20-second gaps (2026-03-29T15:50:19Z, 15:50:40Z, 15:51:01Z) and again 200, 200, then 429 at 30-second gaps after a 447.407767-second quiet period (2026-03-29T15:58:29Z, 15:59:00Z, 15:59:31Z). The conservative failed-window boundary is 115.70500708805021 files/hour and `estimated_eta_hours` 106.0023270269235 for 12,265 items versus the 48.0-hour target, so the next move is a user tradeoff rather than a routine retry or an advance. Recovery stats also show 1 discover `failure:partial` case with 1 paired case, 0 improved cases, avg_end_progress_percent 96.68, and 0 promotable_next_cases, which does not support another automatic retry.",
+        "problem_tags": [
+          "failure:partial",
+          "checklist:request_capacity",
+          "issue:eta_health",
+          "decision:user_pending",
+          "rate_limit:bitstream_429",
+          "throughput:file_lane_single_stream",
+          "eta:over_48h",
+          "scope:completeness_vs_timeline_tradeoff"
+        ],
+        "matched_solution_ids": [
+          "dspace_429_backoff",
+          "slow_eta_investigation"
+        ],
+        "knowledge_refs": [
+          "/home/foivos/Projects/automated-glossapi/knowledge/reviewer/stages/discover.md",
+          "/home/foivos/Projects/automated-glossapi/tracking/manual/problem_solution_index.csv",
+          "/home/foivos/Projects/automated-glossapi/tracking/generated/reviewer_problem_solution_index.csv",
+          "/home/foivos/Projects/automated-glossapi/tracking/generated/reviewer_recovery_cases.csv",
+          "/home/foivos/Projects/automated-glossapi/tracking/generated/reviewer_recovery_stats.csv",
+          "/home/foivos/Projects/automated-glossapi/tracking/generated/reviewer_recovery_summary.md"
+        ],
+        "improvement_hypotheses": [
+          "Pyxida's backend bitstream throttle is stricter than the visible front-end rate-limit headers, so a slower single-stream cooldown probe may improve confidence but has not yet shown a sub-48-hour path.",
+          "Separating metadata collection from file delivery remains correct for this DSpace 7 lane because metadata surfaces are already stable while file delivery alone is triggering 429s.",
+          "Without a materially faster safe file cadence or a user-approved strategic tradeoff, full direct download of the 12,265-item repository is not on track to finish inside 48 hours."
+        ],
+        "changes_to_try": [
+          "If the user wants more certainty, run one longer single-stream file probe at roughly 45-90 second spacing with full timestamp and header logging until either at least 4-6 consecutive original-PDF downloads succeed or the cooldown boundary is measured clearly.",
+          "Keep metadata on `/server/api/discover/search/objects` and other public machine-readable surfaces, and keep file delivery at parallelism 1 with strict 429 backoff while the backend limit is unresolved.",
+          "If the user does not want to spend more probe time on a likely over-48-hour lane, stop discover retries here and treat Pyxida as metadata-complete but file-capacity-partial."
+        ],
+        "expected_gain_percent": 0.0,
+        "target_progress_percent": 100.0,
+        "user_decision_required": true,
+        "user_decision_question": "Do you want to authorize a longer 45-90 second single-stream cooldown probe to map Pyxida's real PDF limit, knowing the current conservative boundary is 115.70500708805021 files/hour and 106.0023270269235 hours for 12,265 items, or should Pyxida be accepted as metadata-complete but file-capacity-partial?",
+        "confidence": "high"
+      }
+    }
+  ],
+  "final_state": "decision_pending_user",
+  "final_reason": "Discover remains strong on repository shape and Greek-text fit (`overall_progress_percent` 87.39, `stage_completion_percent` 95.83, `count_completeness_percent` 100.0, `quality_fit_percent` 100.0) with 12,265.0 claimed and 12,265.0 observed items, but `request_capacity` is still unresolved: metadata tolerated 6 requests in 2.6318013359996257 seconds (2.2798073387712776 rps), while the file lane returned 200, 200, then 429 at 20-second gaps (2026-03-29T15:50:19Z, 15:50:40Z, 15:51:01Z) and again 200, 200, then 429 at 30-second gaps after a 447.407767-second quiet period (2026-03-29T15:58:29Z, 15:59:00Z, 15:59:31Z). The conservative failed-window boundary is 115.70500708805021 files/hour and `estimated_eta_hours` 106.0023270269235 for 12,265 items versus the 48.0-hour target, so the next move is a user tradeoff rather than a routine retry or an advance. Recovery stats also show 1 discover `failure:partial` case with 1 paired case, 0 improved cases, avg_end_progress_percent 96.68, and 0 promotable_next_cases, which does not support another automatic retry."
+}

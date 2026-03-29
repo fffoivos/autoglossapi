@@ -1,10 +1,10 @@
-# automated-glossapi
+# autoglossapi
 
-Coordination repository for automated source acquisition and runtime operations for GlossAPI.
+Automation control plane for end-to-end GlossAPI work: source acquisition, runtime/OCR operations, extraction support, and dataset publishing.
 
 ## What This Pipeline Does
 
-This repository is the control plane for source discovery, crawl validation, scraper handoff, runtime provisioning, and lineage review around GlossAPI.
+This repository is the control plane for source discovery, crawl validation, scraper handoff, runtime provisioning, OCR/extraction operations, dataset assembly, and lineage review around GlossAPI.
 
 The intended workflow is:
 
@@ -13,7 +13,7 @@ The intended workflow is:
 3. agent teams write the adapter spec and implement the repository-specific scraper
 4. the downloader emitted by the agent teams performs the real bulk acquisition
 5. runtime tasks provision or repair the remote infrastructure needed for OCR and extraction
-6. downloaded source data is handed off to downstream GlossAPI extraction, OCR, dedup, and publishing
+6. downloaded source data is handed off to downstream GlossAPI extraction, OCR, dedup, packaging, and publishing
 
 The agents are therefore the scouting, validation, specification, review, and implementation teams. They are expected to emit the repository-specific downloader, then test, repair, and supervise it. They are not meant to perform the full corpus download manually in-chat. See [docs/agentic_pipeline.md](docs/agentic_pipeline.md) for the workflow view.
 
@@ -39,11 +39,12 @@ Raw PDFs, extracted outputs, and large run artifacts belong in AWS S3.
 
 ## Scope Today
 
-The repository started as an OpenArchives-adjacent academic-repository harness, but it now has three active lanes:
+The repository started as an OpenArchives-adjacent academic-repository harness, but it now has four active lanes:
 
 1. source-acquisition lineages for upstream repositories
 2. runtime infrastructure work for GlossAPI hosts, OCR, and remote execution
 3. controller and review-loop tooling for retries, progress scoring, and human decisions
+4. downstream dataset-build and publish automation for the broader GlossAPI pipeline
 
 The current source-acquisition wave still targets university repositories that feed `openarchives.gr`, with priority on:
 
