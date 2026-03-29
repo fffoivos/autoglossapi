@@ -83,9 +83,12 @@ def fallback_review_plan(report: dict[str, Any], validation: dict[str, Any], pro
             "ETA, completeness, or repository constraints need a non-routine decision. "
             "Should the lineage keep pushing, accept partial coverage, or change strategy?"
         )
-    elif failure_class == "success" and overall >= success_threshold:
+    elif overall >= success_threshold and stage_completion >= success_threshold and count_completion >= success_threshold:
         decision = "advance"
-        decision_reason = "The stage cleared the success threshold with no forced user-decision stop."
+        decision_reason = (
+            "The stage is already good enough to promote: exact progress is above threshold and the remaining gap "
+            "does not justify blocking the lineage."
+        )
         expected_gain = 5.0
     elif failure_class == "exhausted":
         decision = "decision_pending_user"

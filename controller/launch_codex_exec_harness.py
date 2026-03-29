@@ -89,6 +89,13 @@ def read_json_if_exists(path: Path) -> Any | None:
     return read_json(path)
 
 
+def load_review_plan(path: Path | None) -> dict[str, Any] | None:
+    if path is None:
+        return None
+    payload = read_json_if_exists(path)
+    return payload if isinstance(payload, dict) else None
+
+
 def load_collections(path: Path, slugs: list[str] | None) -> list[dict[str, Any]]:
     payload = read_json(path)
     if not isinstance(payload, list):
@@ -169,6 +176,7 @@ def validate_stage_transition(
     stage: str,
     collection_slug: str,
     previous_context: PreviousJobContext | None,
+    review_plan: dict[str, Any] | None = None,
 ) -> None:
     if stage == "discover":
         return
@@ -195,6 +203,19 @@ def validate_stage_transition(
     failure_class = str(validation.get("failure_class") or "")
     decision = str(next_action.get("decision") or "")
     next_stage = str(next_action.get("next_stage") or "")
+    review_allows_advance = False
+    if review_plan is not None:
+        review_stage = str(review_plan.get("stage") or "")
+        review_collection_slug = str(review_plan.get("collection_slug") or "")
+        review_decision = str(review_plan.get("decision") or "")
+        if (
+            review_stage == previous_stage
+            and review_collection_slug == collection_slug
+            and review_decision == "advance"
+        ):
+            review_allows_advance = True
+    if review_allows_advance and expected_previous_stage == previous_stage:
+        return
     if failure_class != "success" or decision != "advance" or next_stage != stage:
         raise ValueError(
             f"previous stage `{previous_stage}` for `{collection_slug}` is not promotable into `{stage}` "
@@ -523,12 +544,13 @@ def main() -> None:
     schema = read_json(args.schema_file)
     run_dir = make_run_dir(args.output_root, args.stage)
     manifest: list[dict[str, Any]] = []
+    review_plan = load_review_plan(args.review_plan_path)
 
     for collection in collections:
         slug = str(collection["collection_slug"])
         previous_context = load_previous_job_context(args.previous_run_dir, slug)
         try:
-            validate_stage_transition(args.stage, slug, previous_context)
+            validate_stage_transition(args.stage, slug, previous_context, review_plan=review_plan)
         except ValueError as exc:
             raise SystemExit(str(exc)) from exc
         retry_prompt_mode = resolve_retry_prompt_mode(

@@ -236,6 +236,67 @@ class StageProgressionTests(unittest.TestCase):
             self.assertIn("Latest improvement review:", prompt_text)
             self.assertIn(str(review_plan_path), prompt_text)
 
+    def test_review_plan_can_override_partial_stage_for_promotion(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            collections_file = make_collections_file(root)
+            previous_run_dir = make_previous_run(
+                root,
+                stage="discover",
+                failure_class="partial",
+                promotable=False,
+                decision="retry_same_stage",
+                next_stage=None,
+                retry_prompt_mode="unresolved_checklist",
+            )
+            review_plan_path = root / "review_plan.json"
+            write_json(
+                review_plan_path,
+                {
+                    "collection_slug": "pyxida",
+                    "stage": "discover",
+                    "failure_class": "partial",
+                    "overall_progress_percent": 98.0,
+                    "stage_completion_percent": 95.0,
+                    "count_completeness_percent": 100.0,
+                    "eta_health_percent": 100.0,
+                    "quality_fit_percent": 100.0,
+                    "success_threshold_percent": 80.0,
+                    "issue_labels": ["overall_progress:98.0%:strong"],
+                    "decision": "advance",
+                    "decision_reason": "Good enough to promote.",
+                    "improvement_hypotheses": [],
+                    "changes_to_try": [],
+                    "expected_gain_percent": 5.0,
+                    "user_decision_required": False,
+                    "user_decision_question": None,
+                    "confidence": "medium",
+                },
+            )
+            result = subprocess.run(
+                [
+                    "python3",
+                    str(REPO_ROOT / "controller" / "launch_codex_exec_harness.py"),
+                    "--stage",
+                    "feasibility",
+                    "--previous-run-dir",
+                    str(previous_run_dir),
+                    "--review-plan-path",
+                    str(review_plan_path),
+                    "--collections-file",
+                    str(collections_file),
+                    "--output-root",
+                    str(root / "runs"),
+                ],
+                check=True,
+                capture_output=True,
+                text=True,
+                cwd=REPO_ROOT,
+            )
+            run_dir = Path(result.stdout.strip())
+            manifest = json.loads((run_dir / "run_manifest.json").read_text(encoding="utf-8"))
+            self.assertEqual(manifest["jobs"][0]["previous_stage"], "discover")
+
     def test_later_stage_cannot_skip_required_previous_stage(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:
             root = Path(tmpdir)
