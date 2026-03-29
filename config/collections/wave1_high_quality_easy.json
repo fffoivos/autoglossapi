@@ -1,0 +1,182 @@
+[
+  {
+    "agent_id": "agent001_uth_rep",
+    "collection_slug": "uth_rep",
+    "top_repository_name": "Ιδρυματικό Αποθετήριο Πανεπιστημίου Θεσσαλίας",
+    "top_provider": "Πανεπιστήμιο Θεσσαλίας",
+    "repo_host": "ir.lib.uth.gr",
+    "repo_url_hint": "https://ir.lib.uth.gr/",
+    "sample_item_url_hint": "https://ir.lib.uth.gr/xmlui/handle/11615/13480",
+    "platform_hint": "dspace_xmlui",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 50349,
+    "raw_target_rows": 50349,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "easy",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.564023118631949,
+    "dominant_target_types": [
+      {
+        "type": "thesis",
+        "count": 23646
+      },
+      {
+        "type": "article",
+        "count": 19556
+      },
+      {
+        "type": "συνέδριο/αναφορά",
+        "count": 2363
+      },
+      {
+        "type": "image",
+        "count": 2230
+      },
+      {
+        "type": "other",
+        "count": 1782
+      }
+    ],
+    "search_query_hint": "Ιδρυματικό Αποθετήριο Πανεπιστημίου Θεσσαλίας Πανεπιστήμιο Θεσσαλίας uth_rep",
+    "suggested_wave": "wave1_high_quality_easy",
+    "notes": "strict-language untapped rows=50349; content_priority=high; extraction_ease=easy"
+  },
+  {
+    "agent_id": "agent006_psepheda",
+    "collection_slug": "psepheda",
+    "top_repository_name": "Ψηφίδα - Ψηφιακή Βιβλιοθήκη και Ιδρυματικό Καταθετήριο του Πανεπιστημίου Μακεδονίας",
+    "top_provider": "Πανεπιστήμιο Μακεδονίας",
+    "repo_host": "dspace.lib.uom.gr",
+    "repo_url_hint": "https://dspace.lib.uom.gr/",
+    "sample_item_url_hint": "https://dspace.lib.uom.gr/handle/2159/32309",
+    "platform_hint": "dspace_handle_repository",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 21043,
+    "raw_target_rows": 21043,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "easy",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.9416908235517749,
+    "dominant_target_types": [
+      {
+        "type": "thesis",
+        "count": 13568
+      },
+      {
+        "type": "book",
+        "count": 3377
+      },
+      {
+        "type": "NA",
+        "count": 2147
+      },
+      {
+        "type": "text",
+        "count": 908
+      },
+      {
+        "type": "paper",
+        "count": 714
+      }
+    ],
+    "search_query_hint": "Ψηφίδα - Ψηφιακή Βιβλιοθήκη και Ιδρυματικό Καταθετήριο του Πανεπιστημίου Μακεδονίας Πανεπιστήμιο Μακεδονίας psepheda",
+    "suggested_wave": "wave1_high_quality_easy",
+    "notes": "strict-language untapped rows=21043; content_priority=high; extraction_ease=easy"
+  },
+  {
+    "agent_id": "agent010_ntua",
+    "collection_slug": "ntua",
+    "top_repository_name": "Ψηφιακό Αποθετήριο της Κεντρικής Βιβλιοθήκης του ΕΜΠ | Dspace@NTUA",
+    "top_provider": "Εθνικό Μετσόβιο Πολυτεχνείο",
+    "repo_host": "dspace.lib.ntua.gr",
+    "repo_url_hint": "https://dspace.lib.ntua.gr/",
+    "sample_item_url_hint": "https://dspace.lib.ntua.gr/xmlui/handle/123456789/50955",
+    "platform_hint": "dspace_xmlui",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 26673,
+    "untapped_target_rows": 16352,
+    "raw_target_rows": 43025,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "easy",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.9950493898895991,
+    "dominant_target_types": [
+      {
+        "type": "thesis",
+        "count": 24435
+      },
+      {
+        "type": "article",
+        "count": 9811
+      },
+      {
+        "type": "συνέδριο/αναφορά",
+        "count": 6028
+      },
+      {
+        "type": "διάλεξη",
+        "count": 1288
+      },
+      {
+        "type": "other",
+        "count": 443
+      }
+    ],
+    "search_query_hint": "Ψηφιακό Αποθετήριο της Κεντρικής Βιβλιοθήκης του ΕΜΠ | Dspace@NTUA Εθνικό Μετσόβιο Πολυτεχνείο ntua",
+    "suggested_wave": "wave1_high_quality_easy",
+    "notes": "strict-language untapped rows=16352; content_priority=high; extraction_ease=easy"
+  },
+  {
+    "agent_id": "agent011_pyxida",
+    "collection_slug": "pyxida",
+    "top_repository_name": "ΠΥΞΙΔΑ",
+    "top_provider": "Οικονομικό Πανεπιστήμιο Αθηνών",
+    "repo_host": "pyxida.aueb.gr",
+    "repo_url_hint": "https://pyxida.aueb.gr/",
+    "sample_item_url_hint": "https://pyxida.aueb.gr/handle/123456789/3707",
+    "platform_hint": "dspace7",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 11622,
+    "raw_target_rows": 11622,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "easy",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.993202546893822,
+    "dominant_target_types": [
+      {
+        "type": "text",
+        "count": 11450
+      },
+      {
+        "type": "image",
+        "count": 131
+      },
+      {
+        "type": "συλλογή/εκλογές",
+        "count": 17
+      },
+      {
+        "type": "review",
+        "count": 16
+      },
+      {
+        "type": "other",
+        "count": 3
+      }
+    ],
+    "search_query_hint": "ΠΥΞΙΔΑ Οικονομικό Πανεπιστήμιο Αθηνών pyxida",
+    "suggested_wave": "wave1_high_quality_easy",
+    "notes": "strict-language untapped rows=11622; content_priority=high; extraction_ease=easy"
+  }
+]

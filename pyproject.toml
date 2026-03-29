@@ -1,0 +1,17 @@
+[project]
+name = "automated-glossapi"
+version = "0.1.0"
+description = "OpenArchives direct-recovery orchestration for GlossAPI"
+requires-python = ">=3.11"
+dependencies = [
+  "jsonschema>=4.20.0",
+]
+
+[project.optional-dependencies]
+manifests = [
+  "pandas>=2.0.0",
+  "pyarrow>=15.0.0",
+]
+
+[tool.setuptools]
+py-modules = []

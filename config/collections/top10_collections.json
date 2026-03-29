@@ -1,0 +1,122 @@
+[
+  {
+    "agent_id": "agent01_uth_rep",
+    "collection_slug": "uth_rep",
+    "repo_host": "ir.lib.uth.gr",
+    "repo_url_hint": "https://ir.lib.uth.gr/",
+    "platform_hint": "dspace_xmlui",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 50349,
+    "raw_target_rows": 50349,
+    "notes": "Largest zero-coverage strict-language target. XMLUI handles and bitstreams are already visible in OA sidecars."
+  },
+  {
+    "agent_id": "agent02_pergamos",
+    "collection_slug": "pergamos",
+    "repo_host": "pergamos.lib.uoa.gr",
+    "repo_url_hint": "https://pergamos.lib.uoa.gr/",
+    "platform_hint": "custom_object_repository",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 41554,
+    "raw_target_rows": 41554,
+    "notes": "Very high upside. Current OA sidecars found object pages but almost no direct PDFs, so attachment discovery is likely the hard part."
+  },
+  {
+    "agent_id": "agent03_uoi",
+    "collection_slug": "uoi",
+    "repo_host": "olympias.lib.uoi.gr",
+    "repo_url_hint": "https://olympias.lib.uoi.gr/jspui/",
+    "platform_hint": "dspace_jspui",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 32834,
+    "raw_target_rows": 32834,
+    "notes": "Large zero-coverage target. Mixed PDF visibility in OA sidecars suggests deterministic scraping should recover more than the current snapshot."
+  },
+  {
+    "agent_id": "agent04_nemertes",
+    "collection_slug": "nemertes",
+    "repo_host": "nemertes.library.upatras.gr",
+    "repo_url_hint": "https://nemertes.library.upatras.gr/",
+    "platform_hint": "dspace_handle_repository",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 1913,
+    "untapped_target_rows": 25020,
+    "raw_target_rows": 26933,
+    "notes": "Already partially tapped but still large. Current OA sidecars frequently missed direct PDFs, so repository-native crawling matters."
+  },
+  {
+    "agent_id": "agent05_psepheda",
+    "collection_slug": "psepheda",
+    "repo_host": "dspace.lib.uom.gr",
+    "repo_url_hint": "https://dspace.lib.uom.gr/",
+    "platform_hint": "dspace_handle_repository",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 21043,
+    "raw_target_rows": 21043,
+    "notes": "Clean whole-collection target with visible direct bitstream URLs in OA sidecars."
+  },
+  {
+    "agent_id": "agent06_rep_ihu",
+    "collection_slug": "rep_ihu",
+    "repo_host": "repository.ihu.gr",
+    "repo_url_hint": "https://repository.ihu.gr/",
+    "platform_hint": "dspace7",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 20508,
+    "raw_target_rows": 20508,
+    "notes": "DSpace 7 style site with API-backed bitstreams already visible in OA sidecars."
+  },
+  {
+    "agent_id": "agent07_repo_duth",
+    "collection_slug": "repo_duth",
+    "repo_host": "repo.lib.duth.gr",
+    "repo_url_hint": "http://repo.lib.duth.gr/jspui/",
+    "platform_hint": "dspace_jspui",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 19454,
+    "raw_target_rows": 19454,
+    "notes": "High-upside zero-coverage target. OA sidecars saw handle pages but did not recover direct PDFs."
+  },
+  {
+    "agent_id": "agent08_ikee_aut",
+    "collection_slug": "IKEE_AUT",
+    "repo_host": "ikee.lib.auth.gr",
+    "repo_url_hint": "http://ikee.lib.auth.gr/",
+    "platform_hint": "custom_ekt_repository",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 68013,
+    "untapped_target_rows": 16757,
+    "raw_target_rows": 84770,
+    "notes": "Already the largest tapped collection but still has material headroom. Current OA sidecars often failed to recover attachment URLs from record pages."
+  },
+  {
+    "agent_id": "agent09_ntua",
+    "collection_slug": "ntua",
+    "repo_host": "dspace.lib.ntua.gr",
+    "repo_url_hint": "https://dspace.lib.ntua.gr/xmlui/",
+    "platform_hint": "dspace_xmlui",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 26673,
+    "untapped_target_rows": 16352,
+    "raw_target_rows": 43025,
+    "notes": "High-volume partially tapped target. Item pages include true PDFs plus static help-policy PDFs that need filtering."
+  },
+  {
+    "agent_id": "agent10_pyxida",
+    "collection_slug": "pyxida",
+    "repo_host": "pyxida.aueb.gr",
+    "repo_url_hint": "https://pyxida.aueb.gr/",
+    "platform_hint": "dspace7",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 11622,
+    "raw_target_rows": 11622,
+    "notes": "Whole-collection target with modern DSpace 7 bitstream endpoints already visible in OA sidecars."
+  }
+]

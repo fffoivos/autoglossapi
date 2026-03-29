@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Local env
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+
+# Secrets and auth
+auth.json
+*.pem
+*.key
+*.p12
+*.pfx
+codex-home/
+.codex/
+.config/gh/
+
+# Runs and large artifacts
+runs/
+tmp/
+snapshots/cache/
+downloads/
+artifacts/large/
+*.zst
+*.parquet
+*.pdf
+
+# OS/editor noise
+.DS_Store
+*.swp

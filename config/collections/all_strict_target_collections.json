@@ -1,0 +1,3918 @@
+[
+  {
+    "agent_id": "agent001_uth_rep",
+    "collection_slug": "uth_rep",
+    "top_repository_name": "Ιδρυματικό Αποθετήριο Πανεπιστημίου Θεσσαλίας",
+    "top_provider": "Πανεπιστήμιο Θεσσαλίας",
+    "repo_host": "ir.lib.uth.gr",
+    "repo_url_hint": "https://ir.lib.uth.gr/",
+    "sample_item_url_hint": "https://ir.lib.uth.gr/xmlui/handle/11615/13480",
+    "platform_hint": "dspace_xmlui",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 50349,
+    "raw_target_rows": 50349,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "easy",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.564023118631949,
+    "dominant_target_types": [
+      {
+        "type": "thesis",
+        "count": 23646
+      },
+      {
+        "type": "article",
+        "count": 19556
+      },
+      {
+        "type": "συνέδριο/αναφορά",
+        "count": 2363
+      },
+      {
+        "type": "image",
+        "count": 2230
+      },
+      {
+        "type": "other",
+        "count": 1782
+      }
+    ],
+    "search_query_hint": "Ιδρυματικό Αποθετήριο Πανεπιστημίου Θεσσαλίας Πανεπιστήμιο Θεσσαλίας uth_rep",
+    "suggested_wave": "wave1_high_quality_easy",
+    "notes": "strict-language untapped rows=50349; content_priority=high; extraction_ease=easy"
+  },
+  {
+    "agent_id": "agent002_phdtheses",
+    "collection_slug": "phdtheses",
+    "top_repository_name": "Εθνικό Αρχείο Διδακτορικών Διατριβών",
+    "top_provider": "Εθνικό Κέντρο Τεκμηρίωσης και Ηλεκτρονικού Περιεχομένου (ΕΚΤ)",
+    "repo_host": "hdl.handle.net",
+    "repo_url_hint": "http://hdl.handle.net/",
+    "sample_item_url_hint": "http://hdl.handle.net/10442/hedi/10441",
+    "platform_hint": "custom_or_unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 46302,
+    "raw_target_rows": 46302,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "hard",
+    "known_overlap_source": "covered_by_standalone_greek_phd",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.0,
+    "dominant_target_types": [
+      {
+        "type": "thesis",
+        "count": 46302
+      }
+    ],
+    "search_query_hint": "Εθνικό Αρχείο Διδακτορικών Διατριβών Εθνικό Κέντρο Τεκμηρίωσης και Ηλεκτρονικού Περιεχομένου (ΕΚΤ) phdtheses",
+    "suggested_wave": "overlap_defer",
+    "notes": "strict-language untapped rows=46302; content_priority=high; extraction_ease=hard; overlap=covered_by_standalone_greek_phd"
+  },
+  {
+    "agent_id": "agent003_pergamos",
+    "collection_slug": "pergamos",
+    "top_repository_name": "Πέργαμος",
+    "top_provider": "Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών",
+    "repo_host": "pergamos.lib.uoa.gr",
+    "repo_url_hint": "https://pergamos.lib.uoa.gr/",
+    "sample_item_url_hint": "https://pergamos.lib.uoa.gr/uoa/dl/object/uoadl:3129176",
+    "platform_hint": "custom_object_repository",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 41554,
+    "raw_target_rows": 41554,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "medium",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.5122972517687828,
+    "dominant_target_types": [
+      {
+        "type": "thesis",
+        "count": 39862
+      },
+      {
+        "type": "article",
+        "count": 751
+      },
+      {
+        "type": "επιστημονική δημοσίευση",
+        "count": 344
+      },
+      {
+        "type": "access",
+        "count": 328
+      },
+      {
+        "type": "archive",
+        "count": 129
+      }
+    ],
+    "search_query_hint": "Πέργαμος Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών pergamos",
+    "suggested_wave": "wave2_medium",
+    "notes": "strict-language untapped rows=41554; content_priority=high; extraction_ease=medium"
+  },
+  {
+    "agent_id": "agent004_uoi",
+    "collection_slug": "uoi",
+    "top_repository_name": "Ιδρυματικό Αποθετήριο Ολυμπιάς",
+    "top_provider": "Πανεπιστήμιο Ιωαννίνων",
+    "repo_host": "olympias.lib.uoi.gr",
+    "repo_url_hint": "https://olympias.lib.uoi.gr/",
+    "sample_item_url_hint": "https://olympias.lib.uoi.gr/jspui/handle/teiep/10588",
+    "platform_hint": "dspace_jspui",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 32834,
+    "raw_target_rows": 32834,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "medium",
+    "extraction_ease": "easy",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.5606383626728392,
+    "dominant_target_types": [
+      {
+        "type": "thesis",
+        "count": 18242
+      },
+      {
+        "type": "NA",
+        "count": 10587
+      },
+      {
+        "type": "book",
+        "count": 1582
+      },
+      {
+        "type": "article",
+        "count": 1390
+      },
+      {
+        "type": "other",
+        "count": 411
+      }
+    ],
+    "search_query_hint": "Ιδρυματικό Αποθετήριο Ολυμπιάς Πανεπιστήμιο Ιωαννίνων uoi",
+    "suggested_wave": "wave2_medium",
+    "notes": "strict-language untapped rows=32834; content_priority=medium; extraction_ease=easy"
+  },
+  {
+    "agent_id": "agent005_nemertes",
+    "collection_slug": "nemertes",
+    "top_repository_name": "Νημερτής",
+    "top_provider": "Πανεπιστήμιο Πατρών",
+    "repo_host": "nemertes.library.upatras.gr",
+    "repo_url_hint": "https://nemertes.library.upatras.gr/",
+    "sample_item_url_hint": "https://nemertes.library.upatras.gr/handle/10889/11750",
+    "platform_hint": "dspace_handle_repository",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 1913,
+    "untapped_target_rows": 25020,
+    "raw_target_rows": 26933,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "medium",
+    "extraction_ease": "medium",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.0,
+    "dominant_target_types": [
+      {
+        "type": "thesis",
+        "count": 11375
+      },
+      {
+        "type": "NA",
+        "count": 8290
+      },
+      {
+        "type": "εργασία",
+        "count": 6848
+      },
+      {
+        "type": "journal",
+        "count": 123
+      },
+      {
+        "type": "Report",
+        "count": 117
+      }
+    ],
+    "search_query_hint": "Νημερτής Πανεπιστήμιο Πατρών nemertes",
+    "suggested_wave": "wave2_medium",
+    "notes": "strict-language untapped rows=25020; content_priority=medium; extraction_ease=medium"
+  },
+  {
+    "agent_id": "agent006_psepheda",
+    "collection_slug": "psepheda",
+    "top_repository_name": "Ψηφίδα - Ψηφιακή Βιβλιοθήκη και Ιδρυματικό Καταθετήριο του Πανεπιστημίου Μακεδονίας",
+    "top_provider": "Πανεπιστήμιο Μακεδονίας",
+    "repo_host": "dspace.lib.uom.gr",
+    "repo_url_hint": "https://dspace.lib.uom.gr/",
+    "sample_item_url_hint": "https://dspace.lib.uom.gr/handle/2159/32309",
+    "platform_hint": "dspace_handle_repository",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 21043,
+    "raw_target_rows": 21043,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "easy",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.9416908235517749,
+    "dominant_target_types": [
+      {
+        "type": "thesis",
+        "count": 13568
+      },
+      {
+        "type": "book",
+        "count": 3377
+      },
+      {
+        "type": "NA",
+        "count": 2147
+      },
+      {
+        "type": "text",
+        "count": 908
+      },
+      {
+        "type": "paper",
+        "count": 714
+      }
+    ],
+    "search_query_hint": "Ψηφίδα - Ψηφιακή Βιβλιοθήκη και Ιδρυματικό Καταθετήριο του Πανεπιστημίου Μακεδονίας Πανεπιστήμιο Μακεδονίας psepheda",
+    "suggested_wave": "wave1_high_quality_easy",
+    "notes": "strict-language untapped rows=21043; content_priority=high; extraction_ease=easy"
+  },
+  {
+    "agent_id": "agent007_rep_ihu",
+    "collection_slug": "rep_ihu",
+    "top_repository_name": "Ιδρυματικό Αποθετήριο Διεθνούς Πανεπιστημίου Ελλάδος (ΔΙΠΑΕ)",
+    "top_provider": "Διεθνές Πανεπιστήμιο της Ελλάδος",
+    "repo_host": "repository.ihu.gr",
+    "repo_url_hint": "https://repository.ihu.gr/",
+    "sample_item_url_hint": "https://repository.ihu.gr/handle/123456789/36599",
+    "platform_hint": "dspace7",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 20508,
+    "raw_target_rows": 20508,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "medium",
+    "extraction_ease": "easy",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.6058611273649308,
+    "dominant_target_types": [
+      {
+        "type": "άλλο",
+        "count": 8676
+      },
+      {
+        "type": "thesis",
+        "count": 5762
+      },
+      {
+        "type": "εργασία",
+        "count": 3499
+      },
+      {
+        "type": "paper",
+        "count": 1196
+      },
+      {
+        "type": "περιοδικό",
+        "count": 584
+      }
+    ],
+    "search_query_hint": "Ιδρυματικό Αποθετήριο Διεθνούς Πανεπιστημίου Ελλάδος (ΔΙΠΑΕ) Διεθνές Πανεπιστήμιο της Ελλάδος rep_ihu",
+    "suggested_wave": "wave2_medium",
+    "notes": "strict-language untapped rows=20508; content_priority=medium; extraction_ease=easy"
+  },
+  {
+    "agent_id": "agent008_repo_duth",
+    "collection_slug": "repo_duth",
+    "top_repository_name": "Αποθετήριο Δημοκρίτειου Πανεπιστημίου",
+    "top_provider": "Δημοκρίτειο Πανεπιστήμιο Θράκης",
+    "repo_host": "repo.lib.duth.gr",
+    "repo_url_hint": "http://repo.lib.duth.gr/",
+    "sample_item_url_hint": "http://repo.lib.duth.gr/jspui/handle/123456789/4140",
+    "platform_hint": "dspace_jspui",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 19454,
+    "raw_target_rows": 19454,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "medium",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.0,
+    "dominant_target_types": [
+      {
+        "type": "thesis",
+        "count": 18830
+      },
+      {
+        "type": "book",
+        "count": 421
+      },
+      {
+        "type": "learning",
+        "count": 159
+      },
+      {
+        "type": "other",
+        "count": 36
+      },
+      {
+        "type": "NA",
+        "count": 4
+      }
+    ],
+    "search_query_hint": "Αποθετήριο Δημοκρίτειου Πανεπιστημίου Δημοκρίτειο Πανεπιστήμιο Θράκης repo_duth",
+    "suggested_wave": "wave2_medium",
+    "notes": "strict-language untapped rows=19454; content_priority=high; extraction_ease=medium"
+  },
+  {
+    "agent_id": "agent009_IKEE_AUT",
+    "collection_slug": "IKEE_AUT",
+    "top_repository_name": "Ιδρυματικό Καταθετήριο Επιστημονικών Εργασιών ΑΠΘ",
+    "top_provider": "Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης",
+    "repo_host": "ikee.lib.auth.gr",
+    "repo_url_hint": "http://ikee.lib.auth.gr/",
+    "sample_item_url_hint": "http://ikee.lib.auth.gr/record/200684",
+    "platform_hint": "custom_ekt_repository",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 68013,
+    "untapped_target_rows": 16757,
+    "raw_target_rows": 84770,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "medium",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.5984782352247258,
+    "dominant_target_types": [
+      {
+        "type": "thesis",
+        "count": 48187
+      },
+      {
+        "type": "συνέδριο",
+        "count": 14135
+      },
+      {
+        "type": "άρθρο",
+        "count": 10361
+      },
+      {
+        "type": "book",
+        "count": 9516
+      },
+      {
+        "type": "NA",
+        "count": 2348
+      }
+    ],
+    "search_query_hint": "Ιδρυματικό Καταθετήριο Επιστημονικών Εργασιών ΑΠΘ Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης IKEE_AUT",
+    "suggested_wave": "wave2_medium",
+    "notes": "strict-language untapped rows=16757; content_priority=high; extraction_ease=medium"
+  },
+  {
+    "agent_id": "agent010_ntua",
+    "collection_slug": "ntua",
+    "top_repository_name": "Ψηφιακό Αποθετήριο της Κεντρικής Βιβλιοθήκης του ΕΜΠ | Dspace@NTUA",
+    "top_provider": "Εθνικό Μετσόβιο Πολυτεχνείο",
+    "repo_host": "dspace.lib.ntua.gr",
+    "repo_url_hint": "https://dspace.lib.ntua.gr/",
+    "sample_item_url_hint": "https://dspace.lib.ntua.gr/xmlui/handle/123456789/50955",
+    "platform_hint": "dspace_xmlui",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 26673,
+    "untapped_target_rows": 16352,
+    "raw_target_rows": 43025,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "easy",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.9950493898895991,
+    "dominant_target_types": [
+      {
+        "type": "thesis",
+        "count": 24435
+      },
+      {
+        "type": "article",
+        "count": 9811
+      },
+      {
+        "type": "συνέδριο/αναφορά",
+        "count": 6028
+      },
+      {
+        "type": "διάλεξη",
+        "count": 1288
+      },
+      {
+        "type": "other",
+        "count": 443
+      }
+    ],
+    "search_query_hint": "Ψηφιακό Αποθετήριο της Κεντρικής Βιβλιοθήκης του ΕΜΠ | Dspace@NTUA Εθνικό Μετσόβιο Πολυτεχνείο ntua",
+    "suggested_wave": "wave1_high_quality_easy",
+    "notes": "strict-language untapped rows=16352; content_priority=high; extraction_ease=easy"
+  },
+  {
+    "agent_id": "agent011_pyxida",
+    "collection_slug": "pyxida",
+    "top_repository_name": "ΠΥΞΙΔΑ",
+    "top_provider": "Οικονομικό Πανεπιστήμιο Αθηνών",
+    "repo_host": "pyxida.aueb.gr",
+    "repo_url_hint": "https://pyxida.aueb.gr/",
+    "sample_item_url_hint": "https://pyxida.aueb.gr/handle/123456789/3707",
+    "platform_hint": "dspace7",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 11622,
+    "raw_target_rows": 11622,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "easy",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.993202546893822,
+    "dominant_target_types": [
+      {
+        "type": "text",
+        "count": 11450
+      },
+      {
+        "type": "image",
+        "count": 131
+      },
+      {
+        "type": "συλλογή/εκλογές",
+        "count": 17
+      },
+      {
+        "type": "review",
+        "count": 16
+      },
+      {
+        "type": "other",
+        "count": 3
+      }
+    ],
+    "search_query_hint": "ΠΥΞΙΔΑ Οικονομικό Πανεπιστήμιο Αθηνών pyxida",
+    "suggested_wave": "wave1_high_quality_easy",
+    "notes": "strict-language untapped rows=11622; content_priority=high; extraction_ease=easy"
+  },
+  {
+    "agent_id": "agent012_anaktisis",
+    "collection_slug": "anaktisis",
+    "top_repository_name": "@νάκτησις",
+    "top_provider": "Τεχνολογικό Εκπαιδευτικό Ίδρυμα (ΤΕΙ) Δυτικής Μακεδονίας",
+    "repo_host": "anaktisis.uowm.gr",
+    "repo_url_hint": "http://anaktisis.uowm.gr/",
+    "sample_item_url_hint": "http://anaktisis.uowm.gr/5168",
+    "platform_hint": "custom_or_unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 1191,
+    "untapped_target_rows": 10760,
+    "raw_target_rows": 11951,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "medium",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.999330599949795,
+    "dominant_target_types": [
+      {
+        "type": "doctoral",
+        "count": 11498
+      },
+      {
+        "type": "thesis",
+        "count": 453
+      }
+    ],
+    "search_query_hint": "@νάκτησις Τεχνολογικό Εκπαιδευτικό Ίδρυμα (ΤΕΙ) Δυτικής Μακεδονίας anaktisis",
+    "suggested_wave": "wave2_medium",
+    "notes": "strict-language untapped rows=10760; content_priority=high; extraction_ease=medium"
+  },
+  {
+    "agent_id": "agent013_Pandemos",
+    "collection_slug": "Pandemos",
+    "top_repository_name": "Πάνδημος - Ψηφιακή Βιβλιοθήκη",
+    "top_provider": "Πάντειον Πανεπιστήμιο",
+    "repo_host": "pandemos.panteion.gr",
+    "repo_url_hint": "https://pandemos.panteion.gr/",
+    "sample_item_url_hint": "https://pandemos.panteion.gr/handle/123456789/10091",
+    "platform_hint": "dspace_handle_repository",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 11123,
+    "untapped_target_rows": 8189,
+    "raw_target_rows": 19312,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "medium",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.0,
+    "dominant_target_types": [
+      {
+        "type": "άρθρο",
+        "count": 8353
+      },
+      {
+        "type": "εργασία",
+        "count": 6159
+      },
+      {
+        "type": "διατριβή",
+        "count": 1359
+      },
+      {
+        "type": "NA",
+        "count": 1182
+      },
+      {
+        "type": "τεύχος",
+        "count": 818
+      }
+    ],
+    "search_query_hint": "Πάνδημος - Ψηφιακή Βιβλιοθήκη Πάντειον Πανεπιστήμιο Pandemos",
+    "suggested_wave": "wave2_medium",
+    "notes": "strict-language untapped rows=8189; content_priority=high; extraction_ease=medium"
+  },
+  {
+    "agent_id": "agent014_polynoe",
+    "collection_slug": "polynoe",
+    "top_repository_name": "Πολυνόη - Ιδρυματικό Αποθετήριο Πανεπιστημίου Δυτικής Αττικής",
+    "top_provider": "Πανεπιστήμιο Δυτικής Αττικής (ΠΑ.Δ.Α.)",
+    "repo_host": "polynoe.lib.uniwa.gr",
+    "repo_url_hint": "https://polynoe.lib.uniwa.gr/",
+    "sample_item_url_hint": "https://polynoe.lib.uniwa.gr/xmlui/handle/11400/850",
+    "platform_hint": "dspace_xmlui",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 7910,
+    "raw_target_rows": 7910,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "easy",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.9989886219974715,
+    "dominant_target_types": [
+      {
+        "type": "εργασία",
+        "count": 7801
+      },
+      {
+        "type": "διατριβή",
+        "count": 104
+      },
+      {
+        "type": "διδακτορική",
+        "count": 5
+      }
+    ],
+    "search_query_hint": "Πολυνόη - Ιδρυματικό Αποθετήριο Πανεπιστημίου Δυτικής Αττικής Πανεπιστήμιο Δυτικής Αττικής (ΠΑ.Δ.Α.) polynoe",
+    "suggested_wave": "wave2_medium",
+    "notes": "strict-language untapped rows=7910; content_priority=high; extraction_ease=easy"
+  },
+  {
+    "agent_id": "agent015_dias",
+    "collection_slug": "dias",
+    "top_repository_name": "Ιδρυματικό Αποθετήριο Πολυτεχνείου Κρήτης",
+    "top_provider": "Πολυτεχνείο Κρήτης",
+    "repo_host": "dias.library.tuc.gr",
+    "repo_url_hint": "https://dias.library.tuc.gr/",
+    "sample_item_url_hint": "https://dias.library.tuc.gr/view/101152",
+    "platform_hint": "custom_or_unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 2712,
+    "untapped_target_rows": 6524,
+    "raw_target_rows": 9236,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "medium",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.39097011693373757,
+    "dominant_target_types": [
+      {
+        "type": "thesis",
+        "count": 8229
+      },
+      {
+        "type": "other",
+        "count": 779
+      },
+      {
+        "type": "article",
+        "count": 113
+      },
+      {
+        "type": "paper",
+        "count": 111
+      },
+      {
+        "type": "chapter",
+        "count": 1
+      }
+    ],
+    "search_query_hint": "Ιδρυματικό Αποθετήριο Πολυτεχνείου Κρήτης Πολυτεχνείο Κρήτης dias",
+    "suggested_wave": "wave2_medium",
+    "notes": "strict-language untapped rows=6524; content_priority=high; extraction_ease=medium"
+  },
+  {
+    "agent_id": "agent016_kallipos",
+    "collection_slug": "kallipos",
+    "top_repository_name": "Αποθετήριο «Κάλλιπος»",
+    "top_provider": "Σύνδεσμος Ελληνικών Ακαδημαϊκων Βιβλιοθηκών",
+    "repo_host": "repository.kallipos.gr",
+    "repo_url_hint": "https://repository.kallipos.gr/",
+    "sample_item_url_hint": "https://repository.kallipos.gr/handle/11419/10054",
+    "platform_hint": "dspace_handle_repository",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 2938,
+    "untapped_target_rows": 6433,
+    "raw_target_rows": 9371,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "low",
+    "extraction_ease": "easy",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.9964784974922634,
+    "dominant_target_types": [
+      {
+        "type": "NA",
+        "count": 9371
+      }
+    ],
+    "search_query_hint": "Αποθετήριο «Κάλλιπος» Σύνδεσμος Ελληνικών Ακαδημαϊκων Βιβλιοθηκών kallipos",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=6433; content_priority=low; extraction_ease=easy"
+  },
+  {
+    "agent_id": "agent017_KEIED",
+    "collection_slug": "KEIED",
+    "top_repository_name": "Κέντρον Ερεύνης της Ιστορίας του Ελληνικού Δικαίου (ΚΕΙΕΔ)",
+    "top_provider": "Ακαδημία Αθηνών",
+    "repo_host": "repository.academyofathens.gr",
+    "repo_url_hint": "http://repository.academyofathens.gr/",
+    "sample_item_url_hint": "http://repository.academyofathens.gr/keied/index.php/gr/listItems/40497",
+    "platform_hint": "custom_or_unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 3717,
+    "untapped_target_rows": 6077,
+    "raw_target_rows": 9794,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "medium",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.9963242801715336,
+    "dominant_target_types": [
+      {
+        "type": "κεφάλαιο",
+        "count": 3713
+      },
+      {
+        "type": "έγγραφο",
+        "count": 3034
+      },
+      {
+        "type": "νοταριακό",
+        "count": 1948
+      },
+      {
+        "type": "δικαστική απόφαση",
+        "count": 695
+      },
+      {
+        "type": "επετηρίδα",
+        "count": 208
+      }
+    ],
+    "search_query_hint": "Κέντρον Ερεύνης της Ιστορίας του Ελληνικού Δικαίου (ΚΕΙΕΔ) Ακαδημία Αθηνών KEIED",
+    "suggested_wave": "wave2_medium",
+    "notes": "strict-language untapped rows=6077; content_priority=high; extraction_ease=medium"
+  },
+  {
+    "agent_id": "agent018_uowm",
+    "collection_slug": "uowm",
+    "top_repository_name": "Ιδρυματικό Καταθετήριο Επιστημονικών Εργασιών  του Πανεπιστημίου Δυτικής Μακεδονίας",
+    "top_provider": "Πανεπιστήμιο Δυτικής Μακεδονίας",
+    "repo_host": "dspace.uowm.gr",
+    "repo_url_hint": "https://dspace.uowm.gr/",
+    "sample_item_url_hint": "https://dspace.uowm.gr/xmlui/handle/123456789/1425",
+    "platform_hint": "dspace_xmlui",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 5286,
+    "raw_target_rows": 5286,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "easy",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.998675747256905,
+    "dominant_target_types": [
+      {
+        "type": "thesis",
+        "count": 4662
+      },
+      {
+        "type": "εργασία",
+        "count": 465
+      },
+      {
+        "type": "other",
+        "count": 152
+      },
+      {
+        "type": "paper",
+        "count": 2
+      },
+      {
+        "type": "video",
+        "count": 2
+      }
+    ],
+    "search_query_hint": "Ιδρυματικό Καταθετήριο Επιστημονικών Εργασιών  του Πανεπιστημίου Δυτικής Μακεδονίας Πανεπιστήμιο Δυτικής Μακεδονίας uowm",
+    "suggested_wave": "wave2_medium",
+    "notes": "strict-language untapped rows=5286; content_priority=high; extraction_ease=easy"
+  },
+  {
+    "agent_id": "agent019_ktisis",
+    "collection_slug": "ktisis",
+    "top_repository_name": "Κτίσις",
+    "top_provider": "Τεχνολογικό Πανεπιστήμιο Κύπρου",
+    "repo_host": "ktisis.cut.ac.cy",
+    "repo_url_hint": "https://ktisis.cut.ac.cy/",
+    "sample_item_url_hint": "https://ktisis.cut.ac.cy/handle/20.500.14279/8312",
+    "platform_hint": "dspace_handle_repository",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 662,
+    "untapped_target_rows": 4603,
+    "raw_target_rows": 5265,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "medium",
+    "extraction_ease": "easy",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.9977207977207977,
+    "dominant_target_types": [
+      {
+        "type": "thesis",
+        "count": 2784
+      },
+      {
+        "type": "NA",
+        "count": 1505
+      },
+      {
+        "type": "συνέδριο/αναφορά",
+        "count": 319
+      },
+      {
+        "type": "article",
+        "count": 198
+      },
+      {
+        "type": "exhibition",
+        "count": 105
+      }
+    ],
+    "search_query_hint": "Κτίσις Τεχνολογικό Πανεπιστήμιο Κύπρου ktisis",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=4603; content_priority=medium; extraction_ease=easy"
+  },
+  {
+    "agent_id": "agent020_apothesis",
+    "collection_slug": "apothesis",
+    "top_repository_name": "Ιδρυματικό Αποθετήριο Ελληνικου Ανοικτού Πανεπιστημίου - APOTHESIS",
+    "top_provider": "Ελληνικό Ανοικτό Πανεπιστήμιο",
+    "repo_host": "apothesis.eap.gr",
+    "repo_url_hint": "https://apothesis.eap.gr/",
+    "sample_item_url_hint": "https://apothesis.eap.gr/archive/item/191214",
+    "platform_hint": "custom_or_unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 3126,
+    "untapped_target_rows": 3233,
+    "raw_target_rows": 6359,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "medium",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.8941657493316559,
+    "dominant_target_types": [
+      {
+        "type": "thesis",
+        "count": 6359
+      }
+    ],
+    "search_query_hint": "Ιδρυματικό Αποθετήριο Ελληνικου Ανοικτού Πανεπιστημίου - APOTHESIS Ελληνικό Ανοικτό Πανεπιστήμιο apothesis",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=3233; content_priority=high; extraction_ease=medium"
+  },
+  {
+    "agent_id": "agent021_aua",
+    "collection_slug": "aua",
+    "top_repository_name": "Ψηφιακό Αποθετήριο Γεωπονικού Πανεπιστημίου Αθηνών",
+    "top_provider": "Γεωπονικό Πανεπιστήμιο Αθηνών",
+    "repo_host": "dspace.aua.gr",
+    "repo_url_hint": "http://dspace.aua.gr/",
+    "sample_item_url_hint": "http://dspace.aua.gr/xmlui/handle/10329/7708",
+    "platform_hint": "dspace_xmlui",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 394,
+    "untapped_target_rows": 2517,
+    "raw_target_rows": 2911,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "easy",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.9855719683957403,
+    "dominant_target_types": [
+      {
+        "type": "εργασία",
+        "count": 2811
+      },
+      {
+        "type": "διατριβή",
+        "count": 90
+      },
+      {
+        "type": "thesis",
+        "count": 6
+      },
+      {
+        "type": "NA",
+        "count": 2
+      },
+      {
+        "type": "paper",
+        "count": 2
+      }
+    ],
+    "search_query_hint": "Ψηφιακό Αποθετήριο Γεωπονικού Πανεπιστημίου Αθηνών Γεωπονικό Πανεπιστήμιο Αθηνών aua",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=2517; content_priority=high; extraction_ease=easy"
+  },
+  {
+    "agent_id": "agent022_ariadne",
+    "collection_slug": "ariadne",
+    "top_repository_name": "Ιδρυματικό Αποθετήριο ΕΚΤ «Αριάδνη»",
+    "top_provider": "Εθνικό Κέντρο Τεκμηρίωσης και Ηλεκτρονικού Περιεχομένου (ΕΚΤ)",
+    "repo_host": "ariadne.ekt.gr",
+    "repo_url_hint": "https://ariadne.ekt.gr/",
+    "sample_item_url_hint": "https://ariadne.ekt.gr/ariadne/handle/20.500.12776/16652",
+    "platform_hint": "dspace_handle_repository",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 319,
+    "untapped_target_rows": 2407,
+    "raw_target_rows": 2726,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "low",
+    "extraction_ease": "easy",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.6408657373440939,
+    "dominant_target_types": [
+      {
+        "type": "NA",
+        "count": 2309
+      },
+      {
+        "type": "εκδήλωση",
+        "count": 221
+      },
+      {
+        "type": "περιοδικό",
+        "count": 120
+      },
+      {
+        "type": "οδηγός",
+        "count": 28
+      },
+      {
+        "type": "συνέδριο",
+        "count": 16
+      }
+    ],
+    "search_query_hint": "Ιδρυματικό Αποθετήριο ΕΚΤ «Αριάδνη» Εθνικό Κέντρο Τεκμηρίωσης και Ηλεκτρονικού Περιεχομένου (ΕΚΤ) ariadne",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=2407; content_priority=low; extraction_ease=easy"
+  },
+  {
+    "agent_id": "agent023_estia",
+    "collection_slug": "estia",
+    "top_repository_name": "Βιβλιοθήκη και Κέντρο Πληροφόρησης ΕΣΤΙΑ",
+    "top_provider": "Χαροκόπειο Πανεπιστήμιο",
+    "repo_host": "estia.hua.gr",
+    "repo_url_hint": "http://estia.hua.gr/",
+    "sample_item_url_hint": "http://estia.hua.gr/browse/24405",
+    "platform_hint": "custom_or_unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 3987,
+    "untapped_target_rows": 2315,
+    "raw_target_rows": 6302,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "hard",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.0,
+    "dominant_target_types": [
+      {
+        "type": "thesis",
+        "count": 5729
+      },
+      {
+        "type": "journal",
+        "count": 295
+      },
+      {
+        "type": "folder",
+        "count": 162
+      },
+      {
+        "type": "επιστημονική δημοσίευση",
+        "count": 34
+      },
+      {
+        "type": "συλλογή/εκλογές",
+        "count": 30
+      }
+    ],
+    "search_query_hint": "Βιβλιοθήκη και Κέντρο Πληροφόρησης ΕΣΤΙΑ Χαροκόπειο Πανεπιστήμιο estia",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=2315; content_priority=high; extraction_ease=hard"
+  },
+  {
+    "agent_id": "agent024_sophia",
+    "collection_slug": "sophia",
+    "top_repository_name": "Ψηφιακό Αποθετήριο Τμήματος Μουσικών Σπουδών Α.Π.Θ. ΣΟΦΙΑ",
+    "top_provider": "Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης",
+    "repo_host": "sophia.mus.auth.gr",
+    "repo_url_hint": "https://sophia.mus.auth.gr/",
+    "sample_item_url_hint": "https://sophia.mus.auth.gr/xmlui/handle/123456789/2291",
+    "platform_hint": "dspace_xmlui",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 2214,
+    "raw_target_rows": 2214,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "medium",
+    "extraction_ease": "medium",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.0,
+    "dominant_target_types": [
+      {
+        "type": "εργασία",
+        "count": 1191
+      },
+      {
+        "type": "tape",
+        "count": 462
+      },
+      {
+        "type": "NA",
+        "count": 362
+      },
+      {
+        "type": "recording",
+        "count": 84
+      },
+      {
+        "type": "image",
+        "count": 33
+      }
+    ],
+    "search_query_hint": "Ψηφιακό Αποθετήριο Τμήματος Μουσικών Σπουδών Α.Π.Θ. ΣΟΦΙΑ Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης sophia",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=2214; content_priority=medium; extraction_ease=medium"
+  },
+  {
+    "agent_id": "agent025_cetpe",
+    "collection_slug": "cetpe",
+    "top_repository_name": "Συνέδρια της Ελληνικής Επιστημονικής Ένωσης Τεχνολογιών Πληροφορίας & Επικοινωνιών στην Εκπαίδευση",
+    "top_provider": "Ελληνική Επιστημονική Ένωση Τεχνολογιών Πληροφορίας & Επικοινωνιών Στην Εκπαίδευση (ΕΤΠΕ)",
+    "repo_host": "eproceedings.epublishing.ekt.gr",
+    "repo_url_hint": "https://eproceedings.epublishing.ekt.gr/",
+    "sample_item_url_hint": "https://eproceedings.epublishing.ekt.gr/index.php/cetpe/article/view/6966",
+    "platform_hint": "custom_or_unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 470,
+    "untapped_target_rows": 1833,
+    "raw_target_rows": 2303,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "hard",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.02214502822405558,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 2303
+      }
+    ],
+    "search_query_hint": "Συνέδρια της Ελληνικής Επιστημονικής Ένωσης Τεχνολογιών Πληροφορίας & Επικοινωνιών στην Εκπαίδευση Ελληνική Επιστημονική Ένωση Τεχνολογιών Πληροφορίας & Επικοινωνιών Στην Εκπαίδευση (ΕΤΠΕ) cetpe",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=1833; content_priority=high; extraction_ease=hard"
+  },
+  {
+    "agent_id": "agent026_helios",
+    "collection_slug": "helios",
+    "top_repository_name": "Ήλιος - Αποθετήριο Εθνικού Ιδρύματος Ερευνών",
+    "top_provider": "Εθνικό Ίδρυμα Ερευνών (ΕΙΕ)",
+    "repo_host": "helios.eie.gr",
+    "repo_url_hint": "https://helios.eie.gr/",
+    "sample_item_url_hint": "https://helios.eie.gr/helios/handle/10442/8607",
+    "platform_hint": "dspace_handle_repository",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 3128,
+    "untapped_target_rows": 1730,
+    "raw_target_rows": 4858,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "medium",
+    "extraction_ease": "medium",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.051255660765747224,
+    "dominant_target_types": [
+      {
+        "type": "βιβλίο",
+        "count": 1026
+      },
+      {
+        "type": "παρουσίαση",
+        "count": 720
+      },
+      {
+        "type": "άρθρο",
+        "count": 658
+      },
+      {
+        "type": "διάλεξη",
+        "count": 564
+      },
+      {
+        "type": "συνέδριο",
+        "count": 492
+      }
+    ],
+    "search_query_hint": "Ήλιος - Αποθετήριο Εθνικού Ιδρύματος Ερευνών Εθνικό Ίδρυμα Ερευνών (ΕΙΕ) helios",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=1730; content_priority=medium; extraction_ease=medium"
+  },
+  {
+    "agent_id": "agent027_kypseli",
+    "collection_slug": "kypseli",
+    "top_repository_name": "Ψηφιακό Αποθετήριο Κυψέλη",
+    "top_provider": "Ανοικτό Πανεπιστήμιο Κύπρου",
+    "repo_host": "kypseli.ouc.ac.cy",
+    "repo_url_hint": "https://kypseli.ouc.ac.cy/",
+    "sample_item_url_hint": "https://kypseli.ouc.ac.cy/handle/11128/1612",
+    "platform_hint": "dspace_handle_repository",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 1696,
+    "raw_target_rows": 1696,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "easy",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 1.0,
+    "dominant_target_types": [
+      {
+        "type": "διατριβή",
+        "count": 1200
+      },
+      {
+        "type": "εικόνα",
+        "count": 467
+      },
+      {
+        "type": "book",
+        "count": 17
+      },
+      {
+        "type": "other",
+        "count": 6
+      },
+      {
+        "type": "paper",
+        "count": 5
+      }
+    ],
+    "search_query_hint": "Ψηφιακό Αποθετήριο Κυψέλη Ανοικτό Πανεπιστήμιο Κύπρου kypseli",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=1696; content_priority=high; extraction_ease=easy"
+  },
+  {
+    "agent_id": "agent028_pasithee",
+    "collection_slug": "pasithee",
+    "top_repository_name": "Πασιθέη - Ηλεκτρονικές επιστημονικές δημοσιεύσεις Ανοικτής Πρόσβασης",
+    "top_provider": "Πανεπιστήμιο Πατρών",
+    "repo_host": "pasithee.library.upatras.gr",
+    "repo_url_hint": "https://pasithee.library.upatras.gr/",
+    "sample_item_url_hint": "https://pasithee.library.upatras.gr/pwpl/article/view//4485",
+    "platform_hint": "custom_or_unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 1388,
+    "raw_target_rows": 1388,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "hard",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.016570605187319884,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 1388
+      }
+    ],
+    "search_query_hint": "Πασιθέη - Ηλεκτρονικές επιστημονικές δημοσιεύσεις Ανοικτής Πρόσβασης Πανεπιστήμιο Πατρών pasithee",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=1388; content_priority=high; extraction_ease=hard"
+  },
+  {
+    "agent_id": "agent029_elocus",
+    "collection_slug": "elocus",
+    "top_repository_name": "E-Locus Ιδρυματικό Καταθετήριο",
+    "top_provider": "Πανεπιστήμιο Κρήτης",
+    "repo_host": "elocus.lib.uoc.gr",
+    "repo_url_hint": "https://elocus.lib.uoc.gr/",
+    "sample_item_url_hint": "https://elocus.lib.uoc.gr/dlib/6/e/6/metadata-dlib-1543578147-193043-30582.tkl",
+    "platform_hint": "custom_or_unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 7487,
+    "untapped_target_rows": 1371,
+    "raw_target_rows": 8858,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "medium",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.9330548656581621,
+    "dominant_target_types": [
+      {
+        "type": "text",
+        "count": 6877
+      },
+      {
+        "type": "εργασία",
+        "count": 1978
+      },
+      {
+        "type": "NA",
+        "count": 3
+      }
+    ],
+    "search_query_hint": "E-Locus Ιδρυματικό Καταθετήριο Πανεπιστήμιο Κρήτης elocus",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=1371; content_priority=high; extraction_ease=medium"
+  },
+  {
+    "agent_id": "agent030_makedonika",
+    "collection_slug": "makedonika",
+    "top_repository_name": "Μακεδονικά",
+    "top_provider": "Εταιρεία Μακεδονικών Σπουδών",
+    "repo_host": "ejournals.epublishing.ekt.gr",
+    "repo_url_hint": "https://ejournals.epublishing.ekt.gr/",
+    "sample_item_url_hint": "https://ejournals.epublishing.ekt.gr/index.php/makedonika/article/view/5673",
+    "platform_hint": "custom_or_unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 1121,
+    "raw_target_rows": 1121,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "medium",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.6592328278322926,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 1121
+      }
+    ],
+    "search_query_hint": "Μακεδονικά Εταιρεία Μακεδονικών Σπουδών makedonika",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=1121; content_priority=high; extraction_ease=medium"
+  },
+  {
+    "agent_id": "agent031_deltion",
+    "collection_slug": "deltion",
+    "top_repository_name": "Δελτίον Χριστιανικής Αρχαιολογικής Εταιρείας",
+    "top_provider": "Χριστιανική Αρχαιολογική Εταιρεία",
+    "repo_host": "ejournals.epublishing.ekt.gr",
+    "repo_url_hint": "https://ejournals.epublishing.ekt.gr/",
+    "sample_item_url_hint": "https://ejournals.epublishing.ekt.gr/index.php/deltion/article/view/4476",
+    "platform_hint": "custom_or_unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 449,
+    "untapped_target_rows": 862,
+    "raw_target_rows": 1311,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "medium",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.5560640732265446,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 1311
+      }
+    ],
+    "search_query_hint": "Δελτίον Χριστιανικής Αρχαιολογικής Εταιρείας Χριστιανική Αρχαιολογική Εταιρεία deltion",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=862; content_priority=high; extraction_ease=medium"
+  },
+  {
+    "agent_id": "agent032_mnimon",
+    "collection_slug": "mnimon",
+    "top_repository_name": "Μνήμων",
+    "top_provider": "Εταιρεία Μελέτης Νέου Ελληνισμού (EMNE)",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 850,
+    "raw_target_rows": 850,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 850
+      }
+    ],
+    "search_query_hint": "Μνήμων Εταιρεία Μελέτης Νέου Ελληνισμού (EMNE) mnimon",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=850; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent033_KEINE",
+    "collection_slug": "KEINE",
+    "top_repository_name": "Κέντρον Ερεύνης της Ιστορίας του Νεωτέρου Ελληνισμού (ΚΕΙΝΕ)",
+    "top_provider": "Ακαδημία Αθηνών",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 755,
+    "raw_target_rows": 755,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "βιβλίο",
+        "count": 639
+      },
+      {
+        "type": "άρθρο",
+        "count": 80
+      },
+      {
+        "type": "χάρτης",
+        "count": 32
+      },
+      {
+        "type": "περιοδικό",
+        "count": 2
+      },
+      {
+        "type": "ψήφισμα",
+        "count": 1
+      }
+    ],
+    "search_query_hint": "Κέντρον Ερεύνης της Ιστορίας του Νεωτέρου Ελληνισμού (ΚΕΙΝΕ) Ακαδημία Αθηνών KEINE",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=755; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent034_openedu",
+    "collection_slug": "openedu",
+    "top_repository_name": "Διεθνές Συνέδριο για την Ανοικτή και εξ Αποστάσεως Εκπαίδευση",
+    "top_provider": "Ελληνικό Δίκτυο Ανοικτής και εξ Αποστάσεως Εκπαίδευσης (ΕΔΑΕ)",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 716,
+    "raw_target_rows": 716,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 716
+      }
+    ],
+    "search_query_hint": "Διεθνές Συνέδριο για την Ανοικτή και εξ Αποστάσεως Εκπαίδευση Ελληνικό Δίκτυο Ανοικτής και εξ Αποστάσεως Εκπαίδευσης (ΕΔΑΕ) openedu",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=716; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent035_hellanicus",
+    "collection_slug": "hellanicus",
+    "top_repository_name": "Ιδρυματικό Αποθετήριο Ελλάνικος (Hellanicus)",
+    "top_provider": "Πανεπιστήμιο Αιγαίου",
+    "repo_host": "hellanicus.lib.aegean.gr",
+    "repo_url_hint": "https://hellanicus.lib.aegean.gr/",
+    "sample_item_url_hint": "https://hellanicus.lib.aegean.gr/handle/11610/17998",
+    "platform_hint": "dspace_handle_repository",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 18416,
+    "untapped_target_rows": 670,
+    "raw_target_rows": 19086,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "easy",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.9106675049774704,
+    "dominant_target_types": [
+      {
+        "type": "thesis",
+        "count": 18303
+      },
+      {
+        "type": "book",
+        "count": 504
+      },
+      {
+        "type": "video",
+        "count": 114
+      },
+      {
+        "type": "software",
+        "count": 106
+      },
+      {
+        "type": "NA",
+        "count": 17
+      }
+    ],
+    "search_query_hint": "Ιδρυματικό Αποθετήριο Ελλάνικος (Hellanicus) Πανεπιστήμιο Αιγαίου hellanicus",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=670; content_priority=high; extraction_ease=easy"
+  },
+  {
+    "agent_id": "agent036_CoDiSTE",
+    "collection_slug": "CoDiSTE",
+    "top_repository_name": "Πανελλήνιο Συνέδριο της Διδακτικής των Φυσικών Επιστημών και Νέων Τεχνολογιών στην Εκπαίδευση",
+    "top_provider": "Ένωση για την Εκπαίδευση στις Φυσικές Επιστήμες και την Τεχνολογία (ΕΝΕΦΕΤ)",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 603,
+    "raw_target_rows": 603,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 603
+      }
+    ],
+    "search_query_hint": "Πανελλήνιο Συνέδριο της Διδακτικής των Φυσικών Επιστημών και Νέων Τεχνολογιών στην Εκπαίδευση Ένωση για την Εκπαίδευση στις Φυσικές Επιστήμες και την Τεχνολογία (ΕΝΕΦΕΤ) CoDiSTE",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=603; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent037_sas",
+    "collection_slug": "sas",
+    "top_repository_name": "Επιστήμη και Κοινωνία: Επιθεώρηση Πολιτικής και Ηθικής Θεωρίας",
+    "top_provider": "Συντακτική Επιτροπή Επιστήμης και Κοινωνίας",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 573,
+    "raw_target_rows": 573,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 573
+      }
+    ],
+    "search_query_hint": "Επιστήμη και Κοινωνία: Επιθεώρηση Πολιτικής και Ηθικής Θεωρίας Συντακτική Επιτροπή Επιστήμης και Κοινωνίας sas",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=573; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent038_psychology",
+    "collection_slug": "psychology",
+    "top_repository_name": "Ψυχολογία: To περιοδικό της Ελληνικής Ψυχολογικής Εταιρείας",
+    "top_provider": "Ελληνική Ψυχολογική Εταιρεία (ΕΛΨΕ)",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 572,
+    "raw_target_rows": 572,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 572
+      }
+    ],
+    "search_query_hint": "Ψυχολογία: To περιοδικό της Ελληνικής Ψυχολογικής Εταιρείας Ελληνική Ψυχολογική Εταιρεία (ΕΛΨΕ) psychology",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=572; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent039_edusc",
+    "collection_slug": "edusc",
+    "top_repository_name": "Πανελλήνιο Συνέδριο Επιστημών Εκπαίδευσης",
+    "top_provider": "Εθνικόν και Καποδιστριακόν Πανεπιστήμιον Αθηνών (ΕΚΠΑ) - Κέντρο Μελέτης Ψυχοφυσιολογίας και Εκπαίδευσης",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 471,
+    "raw_target_rows": 471,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 471
+      }
+    ],
+    "search_query_hint": "Πανελλήνιο Συνέδριο Επιστημών Εκπαίδευσης Εθνικόν και Καποδιστριακόν Πανεπιστήμιον Αθηνών (ΕΚΠΑ) - Κέντρο Μελέτης Ψυχοφυσιολογίας και Εκπαίδευσης edusc",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=471; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent040_Byzantina",
+    "collection_slug": "Byzantina",
+    "top_repository_name": "Βυζαντινά Σύμμεικτα",
+    "top_provider": "Ινστιτούτο Ιστορικών Ερευνών/ΕΙΕ",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 438,
+    "raw_target_rows": 438,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 438
+      }
+    ],
+    "search_query_hint": "Βυζαντινά Σύμμεικτα Ινστιτούτο Ιστορικών Ερευνών/ΕΙΕ Byzantina",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=438; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent041_hpsa",
+    "collection_slug": "hpsa",
+    "top_repository_name": "Ελληνική Επιθεώρηση Πολιτικής Επιστήμης",
+    "top_provider": "Ελληνική Εταιρεία Πολιτικής Επιστήμης (ΕΕΠΕ)",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 431,
+    "raw_target_rows": 431,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 431
+      }
+    ],
+    "search_query_hint": "Ελληνική Επιθεώρηση Πολιτικής Επιστήμης Ελληνική Εταιρεία Πολιτικής Επιστήμης (ΕΕΠΕ) hpsa",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=431; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent042_geographies",
+    "collection_slug": "geographies",
+    "top_repository_name": "Γεωγραφίες",
+    "top_provider": "Τμήμα Γεωγραφίας Χαροκόπειο Πανεπιστήμιο",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 428,
+    "raw_target_rows": 428,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 428
+      }
+    ],
+    "search_query_hint": "Γεωγραφίες Τμήμα Γεωγραφίας Χαροκόπειο Πανεπιστήμιο geographies",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=428; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent043_ACADEMY_LIB",
+    "collection_slug": "ACADEMY_LIB",
+    "top_repository_name": "Βιβλιοθήκη της Ακαδημίας Αθηνών ''Ιωάννης Συκουτρής''",
+    "top_provider": "Ακαδημία Αθηνών",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 417,
+    "raw_target_rows": 417,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "βιβλίο",
+        "count": 417
+      }
+    ],
+    "search_query_hint": "Βιβλιοθήκη της Ακαδημίας Αθηνών ''Ιωάννης Συκουτρής'' Ακαδημία Αθηνών ACADEMY_LIB",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=417; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent044_prevchr",
+    "collection_slug": "prevchr",
+    "top_repository_name": "Πρεβεζάνικα Χρονικά",
+    "top_provider": "Δήμος Πρέβεζας - Δημοτική Βιβλιοθήκη Πρέβεζας",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 416,
+    "raw_target_rows": 416,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 416
+      }
+    ],
+    "search_query_hint": "Πρεβεζάνικα Χρονικά Δήμος Πρέβεζας - Δημοτική Βιβλιοθήκη Πρέβεζας prevchr",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=416; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent045_sygkrisi",
+    "collection_slug": "sygkrisi",
+    "top_repository_name": "Σύγκριση",
+    "top_provider": "Ελληνική Εταιρεία Γενικής και Συγκριτικής Γραμματολογίας",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 324,
+    "raw_target_rows": 324,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 324
+      }
+    ],
+    "search_query_hint": "Σύγκριση Ελληνική Εταιρεία Γενικής και Συγκριτικής Γραμματολογίας sygkrisi",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=324; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent046_deltiokms",
+    "collection_slug": "deltiokms",
+    "top_repository_name": "Δελτίο Κέντρου Μικρασιατικών Σπουδών",
+    "top_provider": "Κέντρο Μικρασιατικών Σπουδών",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 290,
+    "raw_target_rows": 290,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 290
+      }
+    ],
+    "search_query_hint": "Δελτίο Κέντρου Μικρασιατικών Σπουδών Κέντρο Μικρασιατικών Σπουδών deltiokms",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=290; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent047_openjournal",
+    "collection_slug": "openjournal",
+    "top_repository_name": "Ανοικτή Εκπαίδευση: το περιοδικό για την Ανοικτή και εξ Αποστάσεως Εκπαίδευση και την Εκπαιδευτική Τεχνολογία",
+    "top_provider": "Ελληνικό Δίκτυο Ανοικτής και εξ Αποστάσεως Εκπαίδευσης (ΕΔΑΕ)",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 285,
+    "raw_target_rows": 285,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 285
+      }
+    ],
+    "search_query_hint": "Ανοικτή Εκπαίδευση: το περιοδικό για την Ανοικτή και εξ Αποστάσεως Εκπαίδευση και την Εκπαιδευτική Τεχνολογία Ελληνικό Δίκτυο Ανοικτής και εξ Αποστάσεως Εκπαίδευσης (ΕΔΑΕ) openjournal",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=285; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent048_eranistis",
+    "collection_slug": "eranistis",
+    "top_repository_name": "Ο Ερανιστής",
+    "top_provider": "Όμιλος Μελέτης του Ελληνικού Διαφωτισμού (ΟΜΕΔ)",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 262,
+    "raw_target_rows": 262,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 262
+      }
+    ],
+    "search_query_hint": "Ο Ερανιστής Όμιλος Μελέτης του Ελληνικού Διαφωτισμού (ΟΜΕΔ) eranistis",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=262; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent049_ethiki",
+    "collection_slug": "ethiki",
+    "top_repository_name": "Ηθική",
+    "top_provider": "Εργαστήριο Φιλοσοφία-Διακυβέρνηση-Οικονομία",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 220,
+    "raw_target_rows": 220,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 220
+      }
+    ],
+    "search_query_hint": "Ηθική Εργαστήριο Φιλοσοφία-Διακυβέρνηση-Οικονομία ethiki",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=220; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent050_edulll",
+    "collection_slug": "edulll",
+    "top_repository_name": "Ψηφιακή Βιβλιοθήκη- Επιχειρησιακό Πρόγραμμα Εκπαίδευση και Δια Βίου Μάθηση",
+    "top_provider": "Επιχειρησιακό Πρόγραμμα \"Εκπαίδευση και Δια Βίου Μάθηση\", Υπουργείο Εκπαίδευσης και Δια Βίου Μάθησης",
+    "repo_host": "repository.edulll.gr",
+    "repo_url_hint": "http://repository.edulll.gr/",
+    "sample_item_url_hint": "http://repository.edulll.gr/150",
+    "platform_hint": "custom_or_unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 2465,
+    "untapped_target_rows": 213,
+    "raw_target_rows": 2678,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "medium",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.9690067214339059,
+    "dominant_target_types": [
+      {
+        "type": "text",
+        "count": 2497
+      },
+      {
+        "type": "dataset",
+        "count": 85
+      },
+      {
+        "type": "image",
+        "count": 83
+      },
+      {
+        "type": "event",
+        "count": 9
+      },
+      {
+        "type": "sound",
+        "count": 3
+      }
+    ],
+    "search_query_hint": "Ψηφιακή Βιβλιοθήκη- Επιχειρησιακό Πρόγραμμα Εκπαίδευση και Δια Βίου Μάθηση Επιχειρησιακό Πρόγραμμα \"Εκπαίδευση και Δια Βίου Μάθηση\", Υπουργείο Εκπαίδευσης και Δια Βίου Μάθησης edulll",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=213; content_priority=high; extraction_ease=medium"
+  },
+  {
+    "agent_id": "agent051_omep",
+    "collection_slug": "omep",
+    "top_repository_name": "Ερευνώντας τον Κόσμο του Παιδιού",
+    "top_provider": "Παγκόσμια Οργάνωση Προσχολικής Εκπαίδευσης - Ελληνική Επιτροπή (ΟΜΕΡ Ελλάδος)",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 205,
+    "raw_target_rows": 205,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 205
+      }
+    ],
+    "search_query_hint": "Ερευνώντας τον Κόσμο του Παιδιού Παγκόσμια Οργάνωση Προσχολικής Εκπαίδευσης - Ελληνική Επιτροπή (ΟΜΕΡ Ελλάδος) omep",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=205; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent052_inoek",
+    "collection_slug": "inoek",
+    "top_repository_name": "Εκπαίδευση, Δια Βίου Μάθηση, Έρευνα και Τεχνολογική Ανάπτυξη, Καινοτομία και Οικονομία",
+    "top_provider": "Ελληνικό Ινστιτούτο Οικονομικών της Εκπαίδευσης & Δια Βίου Μάθησης, της Έρευνας & Καινοτομίας",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 162,
+    "raw_target_rows": 162,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 162
+      }
+    ],
+    "search_query_hint": "Εκπαίδευση, Δια Βίου Μάθηση, Έρευνα και Τεχνολογική Ανάπτυξη, Καινοτομία και Οικονομία Ελληνικό Ινστιτούτο Οικονομικών της Εκπαίδευσης & Δια Βίου Μάθησης, της Έρευνας & Καινοτομίας inoek",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=162; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent053_ekke",
+    "collection_slug": "ekke",
+    "top_repository_name": "Επιθεώρηση Κοινωνικών Ερευνών",
+    "top_provider": "Εθνικό Κέντρο Κοινωνικών Ερευνών (ΕΚΚΕ)",
+    "repo_host": "ejournals.epublishing.ekt.gr",
+    "repo_url_hint": "https://ejournals.epublishing.ekt.gr/",
+    "sample_item_url_hint": "https://ejournals.epublishing.ekt.gr/index.php/ekke/article/view/6744",
+    "platform_hint": "custom_or_unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 839,
+    "untapped_target_rows": 158,
+    "raw_target_rows": 997,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "hard",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.015045135406218655,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 997
+      }
+    ],
+    "search_query_hint": "Επιθεώρηση Κοινωνικών Ερευνών Εθνικό Κέντρο Κοινωνικών Ερευνών (ΕΚΚΕ) ekke",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=158; content_priority=high; extraction_ease=hard"
+  },
+  {
+    "agent_id": "agent054_hjre",
+    "collection_slug": "hjre",
+    "top_repository_name": "Έρευνα στην Εκπαίδευση",
+    "top_provider": "Εργαστήριο Παιδαγωγικής Έρευνας και Εκπαιδευτικών Πρακτικών (Ε.Π.Ε.Ε.Π.) / Δημοκρίτειο Πανεπιστήμιο Θράκης",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 155,
+    "raw_target_rows": 155,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 155
+      }
+    ],
+    "search_query_hint": "Έρευνα στην Εκπαίδευση Εργαστήριο Παιδαγωγικής Έρευνας και Εκπαιδευτικών Πρακτικών (Ε.Π.Ε.Ε.Π.) / Δημοκρίτειο Πανεπιστήμιο Θράκης hjre",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=155; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent055_revmata",
+    "collection_slug": "revmata",
+    "top_repository_name": "Παιδαγωγικά Ρεύματα στο Αιγαίο",
+    "top_provider": "Πανεπιστήμιο Αιγαίου - Παιδαγωγικό Τμήμα Δημοτικής Εκπαίδευσης",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 152,
+    "raw_target_rows": 152,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 152
+      }
+    ],
+    "search_query_hint": "Παιδαγωγικά Ρεύματα στο Αιγαίο Πανεπιστήμιο Αιγαίου - Παιδαγωγικό Τμήμα Δημοτικής Εκπαίδευσης revmata",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=152; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent056_dialogoi",
+    "collection_slug": "dialogoi",
+    "top_repository_name": "Διάλογοι! Θεωρία και Πράξη στις Επιστήμες της Αγωγής και Εκπαίδευσης",
+    "top_provider": "Τμήμα Επιστημών Προσχολικής Αγωγής και Εκπαίδευσης (ΤΕΠΑΕ)/Α.Π.Θ.",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 137,
+    "raw_target_rows": 137,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 137
+      }
+    ],
+    "search_query_hint": "Διάλογοι! Θεωρία και Πράξη στις Επιστήμες της Αγωγής και Εκπαίδευσης Τμήμα Επιστημών Προσχολικής Αγωγής και Εκπαίδευσης (ΤΕΠΑΕ)/Α.Π.Θ. dialogoi",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=137; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent057_jret",
+    "collection_slug": "jret",
+    "top_repository_name": "Επιστημονική Επετηρίδα Παιδαγωγικού Τμήματος Νηπιαγωγών Πανεπιστημίου Ιωαννίνων",
+    "top_provider": "Παιδαγωγικό Τμήμα Νηπιαγωγών/Πανεπιστήμιο Ιωαννίνων",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 134,
+    "raw_target_rows": 134,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 134
+      }
+    ],
+    "search_query_hint": "Επιστημονική Επετηρίδα Παιδαγωγικού Τμήματος Νηπιαγωγών Πανεπιστημίου Ιωαννίνων Παιδαγωγικό Τμήμα Νηπιαγωγών/Πανεπιστήμιο Ιωαννίνων jret",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=134; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent058_elstat",
+    "collection_slug": "elstat",
+    "top_repository_name": "Ελληνική Στατιστική Αρχή - Ψηφιακή Βιβλιοθήκη (ΕΛΣΤΑΤ)",
+    "top_provider": "Ελληνική Στατιστική Αρχή (ΕΛΣΤΑΤ)",
+    "repo_host": "dlib.statistics.gr",
+    "repo_url_hint": "http://dlib.statistics.gr/",
+    "sample_item_url_hint": "http://dlib.statistics.gr/portal/page/portal/lang-en/ESYE/showdetails?p_derive=book&p_id=10095607",
+    "platform_hint": "custom_or_unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 1986,
+    "untapped_target_rows": 120,
+    "raw_target_rows": 2106,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "medium",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.9957264957264957,
+    "dominant_target_types": [
+      {
+        "type": "text",
+        "count": 2106
+      }
+    ],
+    "search_query_hint": "Ελληνική Στατιστική Αρχή - Ψηφιακή Βιβλιοθήκη (ΕΛΣΤΑΤ) Ελληνική Στατιστική Αρχή (ΕΛΣΤΑΤ) elstat",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=120; content_priority=high; extraction_ease=medium"
+  },
+  {
+    "agent_id": "agent059_scad",
+    "collection_slug": "scad",
+    "top_repository_name": "Κοινωνική Συνοχή και Ανάπτυξη",
+    "top_provider": "Επιστημονική Εταιρεία για την Κοινωνική Συνοχή και Ανάπτυξη",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 119,
+    "raw_target_rows": 119,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 119
+      }
+    ],
+    "search_query_hint": "Κοινωνική Συνοχή και Ανάπτυξη Επιστημονική Εταιρεία για την Κοινωνική Συνοχή και Ανάπτυξη scad",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=119; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent060_ieim",
+    "collection_slug": "ieim",
+    "top_repository_name": "Περί Ιστορίας",
+    "top_provider": "Ιόνιος Εταιρεία Ιστορικών Μελετών",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 112,
+    "raw_target_rows": 112,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 112
+      }
+    ],
+    "search_query_hint": "Περί Ιστορίας Ιόνιος Εταιρεία Ιστορικών Μελετών ieim",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=112; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent061_eekp",
+    "collection_slug": "eekp",
+    "top_repository_name": "Κοινωνική Πολιτική",
+    "top_provider": "Επιστημονική Εταιρεία Κοινωνικής Πολιτικής",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 108,
+    "raw_target_rows": 108,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 108
+      }
+    ],
+    "search_query_hint": "Κοινωνική Πολιτική Επιστημονική Εταιρεία Κοινωνικής Πολιτικής eekp",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=108; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent062_openschoolsjournal",
+    "collection_slug": "openschoolsjournal",
+    "top_repository_name": "Open Schools Journal for Open Science",
+    "top_provider": "Ελληνογερμανική Αγωγή",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 103,
+    "raw_target_rows": 103,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 103
+      }
+    ],
+    "search_query_hint": "Open Schools Journal for Open Science Ελληνογερμανική Αγωγή openschoolsjournal",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=103; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent063_bioethica",
+    "collection_slug": "bioethica",
+    "top_repository_name": "Βιοηθικά",
+    "top_provider": "Εθνική Επιτροπή Βιοηθικής",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 92,
+    "raw_target_rows": 92,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 92
+      }
+    ],
+    "search_query_hint": "Βιοηθικά Εθνική Επιτροπή Βιοηθικής bioethica",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=92; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent064_education",
+    "collection_slug": "education",
+    "top_repository_name": "Προσχολική και Σχολική Εκπαίδευση",
+    "top_provider": "Εργαστήριο Παιδαγωγικών Ερευνών και Εφαρμογών (ΕΠΕΕ) του Παιδαγωγικού Τμήματος Προσχολικής Εκπαίδευσης Πανεπιστημίου Κρήτης",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 91,
+    "raw_target_rows": 91,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 91
+      }
+    ],
+    "search_query_hint": "Προσχολική και Σχολική Εκπαίδευση Εργαστήριο Παιδαγωγικών Ερευνών και Εφαρμογών (ΕΠΕΕ) του Παιδαγωγικού Τμήματος Προσχολικής Εκπαίδευσης Πανεπιστημίου Κρήτης education",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=91; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent065_lexdelt",
+    "collection_slug": "lexdelt",
+    "top_repository_name": "Λεξικογραφικόν Δελτίον",
+    "top_provider": "Ακαδημία Αθηνών",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 90,
+    "raw_target_rows": 90,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 90
+      }
+    ],
+    "search_query_hint": "Λεξικογραφικόν Δελτίον Ακαδημία Αθηνών lexdelt",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=90; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent066_AFIMEC",
+    "collection_slug": "AFIMEC",
+    "top_repository_name": "Animation, Film, Διαδραστικά Μέσα στην Εκπαίδευση και τον Πολιτισμό",
+    "top_provider": "Πανεπιστήμιο Δυτικής Αττικής (ΠΑ.Δ.Α.) & Πανεπιστήμιο Αιγαίου",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 86,
+    "raw_target_rows": 86,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 86
+      }
+    ],
+    "search_query_hint": "Animation, Film, Διαδραστικά Μέσα στην Εκπαίδευση και τον Πολιτισμό Πανεπιστήμιο Δυτικής Αττικής (ΠΑ.Δ.Α.) & Πανεπιστήμιο Αιγαίου AFIMEC",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=86; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent067_theatrepolis",
+    "collection_slug": "theatrepolis",
+    "top_repository_name": "Θεάτρου Πόλις",
+    "top_provider": "Τμήμα Θεατρικών Σπουδών, Πανεπιστήμιο Πελοποννήσου",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 79,
+    "raw_target_rows": 79,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 79
+      }
+    ],
+    "search_query_hint": "Θεάτρου Πόλις Τμήμα Θεατρικών Σπουδών, Πανεπιστήμιο Πελοποννήσου theatrepolis",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=79; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent068_enedim",
+    "collection_slug": "enedim",
+    "top_repository_name": "Έρευνα στη Διδακτική των Μαθηματικών",
+    "top_provider": "Ένωση Ερευνητών της Διδακτικής των Μαθηματικών",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 77,
+    "raw_target_rows": 77,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 77
+      }
+    ],
+    "search_query_hint": "Έρευνα στη Διδακτική των Μαθηματικών Ένωση Ερευνητών της Διδακτικής των Μαθηματικών enedim",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=77; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent069_childspace",
+    "collection_slug": "childspace",
+    "top_repository_name": "Χώροι για το Παιδί ή Χώροι του Παιδιού;",
+    "top_provider": "Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης - Εθνικό Μετσόβιο Πολυτεχνείο - Πολυτεχνείο Κρήτης - Πανεπιστήμιο Ιωαννίνων",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 74,
+    "raw_target_rows": 74,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 74
+      }
+    ],
+    "search_query_hint": "Χώροι για το Παιδί ή Χώροι του Παιδιού; Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης - Εθνικό Μετσόβιο Πολυτεχνείο - Πολυτεχνείο Κρήτης - Πανεπιστήμιο Ιωαννίνων childspace",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=74; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent070_online_edu",
+    "collection_slug": "online_edu",
+    "top_repository_name": "Από τον 20ο στον 21ο αιώνα μέσα σε 15 ημέρες",
+    "top_provider": "Πανεπιστήμιο Αιγαίου",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 71,
+    "raw_target_rows": 71,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 71
+      }
+    ],
+    "search_query_hint": "Από τον 20ο στον 21ο αιώνα μέσα σε 15 ημέρες Πανεπιστήμιο Αιγαίου online_edu",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=71; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent071_periphery",
+    "collection_slug": "periphery",
+    "top_repository_name": "Περιφέρεια",
+    "top_provider": "Εθνικόν και Καποδιστριακόν Πανεπιστήμιον Αθηνών (ΕΚΠΑ) - Ερευνητικό Κέντρο Οικονομικής πολιτικής, Διακυβέρνησης και Ανάπτυξης",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 69,
+    "raw_target_rows": 69,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 69
+      }
+    ],
+    "search_query_hint": "Περιφέρεια Εθνικόν και Καποδιστριακόν Πανεπιστήμιον Αθηνών (ΕΚΠΑ) - Ερευνητικό Κέντρο Οικονομικής πολιτικής, Διακυβέρνησης και Ανάπτυξης periphery",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=69; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent072_eea",
+    "collection_slug": "eea",
+    "top_repository_name": "Επιθεώρηση Ελληνικής Εταιρείας Αξιολόγησης",
+    "top_provider": "Ελληνική Εταιρεία Αξιολόγησης",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 65,
+    "raw_target_rows": 65,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 65
+      }
+    ],
+    "search_query_hint": "Επιθεώρηση Ελληνικής Εταιρείας Αξιολόγησης Ελληνική Εταιρεία Αξιολόγησης eea",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=65; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent073_visualmarch",
+    "collection_slug": "visualmarch",
+    "top_repository_name": "Διεθνές Συνέδριο για την Εικαστική Πορεία προς τις Πρέσπες",
+    "top_provider": "Τμήμα Εικαστικών και Εφαρμοσμένων Τεχνών Τμήμα Εικαστικών και Εφαρμοσμένων Τεχνών Πανεπιστημίου Δυτικής Μακεδονίας",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 64,
+    "raw_target_rows": 64,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 64
+      }
+    ],
+    "search_query_hint": "Διεθνές Συνέδριο για την Εικαστική Πορεία προς τις Πρέσπες Τμήμα Εικαστικών και Εφαρμοσμένων Τεχνών Τμήμα Εικαστικών και Εφαρμοσμένων Τεχνών Πανεπιστημίου Δυτικής Μακεδονίας visualmarch",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=64; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent074_anemopetalio",
+    "collection_slug": "anemopetalio",
+    "top_repository_name": "Ανεμοπετάλιο",
+    "top_provider": "Δημόσια Κεντρική Βιβλιοθήκη Καλαμάτας",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 63,
+    "raw_target_rows": 63,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 63
+      }
+    ],
+    "search_query_hint": "Ανεμοπετάλιο Δημόσια Κεντρική Βιβλιοθήκη Καλαμάτας anemopetalio",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=63; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent075_benaki",
+    "collection_slug": "benaki",
+    "top_repository_name": "Περιοδικό Μουσείο Μπενάκη",
+    "top_provider": "Μουσείο Μπενάκη",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 60,
+    "raw_target_rows": 60,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 60
+      }
+    ],
+    "search_query_hint": "Περιοδικό Μουσείο Μπενάκη Μουσείο Μπενάκη benaki",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=60; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent076_enveducation",
+    "collection_slug": "enveducation",
+    "top_repository_name": "Περιβαλλοντική Εκπαίδευση για την Αειφορία",
+    "top_provider": "Ελληνική Επιστημονική Εταιρεία Περιβαλλοντικής Εκπαίδευσης για την Αειφορία (ΕΛ.Ε.ΕΤ.Π.Ε.Α)",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 57,
+    "raw_target_rows": 57,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 57
+      }
+    ],
+    "search_query_hint": "Περιβαλλοντική Εκπαίδευση για την Αειφορία Ελληνική Επιστημονική Εταιρεία Περιβαλλοντικής Εκπαίδευσης για την Αειφορία (ΕΛ.Ε.ΕΤ.Π.Ε.Α) enveducation",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=57; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent077_eulimene",
+    "collection_slug": "eulimene",
+    "top_repository_name": "ΕΥΛΙΜΕΝΗ",
+    "top_provider": "Μεσογειακή Αρχαιολογική Εταιρεία",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 54,
+    "raw_target_rows": 54,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 54
+      }
+    ],
+    "search_query_hint": "ΕΥΛΙΜΕΝΗ Μεσογειακή Αρχαιολογική Εταιρεία eulimene",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=54; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent078_geosociety",
+    "collection_slug": "geosociety",
+    "top_repository_name": "Δελτίο της Ελληνικής Γεωλογικής Εταιρίας",
+    "top_provider": "Ελληνική Γεωλογική Εταιρεία",
+    "repo_host": "ejournals.epublishing.ekt.gr",
+    "repo_url_hint": "https://ejournals.epublishing.ekt.gr/",
+    "sample_item_url_hint": "https://ejournals.epublishing.ekt.gr/index.php/geosociety/article/view/10896",
+    "platform_hint": "custom_or_unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 6,
+    "untapped_target_rows": 48,
+    "raw_target_rows": 54,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "medium",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.8333333333333334,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 54
+      }
+    ],
+    "search_query_hint": "Δελτίο της Ελληνικής Γεωλογικής Εταιρίας Ελληνική Γεωλογική Εταιρεία geosociety",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=48; content_priority=high; extraction_ease=medium"
+  },
+  {
+    "agent_id": "agent079_armenistis",
+    "collection_slug": "armenistis",
+    "top_repository_name": "Αρμενιστής",
+    "top_provider": "Δημόσια Κεντρική Βιβλιοθήκη Καλαμάτας",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 47,
+    "raw_target_rows": 47,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 47
+      }
+    ],
+    "search_query_hint": "Αρμενιστής Δημόσια Κεντρική Βιβλιοθήκη Καλαμάτας armenistis",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=47; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent080_socwork",
+    "collection_slug": "socwork",
+    "top_repository_name": "Κοινωνική Εργασία- Επιθεώρηση Κοινωνικών Επιστημών",
+    "top_provider": "Σύνδεσμος Κοινωνικών Λειτουργών Ελλάδος (ΣΚΛΕ)",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 44,
+    "raw_target_rows": 44,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 44
+      }
+    ],
+    "search_query_hint": "Κοινωνική Εργασία- Επιθεώρηση Κοινωνικών Επιστημών Σύνδεσμος Κοινωνικών Λειτουργών Ελλάδος (ΣΚΛΕ) socwork",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=44; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent081_keimena_paideias",
+    "collection_slug": "keimena_paideias",
+    "top_repository_name": "Κείμενα Παιδείας",
+    "top_provider": "Εργαστήριο Ιστορίας της Παιδείας και της Εκπαίδευσης του Παιδαγωγικού Τμήματος Δημοτικής Εκπαίδευσης του Δημοκρίτειου Πανεπιστημίου Θράκης",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 42,
+    "raw_target_rows": 42,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 42
+      }
+    ],
+    "search_query_hint": "Κείμενα Παιδείας Εργαστήριο Ιστορίας της Παιδείας και της Εκπαίδευσης του Παιδαγωγικού Τμήματος Δημοτικής Εκπαίδευσης του Δημοκρίτειου Πανεπιστημίου Θράκης keimena_paideias",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=42; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent082_automaton",
+    "collection_slug": "automaton",
+    "top_repository_name": "Αυτόματον: Περιοδικό Πολιτισμικής Κριτικής και  Θεωρίας Νέων Μέσων",
+    "top_provider": "Εταιρεία Μελέτης των Επιστημών του Ανθρώπου (ΕΜΕΑ)",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 41,
+    "raw_target_rows": 41,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 41
+      }
+    ],
+    "search_query_hint": "Αυτόματον: Περιοδικό Πολιτισμικής Κριτικής και  Θεωρίας Νέων Μέσων Εταιρεία Μελέτης των Επιστημών του Ανθρώπου (ΕΜΕΑ) automaton",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=41; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent083_hapscpbs",
+    "collection_slug": "hapscpbs",
+    "top_repository_name": "HAPSc Policy Briefs Series",
+    "top_provider": "Ελληνικός Οργανισμός Πολιτικών Επιστημόνων (ΕΟΠΕ)",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 36,
+    "raw_target_rows": 36,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 36
+      }
+    ],
+    "search_query_hint": "HAPSc Policy Briefs Series Ελληνικός Οργανισμός Πολιτικών Επιστημόνων (ΕΟΠΕ) hapscpbs",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=36; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent084_thete",
+    "collection_slug": "thete",
+    "top_repository_name": "Θέματα Επιστημών και Τεχνολογίας στην Εκπαίδευση",
+    "top_provider": "Εργαστήριο Εφαρμογών Εικονικής Πραγματικότητας στην Εκπαίδευση, Παιδαγωγικό Τμήμα Δημοτικής Εκπαίδευσης, Πανεπιστήμιο Ιωαννίνων",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 35,
+    "raw_target_rows": 35,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 35
+      }
+    ],
+    "search_query_hint": "Θέματα Επιστημών και Τεχνολογίας στην Εκπαίδευση Εργαστήριο Εφαρμογών Εικονικής Πραγματικότητας στην Εκπαίδευση, Παιδαγωγικό Τμήμα Δημοτικής Εκπαίδευσης, Πανεπιστήμιο Ιωαννίνων thete",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=35; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent085_Conatus",
+    "collection_slug": "Conatus",
+    "top_repository_name": "Conatus-Περιοδικό Φιλοσοφίας",
+    "top_provider": "Εργαστήριο Εφαρμοσμένης Φιλοσοφίας",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 34,
+    "raw_target_rows": 34,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 34
+      }
+    ],
+    "search_query_hint": "Conatus-Περιοδικό Φιλοσοφίας Εργαστήριο Εφαρμοσμένης Φιλοσοφίας Conatus",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=34; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent086_RiSTE",
+    "collection_slug": "RiSTE",
+    "top_repository_name": "Έρευνα για την Εκπαίδευση στις Φυσικές Επιστήμες και την Τεχνολογία",
+    "top_provider": "Ένωση για την Εκπαίδευση στις Φυσικές Επιστήμες και την Τεχνολογία (ΕΝΕΦΕΤ)",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 30,
+    "raw_target_rows": 30,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 30
+      }
+    ],
+    "search_query_hint": "Έρευνα για την Εκπαίδευση στις Φυσικές Επιστήμες και την Τεχνολογία Ένωση για την Εκπαίδευση στις Φυσικές Επιστήμες και την Τεχνολογία (ΕΝΕΦΕΤ) RiSTE",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=30; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent087_thea",
+    "collection_slug": "thea",
+    "top_repository_name": "Θέματα Επιστημών Αγωγής",
+    "top_provider": "Παιδαγωγικό Τμήμα Δημοτικής Εκπαίδευσης, Πανεπιστήμιο Ιωαννίνων",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 30,
+    "raw_target_rows": 30,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 30
+      }
+    ],
+    "search_query_hint": "Θέματα Επιστημών Αγωγής Παιδαγωγικό Τμήμα Δημοτικής Εκπαίδευσης, Πανεπιστήμιο Ιωαννίνων thea",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=30; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent088_edro",
+    "collection_slug": "edro",
+    "top_repository_name": "Εκπαιδευτικές Διαδρομές",
+    "top_provider": "Διεύθυνση Πρωτοβάθμιας Εκπαίδευσης Χίου",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 29,
+    "raw_target_rows": 29,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 29
+      }
+    ],
+    "search_query_hint": "Εκπαιδευτικές Διαδρομές Διεύθυνση Πρωτοβάθμιας Εκπαίδευσης Χίου edro",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=29; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent089_neusis",
+    "collection_slug": "neusis",
+    "top_repository_name": "Νεύσις",
+    "top_provider": "Τμήμα Ιστορίας και Φιλοσοφίας της Επιστήμης, ΕΚΠΑ",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 28,
+    "raw_target_rows": 28,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 28
+      }
+    ],
+    "search_query_hint": "Νεύσις Τμήμα Ιστορίας και Φιλοσοφίας της Επιστήμης, ΕΚΠΑ neusis",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=28; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent090_edth",
+    "collection_slug": "edth",
+    "top_repository_name": "Εκπαίδευση και Θέατρο",
+    "top_provider": "Πανελλήνιο Δίκτυο για το Θέατρο στην Εκπαίδευση",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 26,
+    "raw_target_rows": 26,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 26
+      }
+    ],
+    "search_query_hint": "Εκπαίδευση και Θέατρο Πανελλήνιο Δίκτυο για το Θέατρο στην Εκπαίδευση edth",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=26; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent091_NRCoDiSTE",
+    "collection_slug": "NRCoDiSTE",
+    "top_repository_name": "Πανελλήνιο Συνέδριο Νέων Ερευνητών/Ερευνητριών στη Διδακτική των Φυσικών Επιστημών και Νέων Τεχνολογιών",
+    "top_provider": "Ένωση για την Εκπαίδευση στις Φυσικές Επιστήμες και την Τεχνολογία (ΕΝΕΦΕΤ)",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 24,
+    "raw_target_rows": 24,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 24
+      }
+    ],
+    "search_query_hint": "Πανελλήνιο Συνέδριο Νέων Ερευνητών/Ερευνητριών στη Διδακτική των Φυσικών Επιστημών και Νέων Τεχνολογιών Ένωση για την Εκπαίδευση στις Φυσικές Επιστήμες και την Τεχνολογία (ΕΝΕΦΕΤ) NRCoDiSTE",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=24; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent092_mentoras",
+    "collection_slug": "mentoras",
+    "top_repository_name": "Μέντορας",
+    "top_provider": "Ινστιτούτο Εκπαιδευτικής Πολιτικής",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 24,
+    "raw_target_rows": 24,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 24
+      }
+    ],
+    "search_query_hint": "Μέντορας Ινστιτούτο Εκπαιδευτικής Πολιτικής mentoras",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=24; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent093_plogos",
+    "collection_slug": "plogos",
+    "top_repository_name": "Παιδαγωγικός Λόγος",
+    "top_provider": "Τμήμα Βιοχημείας και Βιοτεχνολογίας Πανεπιστημίου Θεσσαλίας (Λάρισα)",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 23,
+    "raw_target_rows": 23,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 23
+      }
+    ],
+    "search_query_hint": "Παιδαγωγικός Λόγος Τμήμα Βιοχημείας και Βιοτεχνολογίας Πανεπιστημίου Θεσσαλίας (Λάρισα) plogos",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=23; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent094_aeci",
+    "collection_slug": "aeci",
+    "top_repository_name": "Adult Education Critical Issues",
+    "top_provider": "Επιστημονική Ένωση Εκπαίδευσης Ενηλίκων",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 20,
+    "raw_target_rows": 20,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 20
+      }
+    ],
+    "search_query_hint": "Adult Education Critical Issues Επιστημονική Ένωση Εκπαίδευσης Ενηλίκων aeci",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=20; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent095_imegeeinterdisciplin",
+    "collection_slug": "imegeeinterdisciplin",
+    "top_repository_name": "Διεπιστημονικές Προσεγγίσεις στην Εκπαίδευση",
+    "top_provider": "ΙΝΣΤΙΤΟΥΤΟ ΜΕΛΕΤΩΝ ΚΑΙ ΕΡΕΥΝΩΝ ΓΕΝΙΚΗΣ  ΚΑΙ ΕΙΔΙΚΗΣ ΕΚΠΑΙΔΕΥΣΗΣ - Ι.Μ.Ε.Γ.Ε.Ε.",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 20,
+    "raw_target_rows": 20,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 20
+      }
+    ],
+    "search_query_hint": "Διεπιστημονικές Προσεγγίσεις στην Εκπαίδευση ΙΝΣΤΙΤΟΥΤΟ ΜΕΛΕΤΩΝ ΚΑΙ ΕΡΕΥΝΩΝ ΓΕΝΙΚΗΣ  ΚΑΙ ΕΙΔΙΚΗΣ ΕΚΠΑΙΔΕΥΣΗΣ - Ι.Μ.Ε.Γ.Ε.Ε. imegeeinterdisciplin",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=20; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent096_praktika",
+    "collection_slug": "praktika",
+    "top_repository_name": "Κέντρο Έρευνας για τις Ανθρωπιστικές Επιστήμες - Πρακτικά Συνεδρίων",
+    "top_provider": "Κέντρο Έρευνας για τις Ανθρωπιστικές Επιστήμες (ΚΕΑΕ)",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 19,
+    "raw_target_rows": 19,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 19
+      }
+    ],
+    "search_query_hint": "Κέντρο Έρευνας για τις Ανθρωπιστικές Επιστήμες - Πρακτικά Συνεδρίων Κέντρο Έρευνας για τις Ανθρωπιστικές Επιστήμες (ΚΕΑΕ) praktika",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=19; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent097_awpel",
+    "collection_slug": "awpel",
+    "top_repository_name": "Aegean Working Papers in Ethnographic Linguistics",
+    "top_provider": "Εργαστήριο Εθνογραφικών Προσεγγίσεων της Γλώσσας (ΕΕΠΓ)",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 17,
+    "raw_target_rows": 17,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 17
+      }
+    ],
+    "search_query_hint": "Aegean Working Papers in Ethnographic Linguistics Εργαστήριο Εθνογραφικών Προσεγγίσεων της Γλώσσας (ΕΕΠΓ) awpel",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=17; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent098_jiim",
+    "collection_slug": "jiim",
+    "top_repository_name": "Journal of Integrated Information Management",
+    "top_provider": "Πανεπιστήμιο Δυτικής Αττικής (ΠΑ.Δ.Α.)",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 15,
+    "raw_target_rows": 15,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 15
+      }
+    ],
+    "search_query_hint": "Journal of Integrated Information Management Πανεπιστήμιο Δυτικής Αττικής (ΠΑ.Δ.Α.) jiim",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=15; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent099_hsjpe",
+    "collection_slug": "hsjpe",
+    "top_repository_name": "Ύσπληγξ: Επιστημονικό Περιοδικό Φυσικής Αγωγής",
+    "top_provider": "Πανελλήνια Ένωση Εκπαιδευτικών Λειτουργών Φυσικής Αγωγής (Π.ΕΝ.Ε.Λ.Φ.Α.)",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 14,
+    "raw_target_rows": 14,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 14
+      }
+    ],
+    "search_query_hint": "Ύσπληγξ: Επιστημονικό Περιοδικό Φυσικής Αγωγής Πανελλήνια Ένωση Εκπαιδευτικών Λειτουργών Φυσικής Αγωγής (Π.ΕΝ.Ε.Λ.Φ.Α.) hsjpe",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=14; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent100_pixels",
+    "collection_slug": "pixels",
+    "top_repository_name": "PIXELS@humanities",
+    "top_provider": "Κέντρο Έρευνας για τις Ανθρωπιστικές Επιστήμες (ΚΕΑΕ)",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 13,
+    "raw_target_rows": 13,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 13
+      }
+    ],
+    "search_query_hint": "PIXELS@humanities Κέντρο Έρευνας για τις Ανθρωπιστικές Επιστήμες (ΚΕΑΕ) pixels",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=13; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent101_episteme",
+    "collection_slug": "episteme",
+    "top_repository_name": "Epistēmēs Metron Logos",
+    "top_provider": "τετARTημόριο",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 12,
+    "raw_target_rows": 12,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 12
+      }
+    ],
+    "search_query_hint": "Epistēmēs Metron Logos τετARTημόριο episteme",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=12; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent102_tekmiria",
+    "collection_slug": "tekmiria",
+    "top_repository_name": "Τεκμήρια",
+    "top_provider": "Ινστιτούτο Ιστορικών Ερευνών/ΕΙΕ",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 12,
+    "raw_target_rows": 12,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 12
+      }
+    ],
+    "search_query_hint": "Τεκμήρια Ινστιτούτο Ιστορικών Ερευνών/ΕΙΕ tekmiria",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=12; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent103_mhist",
+    "collection_slug": "mhist",
+    "top_repository_name": "Mos Historicus - Κριτική Επιθεώρηση Ευρωπαϊκής Ιστορίας",
+    "top_provider": "Τμήμα Ιστορίας και Αρχαιολογίας, ΕΚΠΑ",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 11,
+    "raw_target_rows": 11,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 11
+      }
+    ],
+    "search_query_hint": "Mos Historicus - Κριτική Επιθεώρηση Ευρωπαϊκής Ιστορίας Τμήμα Ιστορίας και Αρχαιολογίας, ΕΚΠΑ mhist",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=11; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent104_chae",
+    "collection_slug": "chae",
+    "top_repository_name": "Ετήσιο Συμπόσιο Χριστιανικής Αρχαιολογικής Εταιρείας",
+    "top_provider": "Χριστιανική Αρχαιολογική Εταιρεία",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 9,
+    "raw_target_rows": 9,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 9
+      }
+    ],
+    "search_query_hint": "Ετήσιο Συμπόσιο Χριστιανικής Αρχαιολογικής Εταιρείας Χριστιανική Αρχαιολογική Εταιρεία chae",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=9; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent105_akttechj",
+    "collection_slug": "akttechj",
+    "top_repository_name": "Ακτινοτεχνολογία",
+    "top_provider": "Σύλλογος Τεχνολόγων Ακτινολογίας Ακτινοθεραπείας Ελλάδας",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 8,
+    "raw_target_rows": 8,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 8
+      }
+    ],
+    "search_query_hint": "Ακτινοτεχνολογία Σύλλογος Τεχνολόγων Ακτινολογίας Ακτινοθεραπείας Ελλάδας akttechj",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=8; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent106_gjre",
+    "collection_slug": "gjre",
+    "top_repository_name": "Ελληνική περιοδική έκδοση για τη Θρησκευτική Εκπαίδευση",
+    "top_provider": "Πανελλήνιος Θεολογικός Σύνδεσμος «ΚΑΙΡΟΣ  - για την αναβάθμιση της Θρησκευτικής Εκπαίδευσης»",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 8,
+    "raw_target_rows": 8,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 8
+      }
+    ],
+    "search_query_hint": "Ελληνική περιοδική έκδοση για τη Θρησκευτική Εκπαίδευση Πανελλήνιος Θεολογικός Σύνδεσμος «ΚΑΙΡΟΣ  - για την αναβάθμιση της Θρησκευτικής Εκπαίδευσης» gjre",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=8; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent107_iJByzPh",
+    "collection_slug": "iJByzPh",
+    "top_repository_name": "ΕΙΚΩΝ, Επιθεώρηση Βυζαντινής Φιλοσοφίας",
+    "top_provider": "Εργαστήριο Μελέτης Θεσμικού Λόγου, Τμήμα Φιλοσοφίας, ΕΚΠΑ",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 7,
+    "raw_target_rows": 7,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 7
+      }
+    ],
+    "search_query_hint": "ΕΙΚΩΝ, Επιθεώρηση Βυζαντινής Φιλοσοφίας Εργαστήριο Μελέτης Θεσμικού Λόγου, Τμήμα Φιλοσοφίας, ΕΚΠΑ iJByzPh",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=7; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent108_KEEF",
+    "collection_slug": "KEEF",
+    "top_repository_name": "Κέντρον Ερεύνης Ελληνικής Φιλοσοφίας (ΚΕΕΦ)",
+    "top_provider": "Ακαδημία Αθηνών",
+    "repo_host": "repository.academyofathens.gr",
+    "repo_url_hint": "http://repository.academyofathens.gr/",
+    "sample_item_url_hint": "http://repository.academyofathens.gr/keef/index.php/gr/listItems/374",
+    "platform_hint": "custom_or_unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 533,
+    "untapped_target_rows": 6,
+    "raw_target_rows": 539,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "low",
+    "extraction_ease": "medium",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.9981447124304267,
+    "dominant_target_types": [
+      {
+        "type": "επετηρίδα",
+        "count": 469
+      },
+      {
+        "type": "βιβλίο",
+        "count": 55
+      },
+      {
+        "type": "μονογραφία",
+        "count": 9
+      },
+      {
+        "type": "άρθρο",
+        "count": 5
+      },
+      {
+        "type": "περιοδικό",
+        "count": 1
+      }
+    ],
+    "search_query_hint": "Κέντρον Ερεύνης Ελληνικής Φιλοσοφίας (ΚΕΕΦ) Ακαδημία Αθηνών KEEF",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=6; content_priority=low; extraction_ease=medium"
+  },
+  {
+    "agent_id": "agent109_KEEON",
+    "collection_slug": "KEEON",
+    "top_repository_name": "Κέντρον Ερεύνης Επιστημονικών Όρων και Νεολογισμών (ΚΕΕΟΝ)",
+    "top_provider": "Ακαδημία Αθηνών",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 5,
+    "raw_target_rows": 5,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "βιβλίο",
+        "count": 5
+      }
+    ],
+    "search_query_hint": "Κέντρον Ερεύνης Επιστημονικών Όρων και Νεολογισμών (ΚΕΕΟΝ) Ακαδημία Αθηνών KEEON",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=5; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent110_hnps",
+    "collection_slug": "hnps",
+    "top_repository_name": "Annual Symposium of the Hellenic Nuclear Physics Society",
+    "top_provider": "Hellenic Nuclear Physics Society",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 5,
+    "raw_target_rows": 5,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 5
+      }
+    ],
+    "search_query_hint": "Annual Symposium of the Hellenic Nuclear Physics Society Hellenic Nuclear Physics Society hnps",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=5; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent111_KEBMT",
+    "collection_slug": "KEBMT",
+    "top_repository_name": "Κέντρο Έρευνας της Βυζαντινής και Μεταβυζαντινής Τέχνης (ΚΕΒΜΤ)",
+    "top_provider": "Ακαδημία Αθηνών",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 4,
+    "raw_target_rows": 4,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "βιβλίο",
+        "count": 4
+      }
+    ],
+    "search_query_hint": "Κέντρο Έρευνας της Βυζαντινής και Μεταβυζαντινής Τέχνης (ΚΕΒΜΤ) Ακαδημία Αθηνών KEBMT",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=4; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent112_asem",
+    "collection_slug": "asem",
+    "top_repository_name": "Ανάλεκτα Σταγών και Μετεώρων",
+    "top_provider": "Μητροπολιτική Ακαδημία Θεολογικών και Ιστορικών Μελετών Αγίων Μετεώρων",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 4,
+    "raw_target_rows": 4,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 4
+      }
+    ],
+    "search_query_hint": "Ανάλεκτα Σταγών και Μετεώρων Μητροπολιτική Ακαδημία Θεολογικών και Ιστορικών Μελετών Αγίων Μετεώρων asem",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=4; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent113_JHVMS",
+    "collection_slug": "JHVMS",
+    "top_repository_name": "Περιοδικό της Ελληνικής Κτηνιατρικής Εταιρείας",
+    "top_provider": "Ελληνική Κτηνιατρική Εταιρεία",
+    "repo_host": "ejournals.epublishing.ekt.gr",
+    "repo_url_hint": "https://ejournals.epublishing.ekt.gr/",
+    "sample_item_url_hint": "https://ejournals.epublishing.ekt.gr/index.php/jhvms/article/view/18786",
+    "platform_hint": "custom_or_unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 378,
+    "untapped_target_rows": 2,
+    "raw_target_rows": 380,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "medium",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.46842105263157896,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 380
+      }
+    ],
+    "search_query_hint": "Περιοδικό της Ελληνικής Κτηνιατρικής Εταιρείας Ελληνική Κτηνιατρική Εταιρεία JHVMS",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=2; content_priority=high; extraction_ease=medium"
+  },
+  {
+    "agent_id": "agent114_HealthResJ",
+    "collection_slug": "HealthResJ",
+    "top_repository_name": "Health and Research Journal",
+    "top_provider": "Εθνικόν και Καποδιστριακόν Πανεπιστήμιον Αθηνών, Πρόγραμμα Μεταπτυχιακών Σπουδών «Μονάδες Εντατικής Θεραπείας»",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 1,
+    "raw_target_rows": 1,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 1
+      }
+    ],
+    "search_query_hint": "Health and Research Journal Εθνικόν και Καποδιστριακόν Πανεπιστήμιον Αθηνών, Πρόγραμμα Μεταπτυχιακών Σπουδών «Μονάδες Εντατικής Θεραπείας» HealthResJ",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=1; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent115_esperia",
+    "collection_slug": "esperia",
+    "top_repository_name": "Εώα και Εσπέρια",
+    "top_provider": "Εταιρεία Έρευνας των Σχέσεων του Μεσαιωνικού και Νέου Ελληνισμού με τη Δύση (ΕΕΣΜΝΕΔ)",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 1,
+    "raw_target_rows": 1,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 1
+      }
+    ],
+    "search_query_hint": "Εώα και Εσπέρια Εταιρεία Έρευνας των Σχέσεων του Μεσαιωνικού και Νέου Ελληνισμού με τη Δύση (ΕΕΣΜΝΕΔ) esperia",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=1; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent116_gastro",
+    "collection_slug": "gastro",
+    "top_repository_name": "Annals of Gastroenterology",
+    "top_provider": "Ελληνική Γαστροεντερολογική Εταιρία",
+    "repo_host": "www.annalsgastro.gr",
+    "repo_url_hint": "http://www.annalsgastro.gr/",
+    "sample_item_url_hint": "http://www.annalsgastro.gr/index.php/annalsgastro/article/view/521",
+    "platform_hint": "custom_or_unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 1,
+    "raw_target_rows": 1,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "medium",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 1.0,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 1
+      }
+    ],
+    "search_query_hint": "Annals of Gastroenterology Ελληνική Γαστροεντερολογική Εταιρία gastro",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=1; content_priority=high; extraction_ease=medium"
+  },
+  {
+    "agent_id": "agent117_hcmr_med_mar_sc",
+    "collection_slug": "hcmr_med_mar_sc",
+    "top_repository_name": "Mediterranean Marine Science",
+    "top_provider": "Ελληνικό Κέντρο Θαλασσίων Ερευνών (ΕΛΚΕΘΕ)",
+    "repo_host": "ejournals.epublishing.ekt.gr",
+    "repo_url_hint": "https://ejournals.epublishing.ekt.gr/",
+    "sample_item_url_hint": "https://ejournals.epublishing.ekt.gr/index.php/hcmr_med_mar_sc/article/view/22074",
+    "platform_hint": "custom_or_unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 1,
+    "raw_target_rows": 1,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "hard",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.0,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 1
+      }
+    ],
+    "search_query_hint": "Mediterranean Marine Science Ελληνικό Κέντρο Θαλασσίων Ερευνών (ΕΛΚΕΘΕ) hcmr_med_mar_sc",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=1; content_priority=high; extraction_ease=hard"
+  },
+  {
+    "agent_id": "agent118_historein",
+    "collection_slug": "historein",
+    "top_repository_name": "Ιστορείν",
+    "top_provider": "Εταιρεία Μελέτης της Ιστοριογραφίας και της Θεωρίας της Ιστορίας (ΕΜΙΘΙ) - Ιστορείν",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 1,
+    "raw_target_rows": 1,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 1
+      }
+    ],
+    "search_query_hint": "Ιστορείν Εταιρεία Μελέτης της Ιστοριογραφίας και της Θεωρίας της Ιστορίας (ΕΜΙΘΙ) - Ιστορείν historein",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=1; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent119_pnyx",
+    "collection_slug": "pnyx",
+    "top_repository_name": "Pnyx: Journal of Classical Studies",
+    "top_provider": "ISEGORIA",
+    "repo_host": "",
+    "repo_url_hint": "",
+    "sample_item_url_hint": "",
+    "platform_hint": "unknown",
+    "priority_kind": "row_filtered",
+    "tapped_target_rows": 0,
+    "untapped_target_rows": 1,
+    "raw_target_rows": 1,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "discovery_only",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": false,
+    "pdf_hit_rate": null,
+    "dominant_target_types": [
+      {
+        "type": "article",
+        "count": 1
+      }
+    ],
+    "search_query_hint": "Pnyx: Journal of Classical Studies ISEGORIA pnyx",
+    "suggested_wave": "discovery_backlog",
+    "notes": "strict-language untapped rows=1; content_priority=high; extraction_ease=discovery_only; no direct host hint yet from external_pdfs"
+  },
+  {
+    "agent_id": "agent120_Dione",
+    "collection_slug": "Dione",
+    "top_repository_name": "Διώνη",
+    "top_provider": "Πανεπιστήμιο Πειραιώς",
+    "repo_host": "dione.lib.unipi.gr",
+    "repo_url_hint": "https://dione.lib.unipi.gr/",
+    "sample_item_url_hint": "https://dione.lib.unipi.gr/xmlui/handle/unipi/9388",
+    "platform_hint": "dspace_xmlui",
+    "priority_kind": "whole_collection",
+    "tapped_target_rows": 16920,
+    "untapped_target_rows": 0,
+    "raw_target_rows": 16863,
+    "language_priority": "strict_ELL_NONE",
+    "content_priority": "high",
+    "extraction_ease": "easy",
+    "known_overlap_source": "",
+    "direct_repo_hint_available": true,
+    "pdf_hit_rate": 0.991697799916978,
+    "dominant_target_types": [
+      {
+        "type": "thesis",
+        "count": 15863
+      },
+      {
+        "type": "article",
+        "count": 373
+      },
+      {
+        "type": "NA",
+        "count": 362
+      },
+      {
+        "type": "dissertation",
+        "count": 170
+      },
+      {
+        "type": "bibliographic",
+        "count": 95
+      }
+    ],
+    "search_query_hint": "Διώνη Πανεπιστήμιο Πειραιώς Dione",
+    "suggested_wave": "wave3_hard_or_small",
+    "notes": "strict-language untapped rows=0; content_priority=high; extraction_ease=easy"
+  }
+]
