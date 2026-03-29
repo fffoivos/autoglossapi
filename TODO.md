@@ -160,6 +160,13 @@ AWS S3 should store the raw PDFs, extracted artifacts, and large run outputs.
 - [ ] Run `sample_validation` only after pagination, PDF detection, and metadata checks are credible.
 - [ ] Promote only collections with convincing academic sample PDFs.
 
+## Phase 6.5: Source Tracking
+
+- [x] Create a generated backlog of potential sources to check.
+- [x] Create a generated active-source status backlog with run state, modality hints, and count fields.
+- [x] Add manual enrichment overlays so the backlogs can be extended without clobbering generated data.
+- [x] Refresh the local Projects MCP catalog so `automated-glossapi` is discoverable there.
+
 ## Phase 7: Expansion
 
 - [ ] Expand from `wave1_high_quality_easy` to the 10-collection pilot.

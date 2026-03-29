@@ -40,6 +40,7 @@ The first execution wave is defined in [wave1_high_quality_easy.json](config/col
 - [docs](docs): operator docs, architecture plan, and secret policy
 - [schemas](schemas): JSON schemas for stage reports and routing decisions
 - [scripts](scripts): deterministic helpers such as manifest generation
+- [tracking](tracking): generated source backlogs plus manual enrichment overlays
 - [tests](tests): unit and harness dry-run tests
 
 ## Quick start
