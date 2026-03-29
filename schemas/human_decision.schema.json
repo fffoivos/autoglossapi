@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpenArchives Human Decision",
+  "type": "object",
+  "required": [
+    "decision_id",
+    "collection_slug",
+    "stage",
+    "decision",
+    "decision_reason",
+    "instructions",
+    "approved_by",
+    "approved_at"
+  ],
+  "properties": {
+    "decision_id": {
+      "type": "string"
+    },
+    "collection_slug": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "retry_same_stage",
+        "advance",
+        "stop_exhausted"
+      ]
+    },
+    "decision_reason": {
+      "type": "string"
+    },
+    "instructions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "approved_by": {
+      "type": "string"
+    },
+    "approved_at": {
+      "type": "string"
+    },
+    "approved_eta_ceiling_hours": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "target_progress_percent": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "scope_override": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

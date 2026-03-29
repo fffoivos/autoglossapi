@@ -14,6 +14,11 @@ if __package__ in {None, ""}:
 
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+from controller.human_decision import (
+    load_human_decision,
+    prepare_resume_state,
+    synthesize_review_plan_from_human_decision,
+)
 from controller.launch_codex_exec_harness import DEFAULT_COLLECTIONS_FILE, PROJECT_ROOT
 from controller.stage_definitions import STAGE_ORDER, next_stage_name
 
@@ -25,13 +30,15 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Run a persistent stage/review lineage loop for one collection."
     )
-    parser.add_argument("--collection-slug", required=True)
+    parser.add_argument("--collection-slug", default=None)
     parser.add_argument("--collections-file", type=Path, default=DEFAULT_COLLECTIONS_FILE)
     parser.add_argument("--lineages-root", type=Path, default=DEFAULT_LINEAGES_ROOT)
     parser.add_argument("--runs-root", type=Path, default=PROJECT_ROOT / "runs")
     parser.add_argument("--start-stage", choices=sorted(STAGE_ORDER), default="discover")
     parser.add_argument("--through-stage", choices=sorted(STAGE_ORDER), default=STAGE_ORDER[-1])
     parser.add_argument("--initial-previous-run-dir", type=Path, default=None)
+    parser.add_argument("--resume-lineage-dir", type=Path, default=None)
+    parser.add_argument("--human-decision-path", type=Path, default=None)
     parser.add_argument("--max-attempts-per-stage", type=int, default=4)
     parser.add_argument("--success-threshold", type=float, default=80.0)
     parser.add_argument("--codex-bin", default="codex")
@@ -276,24 +283,78 @@ def review_stage_attempt(
 
 def main() -> None:
     args = parse_args()
-    ensure_stage_sequence(args.start_stage, args.through_stage)
-    if args.start_stage != "discover" and args.initial_previous_run_dir is None:
-        raise SystemExit("`--initial-previous-run-dir` is required when starting after `discover`")
-    lineage_dir = make_lineage_dir(args.lineages_root, args.collection_slug)
+    if args.resume_lineage_dir is None and not args.collection_slug:
+        raise SystemExit("`--collection-slug` is required unless `--resume-lineage-dir` is used")
+
+    if args.resume_lineage_dir is not None:
+        if args.human_decision_path is None:
+            raise SystemExit("`--human-decision-path` is required when resuming a stopped lineage")
+        lineage_dir = args.resume_lineage_dir.resolve()
+        manifest_path = lineage_dir / "loop_manifest.json"
+        previous_manifest = read_json(manifest_path)
+        collection_slug = str(args.collection_slug or previous_manifest.get("collection_slug") or "")
+        if not collection_slug:
+            raise SystemExit("could not determine `collection_slug` from the resume lineage manifest")
+        manifest_start_stage = str(previous_manifest.get("start_stage") or args.start_stage)
+        through_stage = str(previous_manifest.get("through_stage") or args.through_stage)
+        decision = load_human_decision(args.human_decision_path)
+        resume_state = prepare_resume_state(
+            manifest=previous_manifest,
+            decision=decision,
+            collection_slug=collection_slug,
+        )
+        human_decisions_dir = lineage_dir / "human_decisions"
+        human_decisions_dir.mkdir(parents=True, exist_ok=True)
+        human_decision_copy = human_decisions_dir / f"{decision['decision_id']}.json"
+        write_json(human_decision_copy, decision)
+        synthetic_review_plan = human_decisions_dir / f"{decision['decision_id']}_review_plan.json"
+        synthesize_review_plan_from_human_decision(
+            decision=decision,
+            previous_improvement=resume_state["previous_improvement"],
+            output_path=synthetic_review_plan,
+        )
+        history = list(previous_manifest.get("history") or [])
+        current_stage = str(resume_state["current_stage"])
+        previous_run_dir = resume_state["previous_run_dir"]
+        review_plan_path: Path | None = synthetic_review_plan
+        attempt_index = int(resume_state["attempt_index"])
+        final_state = "running"
+        final_reason = None
+        human_decision_history = list(previous_manifest.get("human_decisions") or [])
+        human_decision_history.append(
+            {
+                "decision_path": str(human_decision_copy),
+                "review_plan_path": str(synthetic_review_plan),
+                "applied_to_stage": current_stage,
+                "approved_by": decision.get("approved_by"),
+                "approved_at": decision.get("approved_at"),
+            }
+        )
+    else:
+        collection_slug = str(args.collection_slug)
+        manifest_start_stage = args.start_stage
+        through_stage = args.through_stage
+        ensure_stage_sequence(args.start_stage, through_stage)
+        if args.start_stage != "discover" and args.initial_previous_run_dir is None:
+            raise SystemExit("`--initial-previous-run-dir` is required when starting after `discover`")
+        lineage_dir = make_lineage_dir(args.lineages_root, collection_slug)
+        history: list[dict[str, Any]] = []
+        current_stage = args.start_stage
+        previous_run_dir = args.initial_previous_run_dir
+        review_plan_path = None
+        attempt_index = 1
+        final_state = "running"
+        final_reason = None
+        human_decision_history: list[dict[str, Any]] = []
+
+    ensure_stage_sequence(current_stage, through_stage)
     runs_root = args.runs_root
-    history: list[dict[str, Any]] = []
-    current_stage = args.start_stage
-    previous_run_dir = args.initial_previous_run_dir
-    review_plan_path: Path | None = None
-    attempt_index = 1
-    final_state = "running"
-    final_reason = None
 
     manifest_path = lineage_dir / "loop_manifest.json"
 
     while True:
         run_dir = launch_stage_run(
-            collection_slug=args.collection_slug,
+            collection_slug=collection_slug,
             collections_file=args.collections_file,
             runs_root=runs_root,
             stage=current_stage,
@@ -301,11 +362,11 @@ def main() -> None:
             review_plan_path=review_plan_path,
             args=args,
         )
-        job_dir = run_dir / "jobs" / args.collection_slug
+        job_dir = run_dir / "jobs" / collection_slug
         validation_path = job_dir / "validation.json"
         next_action_path = job_dir / "next_action.json"
         events_path = job_dir / "events.jsonl"
-        report_path = ensure_report(job_dir, collection_slug=args.collection_slug, stage=current_stage)
+        report_path = ensure_report(job_dir, collection_slug=collection_slug, stage=current_stage)
         progress_path = score_stage_attempt(
             report_path=report_path,
             validation_path=validation_path,
@@ -329,7 +390,7 @@ def main() -> None:
         improvement = read_json(improvement_path)
         history.append(
             {
-                "collection_slug": args.collection_slug,
+                "collection_slug": collection_slug,
                 "stage": current_stage,
                 "attempt_index": attempt_index,
                 "run_dir": str(run_dir),
@@ -350,12 +411,13 @@ def main() -> None:
         write_json(
             manifest_path,
             {
-                "collection_slug": args.collection_slug,
+                "collection_slug": collection_slug,
                 "lineage_dir": str(lineage_dir),
-                "start_stage": args.start_stage,
-                "through_stage": args.through_stage,
+                "start_stage": manifest_start_stage,
+                "through_stage": through_stage,
                 "current_stage": current_stage,
                 "attempt_index": attempt_index,
+                "human_decisions": human_decision_history,
                 "history": history,
                 "final_state": final_state,
                 "final_reason": final_reason,
@@ -373,7 +435,7 @@ def main() -> None:
             break
 
         if decision == "advance":
-            if current_stage == args.through_stage or next_stage_name(current_stage) is None:
+            if current_stage == through_stage or next_stage_name(current_stage) is None:
                 final_state = "completed"
                 final_reason = improvement.get("decision_reason")
                 break
@@ -402,13 +464,14 @@ def main() -> None:
 
     write_json(
         manifest_path,
-        {
-            "collection_slug": args.collection_slug,
+            {
+            "collection_slug": collection_slug,
             "lineage_dir": str(lineage_dir),
-            "start_stage": args.start_stage,
-            "through_stage": args.through_stage,
+            "start_stage": manifest_start_stage,
+            "through_stage": through_stage,
             "current_stage": current_stage,
             "attempt_index": attempt_index,
+            "human_decisions": human_decision_history,
             "history": history,
             "final_state": final_state,
             "final_reason": final_reason,

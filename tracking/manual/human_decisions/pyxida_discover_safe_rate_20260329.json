@@ -1,0 +1,19 @@
+{
+  "decision_id": "pyxida_discover_20260329T154339Z",
+  "collection_slug": "pyxida",
+  "stage": "discover",
+  "decision": "retry_same_stage",
+  "decision_reason": "User approved one more discover retry focused on finding a low-error or no-error file-download cadence and recomputing ETA from that safe cadence.",
+  "instructions": [
+    "Probe file downloads much more conservatively to find a cadence with no errors or only very low errors.",
+    "Keep metadata and file lanes separate and preserve exact 429 headers, timestamps, and inter-request spacing.",
+    "Recompute ETA only from the safer measured cadence and report whether that new ETA is still above the preferred threshold.",
+    "Do not start bulk downloading yet; this retry is for capacity characterization and ETA recalculation."
+  ],
+  "approved_by": "foivos",
+  "approved_at": "2026-03-29T15:43:39.385565+00:00",
+  "approved_eta_ceiling_hours": 72.0,
+  "target_progress_percent": 100.0,
+  "scope_override": null,
+  "notes": "Approved to override the prior ETA stop once in order to map a safer file-download envelope."
+}
