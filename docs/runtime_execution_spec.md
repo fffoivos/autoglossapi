@@ -18,10 +18,11 @@ Every runtime execution should follow this order:
 
 1. Copy the runtime tooling to the target host.
 2. Run a pre-repair readiness check when repairing an existing host.
-3. Run the bootstrap or repair flow.
-4. Run a strict readiness check after the repair.
-5. Run a bounded OCR smoke test when the task needs DeepSeek OCR.
-6. Save machine-readable artifacts for every step.
+3. Review hardware, driver, Torch, CUDA, and attention-stack fit before tuning OCR parameters.
+4. Run the bootstrap or repair flow.
+5. Run a strict readiness check after the repair.
+6. Run a bounded OCR smoke test when the task needs DeepSeek OCR.
+7. Save machine-readable artifacts for every step.
 
 ## Provision vs repair
 
@@ -48,6 +49,7 @@ A host should not be treated as ready unless all of the relevant checks pass:
 - required Python modules import in the selected runtime
 - Cargo is compatible with the repo's Rust crates when cleaner support is required
 - GPUs are visible when GPU work is required
+- the selected OCR runtime actually fits the GPU generation and can perform a basic CUDA allocation
 - the OCR smoke test passes when DeepSeek OCR is required
 
 ## Required artifacts

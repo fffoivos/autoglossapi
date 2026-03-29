@@ -32,11 +32,17 @@ class RuntimeTaskBundleTests(unittest.TestCase):
             self.assertEqual(resolved["task_type"], "provision_glossapi_host")
             self.assertEqual(resolved["recommended_parameters"]["ocr"]["recommended_initial_workers"], 4)
             self.assertIn("Rust and Cargo are installed so rust extensions can build cleanly.", resolved["what_must_be_true"])
+            self.assertIn(
+                "The selected Torch/CUDA/attention stack fits the host GPU generation and can execute a basic CUDA allocation.",
+                resolved["what_must_be_true"],
+            )
             self.assertEqual(resolved["execution_plan"]["bootstrap_mode"], "provision")
             self.assertTrue(resolved["execution_plan"]["update_repo"])
+            self.assertTrue(resolved["execution_plan"]["review_stack_fit"])
             prompt_text = Path(manifest["prompt_path"]).read_text(encoding="utf-8")
             self.assertIn("bootstrap_glossapi_aws.sh", prompt_text)
             self.assertIn("deepseek_ocr_g7e_20260329.json", prompt_text)
+            self.assertIn("deepseek_blackwell_stack_fit_20260329.json", prompt_text)
 
     def test_render_from_cli_flags_for_repair_task(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:

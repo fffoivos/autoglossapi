@@ -25,6 +25,11 @@ def should_run_ocr_smoke_test(task: dict[str, Any]) -> bool:
     return bool(requirements.get("needs_deepseek_ocr"))
 
 
+def should_review_stack_fit(task: dict[str, Any]) -> bool:
+    requirements = task.get("requirements", {})
+    return bool(requirements.get("needs_deepseek_ocr") or requirements.get("benchmark_ocr"))
+
+
 def derive_target_dir(task: dict[str, Any]) -> str | None:
     existing = task.get("existing_host", {}) or {}
     if existing.get("repo_path"):
@@ -83,6 +88,7 @@ def derive_execution_plan(task: dict[str, Any]) -> dict[str, Any]:
         "target_dir": derive_target_dir(task),
         "runtime_python_candidates": derive_runtime_python_candidates(task),
         "readiness_flags": readiness_flags(task),
+        "review_stack_fit": should_review_stack_fit(task),
         "run_ocr_smoke_test": should_run_ocr_smoke_test(task),
         "smoke_test_script": "runtime/aws/smoke_test_glossapi_runtime.py",
         "requires_clean_repo_for_update": should_update_repo(task["task_type"]),

@@ -8,6 +8,7 @@ The runtime lane is responsible for:
 
 - provisioning GlossAPI on AWS or comparable hosts
 - verifying that all hard dependencies are present before expensive runs start
+- verifying that the selected Torch/CUDA/attention stack actually fits the target GPU generation
 - benchmarking OCR throughput and workers-per-GPU choices
 - recording known runtime failures so Codex can investigate them instead of retrying blindly
 - feeding concrete runtime findings back into GlossAPI and the automation harness
@@ -188,6 +189,16 @@ python3 runtime/aws/check_glossapi_runtime.py \
 
 The readiness checker is now requirement-aware. It only hard-fails on the parts of the runtime that the task actually needs, and for cleaner-heavy tasks it validates Cargo against the repo's real Rust manifests rather than treating any `cargo` binary as good enough.
 
+When DeepSeek OCR is requested, readiness should also be treated as a stack-fit review, not just a presence check. In practical terms that means:
+
+- collect OS, driver, Torch, CUDA, arch support, and attention-backend facts
+- verify that the selected runtime can perform a trivial CUDA allocation
+- verify that the Torch build targets the actual GPU architecture
+- treat a mismatched Torch/CUDA stack as a runtime blocker before tuning `workers_per_gpu`
+- treat eager attention fallback as a throughput warning, with `sdpa` preferred when flash-attn is unavailable
+
+The higher-level reasoning and current Blackwell guidance are in [docs/runtime_stack_fit.md](/home/foivos/Projects/automated-glossapi/docs/runtime_stack_fit.md).
+
 ## OCR tuning
 
 The planning helper is [runtime/ocr/worker_planning.py](/home/foivos/Projects/automated-glossapi/runtime/ocr/worker_planning.py).
@@ -208,6 +219,8 @@ python3 runtime/ocr/worker_planning.py \
 
 The point is not to predict the exact optimum. The point is to get a good starting guess and then run a tiny sweep around it.
 
+Do not run that sweep until the runtime stack-fit review passes. Worker-count tuning is downstream of host/runtime compatibility, not a substitute for it.
+
 When a task bundle uses a host profile with stored OCR benchmark inputs, the runtime task renderer will precompute the initial worker guess and include it in `resolved_task.json`.
 
 ## Current measured lessons
@@ -221,6 +234,8 @@ These came from the current DeepSeek OCR benchmarking work and should be treated
   - `workers_per_gpu=1`: `241.2s`, `15.08 s/page`, avg util `18.7%`, max mem `16.1 GiB`
   - `workers_per_gpu=2`: `150.6s`, `9.41 s/page`, avg util `58.2%`, max mem `32.3 GiB`
 - The current DeepSeek v2 path still pays significant cold-start cost from model load, page rasterization, and per-page inference.
+- On Blackwell-class hosts, treat an older `cu118` DeepSeek venv as a likely stack mismatch rather than a safe benchmark baseline.
+- If flash-attn is missing, `sdpa` should be the preferred no-flash fallback; `eager` is a throughput warning.
 
 ## Known upstream improvement targets
 

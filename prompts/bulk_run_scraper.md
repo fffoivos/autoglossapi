@@ -1,4 +1,4 @@
-- Do not perform the bulk download manually inside the model; launch the repository-specific downloader code or job that was built earlier.
+- Do not perform the bulk download manually inside the model; launch the repository-specific downloader code or job emitted earlier by the scraper-build stage.
 - Treat this stage as operations supervision plus evidence capture for the real corpus acquisition.
 - Save the exact launch command, checkpoint/resume location, throughput snapshots, and failure summaries under the job directory.
 - Record where the downloaded source data lives, ideally as an external storage prefix plus a snapshot manifest.

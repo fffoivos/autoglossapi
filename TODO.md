@@ -134,6 +134,9 @@ AWS S3 should store the raw PDFs, extracted artifacts, and large run outputs.
   - `runtime/aws/check_glossapi_runtime.py`
 - [x] Add a dedicated OCR worker-sizing note covering VRAM, CPU, utilization, GPU count, and the limited role of FLOPS:
   - `docs/ocr_worker_sizing.md`
+- [x] Add a runtime stack-fit review for GPU hosts so OCR planning checks hardware, driver, Torch, CUDA, arch support, attention backend, and OCR mode before benchmarking:
+  - `runtime/ocr/deepseek_runtime_fit.py`
+  - `docs/runtime_stack_fit.md`
 - [ ] Add machine manifests for concrete host profiles:
   - `g7e.48xlarge`
   - `r7i.16xlarge`

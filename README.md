@@ -11,11 +11,11 @@ The intended workflow is:
 1. agent teams discover and de-risk an upstream repository
 2. agent teams prove crawl feasibility and validate sample quality
 3. agent teams write the adapter spec and implement the repository-specific scraper
-4. deterministic downloader code performs the real bulk acquisition
+4. the downloader emitted by the agent teams performs the real bulk acquisition
 5. runtime tasks provision or repair the remote infrastructure needed for OCR and extraction
 6. downloaded source data is handed off to downstream GlossAPI extraction, OCR, dedup, and publishing
 
-The agents are therefore the scouting, validation, specification, review, and implementation teams. They are not meant to perform the full corpus download manually. See [docs/agentic_pipeline.md](docs/agentic_pipeline.md) for the workflow view.
+The agents are therefore the scouting, validation, specification, review, and implementation teams. They are expected to emit the repository-specific downloader, then test, repair, and supervise it. They are not meant to perform the full corpus download manually in-chat. See [docs/agentic_pipeline.md](docs/agentic_pipeline.md) for the workflow view.
 
 This repository stores:
 
@@ -110,6 +110,7 @@ python3 controller/run_lineage_loop.py \
 - [docs/agentic_pipeline.md](docs/agentic_pipeline.md)
 - [docs/aws_runtime.md](docs/aws_runtime.md)
 - [docs/ocr_worker_sizing.md](docs/ocr_worker_sizing.md)
+- [docs/runtime_stack_fit.md](docs/runtime_stack_fit.md)
 - [docs/runtime_execution_spec.md](docs/runtime_execution_spec.md)
 - [docs/download_telemetry.md](docs/download_telemetry.md)
 - [docs/secret_policy.md](docs/secret_policy.md)

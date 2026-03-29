@@ -5,9 +5,20 @@
   "hardware": {
     "gpu_count": 8,
     "gpu_model": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+    "gpu_architecture": "Blackwell",
     "gpu_memory_gib": 97.9,
     "vcpu": 192,
     "ram_gib": 2048
+  },
+  "software_fit": {
+    "minimum_torch_cuda": "12.8",
+    "preferred_torch_stack": "Torch 2.9+ on CUDA 13.0 when available",
+    "preferred_attention_backend": "flash_attention_2",
+    "preferred_no_flash_fallback": "sdpa",
+    "avoid": [
+      "torch 2.6.0+cu118",
+      "eager attention fallback for DeepSeek OCR"
+    ]
   },
   "intended_use": [
     "deepseek_ocr",
@@ -31,6 +42,7 @@
     "target_utilization": 0.8
   },
   "knowledge_refs": [
-    "runtime/knowledge/deepseek_ocr_g7e_20260329.json"
+    "runtime/knowledge/deepseek_ocr_g7e_20260329.json",
+    "runtime/knowledge/deepseek_blackwell_stack_fit_20260329.json"
   ]
 }

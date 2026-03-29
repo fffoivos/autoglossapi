@@ -186,6 +186,7 @@ def _derive_truth_conditions(task: dict[str, Any], profile: dict[str, Any] | Non
         conditions.append("nvidia-smi works and reports the expected GPU hardware.")
     if requirements.get("needs_deepseek_ocr"):
         conditions.append("DeepSeek OCR runtime modules and model assets are present.")
+        conditions.append("The selected Torch/CUDA/attention stack fits the host GPU generation and can execute a basic CUDA allocation.")
     if requirements.get("benchmark_ocr"):
         conditions.append("A bounded OCR benchmark has been run and artifacts were captured.")
     if requirements.get("auto_worker_tuning"):
@@ -225,6 +226,7 @@ def _derive_workflow_steps(task: dict[str, Any]) -> list[str]:
     if requirements.get("auto_worker_tuning"):
         steps.append("Use runtime/ocr/worker_planning.py to choose the initial workers_per_gpu guess.")
     if requirements.get("needs_deepseek_ocr"):
+        steps.append("Review OS, driver, Torch, CUDA, arch support, attention backend, and OCR mode before benchmarking OCR throughput.")
         steps.append("Prefer CUDA_VISIBLE_DEVICES isolation for multi-worker DeepSeek OCR.")
     if requirements.get("needs_deepseek_ocr"):
         steps.append("Run the runtime OCR smoke test after setup so OCR plus cleaner refresh is verified end to end.")
@@ -285,6 +287,7 @@ def _format_prompt(
         resolved_task_path=str(resolved_task_path),
         host_profile_path=str(host_profile_path) if host_profile_path else "none",
         aws_runtime_doc_path=str(PROJECT_ROOT / "docs" / "aws_runtime.md"),
+        stack_fit_doc_path=str(PROJECT_ROOT / "docs" / "runtime_stack_fit.md"),
         runtime_readme_path=str(RUNTIME_ROOT / "README.md"),
         bootstrap_script_path=str(RUNTIME_ROOT / "aws" / "bootstrap_glossapi_aws.sh"),
         readiness_check_path=str(RUNTIME_ROOT / "aws" / "check_glossapi_runtime.py"),
@@ -312,6 +315,7 @@ def main() -> None:
     resolved_task["relevant_paths"] = {
         "runtime_readme": str(RUNTIME_ROOT / "README.md"),
         "aws_runtime_doc": str(PROJECT_ROOT / "docs" / "aws_runtime.md"),
+        "runtime_stack_fit_doc": str(PROJECT_ROOT / "docs" / "runtime_stack_fit.md"),
         "runtime_execution_spec": str(PROJECT_ROOT / "docs" / "runtime_execution_spec.md"),
         "bootstrap_script": str(RUNTIME_ROOT / "aws" / "bootstrap_glossapi_aws.sh"),
         "readiness_check": str(RUNTIME_ROOT / "aws" / "check_glossapi_runtime.py"),

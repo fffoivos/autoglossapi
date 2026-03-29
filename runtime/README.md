@@ -7,7 +7,7 @@ Current scope:
 - `aws/`
   - bootstrap, execution, smoke tests, and readiness checks for GlossAPI runtime hosts
 - `ocr/`
-  - worker-planning utilities for DeepSeek OCR and similar GPU-bound phases
+  - worker-planning and runtime-fit utilities for DeepSeek OCR and similar GPU-bound phases
 - `host_profiles/`
   - stored machine profiles and default expectations
 - `knowledge/`
@@ -27,6 +27,7 @@ Design goals:
 
 - keep environment setup explicit and repeatable
 - make missing prerequisites fail early with structured evidence
+- check hardware, driver, Torch, CUDA, and attention-stack fit before benchmarking OCR
 - turn runtime/performance failures into machine-readable incidents
 - capture tuning logic in code instead of scattering it across chat transcripts
 - make runtime work triggerable from a stored task spec instead of relying on remembered chat context

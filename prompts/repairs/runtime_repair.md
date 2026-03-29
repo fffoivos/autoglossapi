@@ -2,5 +2,6 @@
 - Repair command/runtime issues first; only re-run the minimal missing work needed to produce a valid final report.
 - Preserve any correct prior evidence instead of discarding it.
 - Write down the concrete blocker, missing dependency, or performance bottleneck before retrying.
+- Check whether the current hardware, driver, Torch, CUDA, and attention stack actually fit the host before blaming worker-count or prompt tuning.
 - List at least two root-cause hypotheses when the failure is not obvious.
 - Propose one harness improvement or GlossAPI improvement that would make the same failure easier to detect or recover from next time.

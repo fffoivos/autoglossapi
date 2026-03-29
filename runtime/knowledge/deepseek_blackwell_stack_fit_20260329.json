@@ -1,0 +1,29 @@
+{
+  "knowledge_id": "deepseek_blackwell_stack_fit_20260329",
+  "date": "2026-03-29",
+  "scope": [
+    "aws_gpu_host_selection",
+    "glossapi_deepseek_runtime_review",
+    "deepseek_ocr_benchmark_planning"
+  ],
+  "summary": [
+    "The main OCR speed problem observed on the g7e host is a runtime-stack mismatch, not just worker-count tuning.",
+    "The dedicated DeepSeek venv was pinned to torch 2.6.0+cu118 while the host GPU generation is Blackwell (sm_120), which is not a safe performance baseline for this machine.",
+    "The host already exposes a newer base Torch stack under /opt/pytorch with torch 2.9.1+cu130, driver 580.105.08, and CUDA 13.0, but GlossAPI's DeepSeek runtime was not using it.",
+    "When flash_attn is missing, the current low-level OCR path falls back to eager attention; that fallback should be treated as a throughput warning and `sdpa` should be preferred on modern PyTorch.",
+    "The current OCR path also uses a heavier grounded markdown mode, so benchmark results should distinguish heavy markdown mode from lighter plain OCR mode."
+  ],
+  "priorities": [
+    "First rebuild the DeepSeek runtime on a Blackwell-compatible Torch/CUDA stack before tuning workers_per_gpu.",
+    "Second, replace eager fallback with sdpa when flash-attn is unavailable.",
+    "Third, validate flash-attn on the newer stack if supported, but treat sdpa as an acceptable fallback when it is not.",
+    "Fourth, benchmark lighter OCR mode when full layout-preserving markdown is not required.",
+    "Fifth, consider a vLLM path only after the stack-fit issues above are fixed."
+  ],
+  "evidence": {
+    "runtime_mismatch": "torch 2.6.0+cu118 in the DeepSeek venv vs Blackwell GPUs on the host",
+    "host_reference_stack": "/opt/pytorch with torch 2.9.1+cu130, driver 580.105.08, CUDA 13.0",
+    "throughput_risk": "missing flash_attn plus eager fallback in run_pdf_ocr_transformers.py",
+    "mode_risk": "grounding prompt with base_size=1024, image_size=768, crop_mode=True"
+  }
+}

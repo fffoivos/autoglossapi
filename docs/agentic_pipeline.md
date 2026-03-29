@@ -8,11 +8,11 @@ The end goal is:
 
 1. identify upstream repositories worth crawling
 2. prove that they can be crawled deterministically
-3. implement repository-specific downloader code
-4. run that code to download the source corpus
+3. emit repository-specific downloader code
+4. run that emitted downloader to acquire the source corpus
 5. hand off downloaded source data to the downstream GlossAPI pipeline
 
-The agents are not meant to perform the full corpus download by hand. The agents are the scouting, validation, specification, review, and implementation teams that make bulk downloading safe enough to hand over to deterministic code.
+The agents are not meant to perform the full corpus download by hand. The agents are the scouting, validation, specification, review, and implementation teams that emit, test, repair, and supervise repository-specific downloader code. The bulk transfer itself should happen through that emitted code or job, not through manual model browsing.
 
 ## Agentic teams workflow
 
@@ -63,7 +63,7 @@ Source backlog / collection manifests
 
 ### 6. Scraper-build team
 
-- implement repository-specific deterministic downloader code
+- emit repository-specific downloader code
 - add bounded tests, fixtures, and telemetry integration
 
 ### 7. Smoke-test team
@@ -73,7 +73,7 @@ Source backlog / collection manifests
 
 ### 8. Bulk-run operations team
 
-- launch the deterministic downloader at corpus scale
+- launch the downloader emitted by the earlier scraper-build stage at corpus scale
 - supervise throughput, checkpoints, rate limits, and failure summaries
 - produce a download snapshot manifest
 

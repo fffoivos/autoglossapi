@@ -25,6 +25,9 @@ class RuntimeReadinessCheckTests(unittest.TestCase):
                 repo=repo,
                 python_bin=fake_python,
                 expect_gpu=False,
+                needs_rust=False,
+                needs_cleaner=False,
+                needs_deepseek_ocr=False,
                 output=output,
                 strict=False,
                 launch_investigation=False,
@@ -35,8 +38,10 @@ class RuntimeReadinessCheckTests(unittest.TestCase):
             with (
                 patch.object(readiness, "parse_args", return_value=args),
                 patch.object(readiness, "_check_commands", return_value=[]),
+                patch.object(readiness, "_check_platform", return_value=[]),
                 patch.object(readiness, "_check_repo", return_value=[]),
                 patch.object(readiness, "_check_gpu", return_value=[]),
+                patch.object(readiness, "_check_deepseek_runtime_fit", return_value=[]),
                 patch.object(
                     readiness,
                     "_check_python",

@@ -20,6 +20,10 @@ from runtime.investigation import (  # noqa: E402
     GlossAPIRuntimeInvestigationPayload,
     RuntimeIssue,
 )
+from runtime.ocr.deepseek_runtime_fit import (  # noqa: E402
+    DeepSeekRuntimeFacts,
+    assess_deepseek_runtime_fit,
+)
 
 
 BASE_REQUIRED_COMMANDS = {
@@ -208,6 +212,37 @@ def _check_repo(repo: Path) -> list[CheckResult]:
             )
         )
     return results
+
+
+def _check_platform() -> list[CheckResult]:
+    os_release = Path("/etc/os-release")
+    if not os_release.exists():
+        return [
+            CheckResult(
+                check_id="platform:os_release",
+                status="warn",
+                detail="`/etc/os-release` is missing",
+            )
+        ]
+    data: dict[str, str] = {}
+    for line in os_release.read_text(encoding="utf-8").splitlines():
+        if "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        data[key] = value.strip().strip('"')
+    pretty = data.get("PRETTY_NAME") or data.get("NAME") or "unknown"
+    return [
+        CheckResult(
+            check_id="platform:os_release",
+            status="pass",
+            detail=f"os release: {pretty}",
+            data={
+                "pretty_name": pretty,
+                "id": data.get("ID"),
+                "version_id": data.get("VERSION_ID"),
+            },
+        )
+    ]
 
 
 def _check_cargo_repo_compatibility(repo: Path, *, needs_cleaner: bool) -> list[CheckResult]:
@@ -438,6 +473,140 @@ def _check_gpu(expect_gpu: bool) -> list[CheckResult]:
     return results
 
 
+def _inspect_deepseek_source(repo: Path) -> dict[str, Any]:
+    path = repo / "src" / "glossapi" / "ocr" / "deepseek" / "run_pdf_ocr_transformers.py"
+    if not path.exists():
+        return {}
+    text = path.read_text(encoding="utf-8")
+    data: dict[str, Any] = {"path": str(path)}
+    if '"eager"' in text:
+        data["attention_fallback"] = "eager"
+    if '"sdpa"' in text and data.get("attention_fallback") is None:
+        data["attention_fallback"] = "sdpa"
+    heavy_markers = (
+        "base_size=1024",
+        "image_size=768",
+        "crop_mode=True",
+    )
+    if all(marker in text for marker in heavy_markers):
+        data["ocr_mode"] = "grounded_markdown_heavy"
+    return data
+
+
+def _check_deepseek_runtime_fit(
+    python_bin: Path | None,
+    repo: Path,
+    *,
+    needs_deepseek_ocr: bool,
+) -> list[CheckResult]:
+    if not needs_deepseek_ocr or python_bin is None or not python_bin.exists():
+        return []
+
+    env = os.environ.copy()
+    env["PYTHONPATH"] = f"{repo / 'src'}:{env.get('PYTHONPATH', '')}"
+    script = """
+import importlib.util, json, sys
+payload = {
+    "flash_attn_available": importlib.util.find_spec("flash_attn") is not None,
+    "python_executable": sys.executable,
+}
+try:
+    import torch
+    payload["torch_version"] = getattr(torch, "__version__", None)
+    payload["torch_cuda_version"] = getattr(getattr(torch, "version", None), "cuda", None)
+    payload["torch_arch_list"] = list(getattr(torch.cuda, "get_arch_list", lambda: [])())
+    payload["torch_cuda_available"] = bool(torch.cuda.is_available())
+    if payload["torch_cuda_available"]:
+        payload["device_count"] = torch.cuda.device_count()
+        if payload["device_count"]:
+            payload["gpu_model"] = torch.cuda.get_device_name(0)
+            capability = torch.cuda.get_device_capability(0)
+            payload["gpu_compute_capability"] = f"{capability[0]}.{capability[1]}"
+            try:
+                torch.zeros(1, device="cuda")
+                payload["allocation_ok"] = True
+            except Exception as exc:
+                payload["allocation_ok"] = False
+                payload["allocation_error"] = str(exc)
+except Exception as exc:
+    payload["torch_error"] = str(exc)
+print(json.dumps(payload))
+"""
+    proc = _run_command([str(python_bin), "-c", script], env=env, timeout=60.0)
+    if proc.returncode != 0:
+        return [
+            CheckResult(
+                check_id="deepseek_fit:introspection",
+                status="fail",
+                detail=f"could not inspect DeepSeek runtime: {proc.stderr.strip() or proc.stdout.strip()}",
+                suggestion="repair the runtime interpreter before benchmarking OCR",
+            )
+        ]
+    try:
+        payload = json.loads(proc.stdout)
+    except json.JSONDecodeError:
+        return [
+            CheckResult(
+                check_id="deepseek_fit:introspection",
+                status="fail",
+                detail="could not parse DeepSeek runtime introspection output",
+                suggestion="repair the runtime interpreter before benchmarking OCR",
+            )
+        ]
+
+    if payload.get("torch_error"):
+        return [
+            CheckResult(
+                check_id="deepseek_fit:introspection",
+                status="fail",
+                detail=f"runtime torch import failed: {payload['torch_error']}",
+                suggestion="repair or replace the selected OCR runtime before benchmarking",
+            )
+        ]
+
+    gpu_proc = _run_command(
+        [
+            "nvidia-smi",
+            "--query-gpu=name,driver_version",
+            "--format=csv,noheader",
+        ]
+    )
+    gpu_model = payload.get("gpu_model")
+    driver_version = None
+    if gpu_proc.returncode == 0 and gpu_proc.stdout.strip():
+        first = gpu_proc.stdout.splitlines()[0]
+        parts = [piece.strip() for piece in first.split(",")]
+        if len(parts) >= 2:
+            gpu_model = gpu_model or parts[0]
+            driver_version = parts[1]
+
+    source_facts = _inspect_deepseek_source(repo)
+    facts = DeepSeekRuntimeFacts(
+        gpu_model=gpu_model,
+        gpu_compute_capability=payload.get("gpu_compute_capability"),
+        driver_version=driver_version,
+        torch_version=payload.get("torch_version"),
+        torch_cuda_version=payload.get("torch_cuda_version"),
+        torch_arch_list=list(payload.get("torch_arch_list") or []),
+        torch_cuda_available=payload.get("torch_cuda_available"),
+        allocation_ok=payload.get("allocation_ok"),
+        allocation_error=payload.get("allocation_error"),
+        flash_attn_available=payload.get("flash_attn_available"),
+        attention_fallback=source_facts.get("attention_fallback"),
+        ocr_mode=source_facts.get("ocr_mode"),
+    )
+    return [
+        CheckResult(
+            check_id=finding.check_id,
+            status=finding.status,
+            detail=finding.detail,
+            suggestion=finding.suggestion,
+            data=finding.data,
+        )
+        for finding in assess_deepseek_runtime_fit(facts)
+    ]
+
+
 def summarize_results(results: list[CheckResult]) -> dict[str, Any]:
     fail_count = sum(1 for result in results if result.status == "fail")
     warn_count = sum(1 for result in results if result.status == "warn")
@@ -487,6 +656,9 @@ def maybe_launch_investigation(
         known_facts=[
             "Rust is required because GlossAPI cleaner/OCR flows may build rust extensions.",
             "DeepSeek multi-GPU workers should be isolated with CUDA_VISIBLE_DEVICES rather than explicit cuda:N.",
+            "GPU runtime stack fit must be checked before worker-count tuning; presence checks alone are not enough.",
+            "Blackwell GPUs need a newer Torch/CUDA stack than older cu118 DeepSeek environments.",
+            "When flash-attn is missing on modern PyTorch, sdpa is a better fallback target than eager attention.",
             "Workers-per-GPU should be measured empirically after a small sweep around the calculated guess.",
         ],
         requested_outcomes=[
@@ -512,6 +684,7 @@ def main() -> int:
     needs_deepseek_ocr = bool(getattr(args, "needs_deepseek_ocr", False))
     needs_rust = bool(getattr(args, "needs_rust", False) or needs_cleaner)
     results = []
+    results.extend(_check_platform())
     results.extend(
         _check_commands(
             expect_gpu=expect_gpu,
@@ -533,6 +706,13 @@ def main() -> int:
     else:
         results.extend(_check_python(python_bin, repo))
     results.extend(_check_gpu(expect_gpu=expect_gpu))
+    results.extend(
+        _check_deepseek_runtime_fit(
+            python_bin,
+            repo,
+            needs_deepseek_ocr=needs_deepseek_ocr,
+        )
+    )
 
     summary = summarize_results(results)
     summary["repo"] = str(repo)
