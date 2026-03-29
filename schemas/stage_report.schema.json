@@ -1,0 +1,442 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpenArchives Direct Repository Stage Report",
+  "type": "object",
+  "required": [
+    "collection_slug",
+    "stage",
+    "status",
+    "repo_root_url",
+    "repo_host",
+    "platform_guess",
+    "summary",
+    "available_subcollections",
+    "website_levels",
+    "relevant_collection_urls",
+    "content_type_summary",
+    "claimed_item_count",
+    "observed_item_count",
+    "pagination_strategy",
+    "pdf_detection_strategy",
+    "metadata_richness_note",
+    "metadata_fields",
+    "priority_assessment",
+    "sample_documents",
+    "failed_checklist_ids",
+    "tried_hypotheses",
+    "alternative_hypotheses",
+    "best_next_hypothesis",
+    "stuck_reason",
+    "blocked_on",
+    "exhausted_paths",
+    "confidence",
+    "needs_human_input",
+    "checklist",
+    "artifacts",
+    "risks",
+    "recommended_next_step"
+  ],
+  "properties": {
+    "collection_slug": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "success",
+        "partial",
+        "blocked",
+        "exhausted"
+      ]
+    },
+    "repo_root_url": {
+      "type": "string"
+    },
+    "repo_host": {
+      "type": "string"
+    },
+    "platform_guess": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "available_subcollections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "url",
+          "claimed_item_count",
+          "content_types",
+          "priority",
+          "note"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "claimed_item_count": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "content_types": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "priority": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "note": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "website_levels": {
+      "type": "object",
+      "required": [
+        "repo_home",
+        "collection_entry",
+        "list_pages",
+        "pagination",
+        "item_page",
+        "pdf_access"
+      ],
+      "properties": {
+        "repo_home": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "collection_entry": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "list_pages": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pagination": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "item_page": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pdf_access": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "relevant_collection_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "content_type_summary": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "claimed_item_count": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "observed_item_count": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "pagination_strategy": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "pdf_detection_strategy": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "metadata_richness_note": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "metadata_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "priority_assessment": {
+      "type": "object",
+      "required": [
+        "language_fit",
+        "content_quality_fit",
+        "extraction_ease",
+        "overall_priority"
+      ],
+      "properties": {
+        "language_fit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "content_quality_fit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "extraction_ease": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "overall_priority": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "sample_documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "item_url",
+          "pdf_url",
+          "title",
+          "is_open_access",
+          "is_probably_academic",
+          "first_page_evidence",
+          "pdf_metadata_note",
+          "is_probably_notice_or_access_stub"
+        ],
+        "properties": {
+          "item_url": {
+            "type": "string"
+          },
+          "pdf_url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "is_open_access": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "is_probably_academic": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "first_page_evidence": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "pdf_metadata_note": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "is_probably_notice_or_access_stub": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "failed_checklist_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tried_hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "alternative_hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "best_next_hypothesis": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "stuck_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "blocked_on": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "exhausted_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "confidence": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        null
+      ]
+    },
+    "needs_human_input": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "checklist": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "status",
+          "evidence"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "done",
+              "partial",
+              "blocked",
+              "not_applicable"
+            ]
+          },
+          "evidence": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "kind",
+          "path_or_url",
+          "note"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "path_or_url": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommended_next_step": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

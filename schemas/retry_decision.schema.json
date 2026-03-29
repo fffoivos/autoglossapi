@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpenArchives Retry Decision",
+  "type": "object",
+  "required": [
+    "collection_slug",
+    "current_stage",
+    "failure_class",
+    "decision",
+    "reason"
+  ],
+  "properties": {
+    "collection_slug": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "current_stage": {
+      "type": "string"
+    },
+    "failure_class": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "advance",
+        "retry_same_stage",
+        "escalate",
+        "manual_review"
+      ]
+    },
+    "next_stage": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "retry_prompt_mode": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reason": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}
