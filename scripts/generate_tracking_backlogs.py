@@ -190,6 +190,7 @@ def parse_run_history() -> dict[str, list[dict[str, Any]]]:
                 "content_type_summary": " | ".join((final or {}).get("content_type_summary", [])),
                 "priority_assessment": (final or {}).get("priority_assessment", {}),
                 "count_evidence": (final or {}).get("count_evidence") if final else None,
+                "throughput_evidence": (final or {}).get("throughput_evidence") if final else None,
             }
             history.setdefault(job_dir.name, []).append(record)
     for records in history.values():
@@ -243,6 +244,18 @@ def count_evidence_fields(record: dict[str, Any] | None) -> dict[str, Any]:
         "scraper_observed_total": count_evidence.get("scraper_observed_total"),
         "count_discrepancy_note": count_evidence.get("discrepancy_note"),
         "repo_claimed_collection_count": (record or {}).get("available_subcollections_count"),
+    }
+
+
+def throughput_fields(record: dict[str, Any] | None) -> dict[str, Any]:
+    throughput = (record or {}).get("throughput_evidence") or {}
+    return {
+        "metadata_probe_rps": throughput.get("metadata_probe_rps"),
+        "file_probe_bytes_per_second": throughput.get("file_probe_bytes_per_second"),
+        "suggested_parallel_downloads": throughput.get("suggested_parallel_downloads"),
+        "estimated_eta_hours": throughput.get("estimated_eta_hours"),
+        "slow_eta_threshold_hours": throughput.get("slow_eta_threshold_hours"),
+        "throughput_threshold_breach": throughput.get("threshold_breach"),
     }
 
 
@@ -309,6 +322,7 @@ def generate() -> None:
         latest = latest_run(records)
         best = best_promotable_run(records)
         count_fields = count_evidence_fields(best)
+        speed_fields = throughput_fields(best)
         active_rows.append(
             {
                 "collection_slug": slug,
@@ -340,6 +354,12 @@ def generate() -> None:
                 "api_reported_total_items": count_fields["api_reported_total"],
                 "scraper_observed_total_items": count_fields["scraper_observed_total"] if count_fields["scraper_observed_total"] is not None else (best or {}).get("observed_item_count"),
                 "count_discrepancy_note": count_fields["count_discrepancy_note"],
+                "metadata_probe_rps": speed_fields["metadata_probe_rps"],
+                "file_probe_bytes_per_second": speed_fields["file_probe_bytes_per_second"],
+                "suggested_parallel_downloads": speed_fields["suggested_parallel_downloads"],
+                "estimated_eta_hours": speed_fields["estimated_eta_hours"],
+                "slow_eta_threshold_hours": speed_fields["slow_eta_threshold_hours"],
+                "throughput_threshold_breach": speed_fields["throughput_threshold_breach"],
                 "content_type_summary": (best or {}).get("content_type_summary"),
                 "latest_summary": (best or {}).get("summary"),
                 "manual_owner": "",
@@ -415,6 +435,12 @@ def generate() -> None:
         "api_reported_total_items",
         "scraper_observed_total_items",
         "count_discrepancy_note",
+        "metadata_probe_rps",
+        "file_probe_bytes_per_second",
+        "suggested_parallel_downloads",
+        "estimated_eta_hours",
+        "slow_eta_threshold_hours",
+        "throughput_threshold_breach",
         "content_type_summary",
         "latest_summary",
         "manual_owner",

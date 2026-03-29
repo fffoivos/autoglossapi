@@ -148,6 +148,8 @@ Focus:
 - Explicitly record any stated total-count claims and per-collection count claims, and distinguish website claims from API-reported counts and scraper-observed counts.
 - Explore any public API or machine-readable endpoint that can improve metadata enumeration, file discovery, or count reconciliation.
 - Probe request tolerance conservatively. If you see temporary 429s or similar throttling, stop escalating and record the apparent safe request pattern instead of forcing retries.
+- Benchmark both metadata/API requests and file-download requests enough to estimate sustained download rate, viable parallelism, and whole-corpus ETA.
+- Record whether the recent measured throughput would finish the target corpus inside roughly two days; if not, treat that as an investigation trigger and explain what the downloader should log and pass to Codex.
 - If you hit a blocker, explicitly record failed checklist items, tried hypotheses, alternative hypotheses, the best next hypothesis, and whether you think the lineage is exhausted.
 
 Required checklist:
@@ -163,6 +165,7 @@ Expected useful fields in the final JSON:
 - `claimed_item_count`
 - `observed_item_count`
 - `count_evidence`
+- `throughput_evidence`
 - `pagination_strategy`
 - `pdf_detection_strategy`
 - `metadata_richness_note`

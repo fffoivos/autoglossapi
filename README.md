@@ -62,6 +62,7 @@ python3 -m unittest discover -s tests -v
 ## Key docs
 
 - [docs/architecture_plan.md](docs/architecture_plan.md)
+- [docs/download_telemetry.md](docs/download_telemetry.md)
 - [docs/secret_policy.md](docs/secret_policy.md)
 - [docs/operator_runbook.md](docs/operator_runbook.md)
 - [TODO.md](TODO.md)

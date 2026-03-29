@@ -114,6 +114,11 @@ AWS S3 should store the raw PDFs, extracted artifacts, and large run outputs.
   - API-reported counts
   - scraper-observed counts
   - discrepancy notes and request-capacity observations
+- [x] Require throughput evidence in stage reports:
+  - metadata/API benchmark rate
+  - file-download benchmark rate
+  - ETA estimate
+  - threshold-breach recommendation for slow runs
 - [ ] Add repair prompts for:
   - invalid JSON
   - missing evidence
@@ -126,6 +131,7 @@ AWS S3 should store the raw PDFs, extracted artifacts, and large run outputs.
 - [ ] Add `build_scraper` as a first-class stage after `adapter_spec`.
 - [ ] Add `smoke_test_scraper`.
 - [ ] Keep `bulk_run_scraper` deterministic and code-driven, not LLM-driven.
+- [x] Add a reusable rolling download telemetry helper with request logging, ETA snapshots, and a Codex investigation hook.
 - [ ] Add a per-adapter contract for:
   - crawl entrypoints
   - listing traversal

@@ -17,6 +17,7 @@
     "claimed_item_count",
     "observed_item_count",
     "count_evidence",
+    "throughput_evidence",
     "pagination_strategy",
     "pdf_detection_strategy",
     "metadata_richness_note",
@@ -324,6 +325,133 @@
           }
         },
         "discrepancy_note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "throughput_evidence": {
+      "type": "object",
+      "required": [
+        "metadata_probe_requests",
+        "metadata_probe_window_seconds",
+        "metadata_probe_rps",
+        "metadata_probe_note",
+        "file_probe_downloads",
+        "file_probe_total_bytes",
+        "file_probe_window_seconds",
+        "file_probe_bytes_per_second",
+        "file_probe_files_per_hour",
+        "suggested_parallel_downloads",
+        "estimated_total_items",
+        "estimated_total_bytes",
+        "estimated_eta_hours",
+        "eta_basis_note",
+        "slow_eta_threshold_hours",
+        "threshold_breach",
+        "investigation_trigger_recommendation"
+      ],
+      "properties": {
+        "metadata_probe_requests": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "metadata_probe_window_seconds": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "metadata_probe_rps": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "metadata_probe_note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "file_probe_downloads": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "file_probe_total_bytes": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "file_probe_window_seconds": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "file_probe_bytes_per_second": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "file_probe_files_per_hour": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "suggested_parallel_downloads": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "estimated_total_items": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "estimated_total_bytes": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "estimated_eta_hours": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "eta_basis_note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "slow_eta_threshold_hours": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "threshold_breach": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "investigation_trigger_recommendation": {
           "type": [
             "string",
             "null"

@@ -31,5 +31,5 @@
 | --- | --- | --- | ---: | ---: | --- |
 | ntua | queued_wave1 |  |  |  |  |
 | psepheda | queued_wave1 |  |  |  |  |
-| pyxida | discover_running | discover | 12265 | 15 |  |
+| pyxida | discover_completed_promotable | discover | 12265 | 18 | feasibility |
 | uth_rep | queued_wave1 |  |  |  |  |
