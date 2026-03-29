@@ -1,0 +1,26 @@
+{
+  "profile_id": "aws_r7i_16xlarge",
+  "provider": "aws",
+  "instance_type": "r7i.16xlarge",
+  "hardware": {
+    "gpu_count": 0,
+    "gpu_model": null,
+    "gpu_memory_gib": 0,
+    "vcpu": 64,
+    "ram_gib": 512
+  },
+  "intended_use": [
+    "dataset_build",
+    "large_cpu_processing",
+    "clean_extract_pipeline"
+  ],
+  "runtime_defaults": {
+    "expect_gpu": false,
+    "needs_rust": true,
+    "needs_cleaner": true,
+    "needs_deepseek_ocr": false,
+    "glossapi_branch": "development",
+    "target_dir": "/data/glossapi/work/glossAPI"
+  },
+  "knowledge_refs": []
+}

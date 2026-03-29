@@ -88,9 +88,61 @@ AWS S3 should store the raw PDFs, extracted artifacts, and large run outputs.
 - [ ] Copy the current harness docs, config, schemas, and scripts into the new repo layout.
 - [ ] Normalize paths so the launcher is repo-relative rather than workspace-relative.
 - [ ] Keep the all-collection manifest, known-host subset, and wave manifests in the repo.
-- [ ] Move or mirror the prompt text into a dedicated `prompts/` directory.
+- [x] Move or mirror the prompt text into a dedicated `prompts/` directory.
+  - stage prompts now live under `prompts/` with retry guidance under `prompts/repairs/`
+- [x] Add a clear agentic source-acquisition workflow doc:
+  - `docs/agentic_pipeline.md`
 - [ ] Add an operator README for local versus strongbox execution.
 - [ ] Add a sync script to push the coordination repo to the AWS strongbox.
+
+## Phase 2.5: Runtime And GlossAPI Infrastructure
+
+- [x] Add a dedicated runtime area for host bootstrap, runtime checks, and OCR tuning:
+  - `runtime/`
+- [x] Add an AWS bootstrap script that includes Rust and GlossAPI setup:
+  - `runtime/aws/bootstrap_glossapi_aws.sh`
+- [x] Add a structured GlossAPI runtime readiness checker:
+  - `runtime/aws/check_glossapi_runtime.py`
+- [x] Add an OCR worker-planning utility that turns VRAM/CPU/utilization measurements into an initial workers-per-GPU guess:
+  - `runtime/ocr/worker_planning.py`
+- [x] Add a Codex runtime failure investigation harness:
+  - `runtime/investigation.py`
+- [x] Add an operator doc for AWS/remote GlossAPI hosts:
+  - `docs/aws_runtime.md`
+- [x] Add stored host profiles and runtime knowledge bundles:
+  - `runtime/host_profiles/`
+  - `runtime/knowledge/`
+- [x] Add runtime task examples and prompt templates:
+  - `runtime/examples/`
+  - `runtime/prompts/`
+- [x] Add a runtime task renderer that turns a task spec into a resolved Codex bundle:
+  - `runtime/render_runtime_task.py`
+- [x] Add a schema for runtime task specs:
+  - `schemas/runtime_task.schema.json`
+- [x] Add a runtime execution spec so task bundles have an explicit remote execution contract:
+  - `docs/runtime_execution_spec.md`
+- [x] Add a runtime executor that can run a resolved task against an existing remote host:
+  - `runtime/aws/execute_runtime_task.py`
+- [x] Add a controller-managed runtime launcher so runtime work is first-class in the repo run structure:
+  - `controller/launch_runtime_task.py`
+- [x] Split bootstrap behavior between fresh provisioning and repairing an existing host:
+  - `BOOTSTRAP_MODE=provision|repair`
+  - repair mode now avoids updating a dirty repo by default
+- [x] Add a runtime OCR smoke test that verifies `Corpus.ocr()` plus Rust cleaner refresh:
+  - `runtime/aws/smoke_test_glossapi_runtime.py`
+- [x] Make the readiness checker requirement-aware and validate Cargo against the actual repo crates:
+  - `runtime/aws/check_glossapi_runtime.py`
+- [x] Add a dedicated OCR worker-sizing note covering VRAM, CPU, utilization, GPU count, and the limited role of FLOPS:
+  - `docs/ocr_worker_sizing.md`
+- [ ] Add machine manifests for concrete host profiles:
+  - `g7e.48xlarge`
+  - `r7i.16xlarge`
+  - persistent Hetzner builder
+- [x] Wire the runtime lane into a first-class non-collection controller flow.
+- [ ] Add true provision-mode host creation and selection for tasks that do not yet have a public IP.
+- [ ] Capture benchmark baselines and recommended OCR configs per machine profile.
+- [ ] Feed runtime findings back upstream into GlossAPI defaults and preflight checks.
+- [ ] Add automated artifact syncing from runtime executions into tracked run directories or S3.
 
 ## Phase 3: Controller Hardening
 
@@ -119,18 +171,22 @@ AWS S3 should store the raw PDFs, extracted artifacts, and large run outputs.
   - file-download benchmark rate
   - ETA estimate
   - threshold-breach recommendation for slow runs
-- [ ] Add repair prompts for:
+- [x] Add repair prompts for:
   - invalid JSON
   - missing evidence
   - blocked stage retries
   - partial stage completion
-- [ ] Bound retries and define explicit exhaustion rules.
+- [x] Add deterministic progress scoring with exact completeness, ETA-health, and quality-fit percentages.
+- [x] Add a second-pass review artifact that decides whether to retry, advance, or stop for user review.
+- [x] Add a persistent lineage loop that chains worker -> validate -> score -> review -> retry/advance/stop.
+- [x] Bound retries with explicit user-decision stops for ETA breaches, hard blockers, and exhausted attempt budgets.
 
 ## Phase 4: Scraper Build Stages
 
-- [ ] Add `build_scraper` as a first-class stage after `adapter_spec`.
-- [ ] Add `smoke_test_scraper`.
-- [ ] Keep `bulk_run_scraper` deterministic and code-driven, not LLM-driven.
+- [x] Add `build_scraper` as a first-class stage after `adapter_spec`.
+- [x] Add `smoke_test_scraper`.
+- [x] Keep `bulk_run_scraper` deterministic and code-driven, not LLM-driven.
+  - the stage contract and prompt now make bulk acquisition an explicit downloader-run stage rather than a manual LLM crawl
 - [x] Add a reusable rolling download telemetry helper with request logging, ETA snapshots, and a Codex investigation hook.
 - [ ] Add a per-adapter contract for:
   - crawl entrypoints
@@ -145,7 +201,7 @@ AWS S3 should store the raw PDFs, extracted artifacts, and large run outputs.
 ## Phase 5: S3 Snapshot Plumbing
 
 - [ ] Decide the S3 bucket and top-level prefix for direct-recovery artifacts.
-- [ ] Add `schemas/snapshot_manifest.schema.json`.
+- [x] Add `schemas/snapshot_manifest.schema.json`.
 - [ ] Write manifests that point to S3 prefixes instead of embedding binaries in Git.
 - [ ] Decide where large HTML captures and bulky logs should live in S3.
 - [ ] Add checksum manifests for downloaded PDF batches.
@@ -172,6 +228,7 @@ AWS S3 should store the raw PDFs, extracted artifacts, and large run outputs.
 - [x] Create a generated active-source status backlog with run state, modality hints, and count fields.
 - [x] Add manual enrichment overlays so the backlogs can be extended without clobbering generated data.
 - [x] Refresh the local Projects MCP catalog so `automated-glossapi` is discoverable there.
+- [x] Expose progress percentages, review decisions, and user-decision flags in the generated active-source backlog.
 
 ## Phase 7: Expansion
 
@@ -197,4 +254,5 @@ AWS S3 should store the raw PDFs, extracted artifacts, and large run outputs.
 
 - [ ] Bootstrap the GitHub repo and copy in the current harness plus the secret-policy docs.
 - [ ] Add the validator/router layer before launching paid multi-agent runs.
-- [ ] Only then launch the first live `discover` wave on AWS.
+- [ ] Drive one full lineage (`discover -> feasibility -> sample_validation`) with `controller/run_lineage_loop.py`.
+- [ ] Only then launch the first live multi-collection wave on AWS.

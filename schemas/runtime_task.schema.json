@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Runtime task",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "task_type",
+    "target_name",
+    "requirements"
+  ],
+  "properties": {
+    "task_type": {
+      "type": "string",
+      "enum": [
+        "provision_glossapi_host",
+        "repair_glossapi_host",
+        "benchmark_glossapi_ocr"
+      ]
+    },
+    "target_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provider": {
+      "type": "string"
+    },
+    "instance_profile": {
+      "type": "string"
+    },
+    "glossapi_branch": {
+      "type": "string",
+      "default": "development"
+    },
+    "existing_host": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "public_ip": {"type": "string"},
+        "instance_id": {"type": "string"},
+        "repo_path": {"type": "string"},
+        "runtime_python": {"type": "string"},
+        "notes": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "requirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "expect_gpu": {"type": "boolean"},
+        "needs_rust": {"type": "boolean"},
+        "needs_cleaner": {"type": "boolean"},
+        "needs_deepseek_ocr": {"type": "boolean"},
+        "benchmark_ocr": {"type": "boolean"},
+        "auto_worker_tuning": {"type": "boolean"},
+        "minimum_gpu_count": {"type": "integer", "minimum": 1},
+        "minimum_gpu_memory_gib": {"type": "number", "minimum": 0},
+        "preferred_gpu_model": {"type": "string"},
+        "minimum_vcpu": {"type": "integer", "minimum": 1},
+        "minimum_ram_gib": {"type": "number", "minimum": 0}
+      }
+    },
+    "benchmark_inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "peak_worker_memory_gib": {"type": "number", "exclusiveMinimum": 0},
+        "single_worker_utilization": {"type": "number", "exclusiveMinimum": 0},
+        "cpu_cores_per_gpu": {"type": "number", "exclusiveMinimum": 0},
+        "cpu_cores_per_worker": {"type": "number", "exclusiveMinimum": 0},
+        "headroom_gib": {"type": "number", "exclusiveMinimum": 0},
+        "target_utilization": {"type": "number", "exclusiveMinimum": 0},
+        "hard_max_workers": {"type": "integer", "minimum": 1}
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  }
+}

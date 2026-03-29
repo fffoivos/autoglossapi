@@ -1,0 +1,6 @@
+- Do not perform the bulk download manually inside the model; launch the repository-specific downloader code or job that was built earlier.
+- Treat this stage as operations supervision plus evidence capture for the real corpus acquisition.
+- Save the exact launch command, checkpoint/resume location, throughput snapshots, and failure summaries under the job directory.
+- Record where the downloaded source data lives, ideally as an external storage prefix plus a snapshot manifest.
+- If the run is too slow, too throttled, or too error-prone for routine continuation, stop and report the concrete operational blocker.
+- The final report should make it obvious whether the source-data acquisition succeeded, partially succeeded, or needs a human decision.

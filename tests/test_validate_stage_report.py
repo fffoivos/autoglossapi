@@ -20,29 +20,15 @@ class ValidateStageReportTests(unittest.TestCase):
     def setUp(self) -> None:
         self.schema = load_schema()
 
-    def _discover_report(self, status: str = "success") -> dict:
-        checklist_ids = [
-            "website",
-            "collections_available",
-            "entry_path",
-            "website_levels",
-            "platform",
-            "api_surface",
-            "count_claims",
-            "throughput_surfaces",
-            "content_types",
-            "priority_scope",
-            "request_capacity",
-            "priority_assessment",
-        ]
+    def _report_for_stage(self, stage: str, checklist_ids: list[str], status: str = "success") -> dict:
         return {
             "collection_slug": "pyxida",
-            "stage": "discover",
+            "stage": stage,
             "status": status,
             "repo_root_url": "https://pyxida.aueb.gr/",
             "repo_host": "pyxida.aueb.gr",
             "platform_guess": "dspace7",
-            "summary": "Discover stage succeeded.",
+            "summary": f"{stage} stage succeeded.",
             "available_subcollections": [],
             "website_levels": {
                 "repo_home": "https://pyxida.aueb.gr/",
@@ -135,6 +121,23 @@ class ValidateStageReportTests(unittest.TestCase):
             "recommended_next_step": "Advance to feasibility.",
         }
 
+    def _discover_report(self, status: str = "success") -> dict:
+        checklist_ids = [
+            "website",
+            "collections_available",
+            "entry_path",
+            "website_levels",
+            "platform",
+            "api_surface",
+            "count_claims",
+            "throughput_surfaces",
+            "content_types",
+            "priority_scope",
+            "request_capacity",
+            "priority_assessment",
+        ]
+        return self._report_for_stage("discover", checklist_ids, status=status)
+
     def test_successful_report_is_promotable(self) -> None:
         report = self._discover_report()
         summary = validate_report_payload(report, self.schema)
@@ -163,6 +166,69 @@ class ValidateStageReportTests(unittest.TestCase):
             summary = validate_report_payload(report, self.schema, job_dir=Path(tmpdir))
         self.assertEqual(summary["failure_class"], "evidence_failed")
         self.assertFalse(summary["promotable"])
+
+    def test_sample_validation_success_requires_sample_documents(self) -> None:
+        report = self._report_for_stage(
+            "sample_validation",
+            [
+                "sample_download",
+                "first_page_extract",
+                "academic_work_check",
+                "duplicate_notice_check",
+                "pdf_metadata_check",
+                "metadata_capture",
+            ],
+        )
+        summary = validate_report_payload(report, self.schema)
+        self.assertEqual(summary["failure_class"], "evidence_failed")
+        self.assertIn("sample_validation success requires non-empty sample_documents", summary["notes"])
+
+    def test_bulk_run_success_requires_snapshot_manifest_artifact(self) -> None:
+        report = self._report_for_stage(
+            "bulk_run_scraper",
+            [
+                "launch_downloader",
+                "resume_state",
+                "request_budget",
+                "throughput_monitoring",
+                "download_coverage",
+                "integrity_evidence",
+                "snapshot_manifest",
+                "run_summary",
+            ],
+        )
+        summary = validate_report_payload(report, self.schema)
+        self.assertEqual(summary["failure_class"], "evidence_failed")
+        self.assertIn("bulk_run_scraper success requires a snapshot_manifest artifact", summary["notes"])
+
+    def test_bulk_run_success_with_snapshot_manifest_is_promotable(self) -> None:
+        report = self._report_for_stage(
+            "bulk_run_scraper",
+            [
+                "launch_downloader",
+                "resume_state",
+                "request_budget",
+                "throughput_monitoring",
+                "download_coverage",
+                "integrity_evidence",
+                "snapshot_manifest",
+                "run_summary",
+            ],
+        )
+        report["artifacts"] = [
+            {
+                "kind": "snapshot_manifest",
+                "path_or_url": "manifests/pyxida_snapshot.json",
+                "note": "bulk run snapshot manifest",
+            }
+        ]
+        with tempfile.TemporaryDirectory() as tmpdir:
+            manifest_path = Path(tmpdir) / "manifests" / "pyxida_snapshot.json"
+            manifest_path.parent.mkdir(parents=True, exist_ok=True)
+            manifest_path.write_text("{}", encoding="utf-8")
+            summary = validate_report_payload(report, self.schema, job_dir=Path(tmpdir))
+        self.assertEqual(summary["failure_class"], "success")
+        self.assertTrue(summary["promotable"])
 
 
 if __name__ == "__main__":

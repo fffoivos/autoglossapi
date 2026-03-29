@@ -52,6 +52,36 @@ def _artifact_issue(job_dir: Path | None, artifact: dict[str, Any]) -> str | Non
     return f"artifact missing: {path_or_url}"
 
 
+def _stage_specific_evidence_issues(report: dict[str, Any], stage_name: str, status: str) -> list[str]:
+    issues: list[str] = []
+    if status != "success":
+        return issues
+
+    if stage_name == "sample_validation" and not report.get("sample_documents"):
+        issues.append("sample_validation success requires non-empty sample_documents")
+
+    if stage_name == "bulk_run_scraper":
+        artifact_kinds = {
+            str(artifact.get("kind") or "").strip()
+            for artifact in report.get("artifacts", [])
+            if isinstance(artifact, dict)
+        }
+        if "snapshot_manifest" not in artifact_kinds:
+            issues.append("bulk_run_scraper success requires a snapshot_manifest artifact")
+        count_evidence = report.get("count_evidence") or {}
+        observed = count_evidence.get("scraper_observed_total")
+        if observed is None:
+            observed = report.get("observed_item_count")
+        try:
+            observed_value = int(observed)
+        except (TypeError, ValueError):
+            observed_value = 0
+        if observed_value <= 0:
+            issues.append("bulk_run_scraper success requires a positive observed item count")
+
+    return issues
+
+
 def validate_report_payload(report: dict[str, Any], schema: dict[str, Any], job_dir: Path | None = None) -> dict[str, Any]:
     summary: dict[str, Any] = {
         "collection_slug": report.get("collection_slug"),
@@ -102,7 +132,8 @@ def validate_report_payload(report: dict[str, Any], schema: dict[str, Any], job_
     summary["artifact_issues"] = artifact_issues
 
     status = str(report["status"])
-    if status == "success" and not non_done and not artifact_issues:
+    stage_specific_issues = _stage_specific_evidence_issues(report, stage_name, status)
+    if status == "success" and not non_done and not artifact_issues and not stage_specific_issues:
         summary["failure_class"] = "success"
         summary["promotable"] = True
         return summary
@@ -114,6 +145,11 @@ def validate_report_payload(report: dict[str, Any], schema: dict[str, Any], job_
 
     if status == "blocked":
         summary["failure_class"] = "blocked"
+        return summary
+
+    if stage_specific_issues:
+        summary["failure_class"] = "evidence_failed"
+        summary["notes"].extend(stage_specific_issues)
         return summary
 
     if artifact_issues:

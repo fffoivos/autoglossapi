@@ -1,0 +1,24 @@
+{
+  "task_type": "provision_glossapi_host",
+  "target_name": "aws-g7e-deepseek",
+  "provider": "aws",
+  "instance_profile": "aws_g7e_48xlarge",
+  "glossapi_branch": "development",
+  "requirements": {
+    "expect_gpu": true,
+    "needs_rust": true,
+    "needs_cleaner": true,
+    "needs_deepseek_ocr": true,
+    "benchmark_ocr": true,
+    "auto_worker_tuning": true,
+    "minimum_gpu_count": 8,
+    "minimum_gpu_memory_gib": 80,
+    "preferred_gpu_model": "Blackwell or better",
+    "minimum_vcpu": 128,
+    "minimum_ram_gib": 512
+  },
+  "notes": [
+    "The host should be ready for DeepSeek OCR and cleaner reruns without ad hoc fixes.",
+    "The task should produce a workers_per_gpu recommendation and a benchmark artifact."
+  ]
+}

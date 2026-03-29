@@ -4,6 +4,8 @@
 
 Create a dedicated GitHub repository that stores the full OpenArchives direct-recovery coordination layer while keeping bulk binaries out of Git.
 
+This coordination layer should be understood as an agentic source-acquisition pipeline for GlossAPI: agents discover, validate, specify, review, and implement repository-specific downloaders, and deterministic code performs the actual bulk corpus download.
+
 This repository should contain:
 
 - agent orchestration
@@ -183,6 +185,14 @@ openarchives-direct-recovery/
     route_next_action.py
     summarize_lineage.py
     advance_stage.py
+  runtime/
+    README.md
+    aws/
+      bootstrap_glossapi_aws.sh
+      check_glossapi_runtime.py
+    ocr/
+      worker_planning.py
+    investigation.py
   lineages/
     README.md
   scrapers/

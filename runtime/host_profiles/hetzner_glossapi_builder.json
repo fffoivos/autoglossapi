@@ -1,0 +1,26 @@
+{
+  "profile_id": "hetzner_glossapi_builder",
+  "provider": "hetzner",
+  "instance_type": "persistent_builder",
+  "hardware": {
+    "gpu_count": 0,
+    "gpu_model": null,
+    "gpu_memory_gib": 0,
+    "vcpu": null,
+    "ram_gib": null
+  },
+  "intended_use": [
+    "persistent_build_host",
+    "dataset_preparation",
+    "repo_sync"
+  ],
+  "runtime_defaults": {
+    "expect_gpu": false,
+    "needs_rust": true,
+    "needs_cleaner": true,
+    "needs_deepseek_ocr": false,
+    "glossapi_branch": "development",
+    "target_dir": "/srv/glossapi/glossAPI"
+  },
+  "knowledge_refs": []
+}

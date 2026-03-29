@@ -123,6 +123,24 @@ STAGES: dict[str, StageSpec] = {
             ("sample_outputs", "Produce bounded sample outputs for manual inspection."),
         ),
     ),
+    "bulk_run_scraper": StageSpec(
+        name="bulk_run_scraper",
+        description=(
+            "Run the repository-specific deterministic downloader at corpus scale. The worker "
+            "should launch downloader code, monitor telemetry, and record a download snapshot "
+            "manifest, not perform the bulk crawl manually."
+        ),
+        checklist=(
+            ("launch_downloader", "Launch the deterministic bulk downloader command or job."),
+            ("resume_state", "Confirm checkpointing and resumability for the bulk run."),
+            ("request_budget", "Use the approved pacing, backoff, and concurrency settings."),
+            ("throughput_monitoring", "Emit request logs, rolling throughput, and ETA snapshots during the run."),
+            ("download_coverage", "Record observed downloaded item/file counts against the target scope."),
+            ("integrity_evidence", "Record integrity evidence such as checksums, file counts, or manifest references."),
+            ("snapshot_manifest", "Produce a snapshot manifest that points to the downloaded corpus location."),
+            ("run_summary", "Summarize counts, bytes, failures, and any residual backlog or follow-up work."),
+        ),
+    ),
 }
 
 STAGE_ORDER = tuple(STAGES)

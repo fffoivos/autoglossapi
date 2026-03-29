@@ -1,0 +1,36 @@
+{
+  "profile_id": "aws_g7e_48xlarge",
+  "provider": "aws",
+  "instance_type": "g7e.48xlarge",
+  "hardware": {
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+    "gpu_memory_gib": 97.9,
+    "vcpu": 192,
+    "ram_gib": 2048
+  },
+  "intended_use": [
+    "deepseek_ocr",
+    "multi_gpu_benchmark",
+    "high_throughput_ocr"
+  ],
+  "runtime_defaults": {
+    "expect_gpu": true,
+    "needs_rust": true,
+    "needs_cleaner": true,
+    "needs_deepseek_ocr": true,
+    "glossapi_branch": "development",
+    "target_dir": "/opt/dlami/nvme/glossapi/glossAPI"
+  },
+  "benchmark_inputs": {
+    "peak_worker_memory_gib": 16.1,
+    "single_worker_utilization": 0.187,
+    "cpu_cores_per_gpu": 24,
+    "cpu_cores_per_worker": 6,
+    "headroom_gib": 15.0,
+    "target_utilization": 0.8
+  },
+  "knowledge_refs": [
+    "runtime/knowledge/deepseek_ocr_g7e_20260329.json"
+  ]
+}

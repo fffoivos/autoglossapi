@@ -1,0 +1,28 @@
+{
+  "task_type": "repair_glossapi_host",
+  "target_name": "existing-ocr-host",
+  "provider": "aws",
+  "instance_profile": "aws_g7e_48xlarge",
+  "glossapi_branch": "development",
+  "existing_host": {
+    "public_ip": "54.224.252.101",
+    "instance_id": "i-07833dbb79614cd15",
+    "repo_path": "/opt/dlami/nvme/glossapi/glossAPI",
+    "runtime_python": "/opt/dlami/nvme/glossapi/glossAPI/dependency_setup/deepseek_uv/dependency_setup/.venvs/deepseek/bin/python",
+    "notes": [
+      "GlossAPI is present but not fully configured.",
+      "Need to confirm Rust, cleaner support, and the correct DeepSeek OCR settings."
+    ]
+  },
+  "requirements": {
+    "expect_gpu": true,
+    "needs_rust": true,
+    "needs_cleaner": true,
+    "needs_deepseek_ocr": true,
+    "benchmark_ocr": true,
+    "auto_worker_tuning": true
+  },
+  "notes": [
+    "The repair task should identify the exact missing pieces first, not reinstall blindly."
+  ]
+}

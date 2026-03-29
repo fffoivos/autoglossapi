@@ -39,6 +39,17 @@ class RouteNextActionTests(unittest.TestCase):
         self.assertEqual(decision["decision"], "escalate")
         self.assertIsNone(decision["next_stage"])
 
+    def test_smoke_test_success_advances_to_bulk_run(self) -> None:
+        decision = decide_next_action(
+            {
+                "collection_slug": "pyxida",
+                "stage": "smoke_test_scraper",
+                "failure_class": "success",
+            }
+        )
+        self.assertEqual(decision["decision"], "advance")
+        self.assertEqual(decision["next_stage"], "bulk_run_scraper")
+
 
 if __name__ == "__main__":
     unittest.main()

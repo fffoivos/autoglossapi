@@ -366,6 +366,38 @@ class StageProgressionTests(unittest.TestCase):
             self.assertEqual(manifest["stage"], "feasibility")
             self.assertEqual([job["collection_slug"] for job in manifest["jobs"]], ["pyxida"])
 
+    def test_smoke_test_can_advance_to_bulk_run(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            collections_file = make_collections_file(root)
+            previous_run_dir = make_previous_run(
+                root,
+                stage="smoke_test_scraper",
+                failure_class="success",
+                promotable=True,
+                decision="advance",
+                next_stage="bulk_run_scraper",
+            )
+            result = subprocess.run(
+                [
+                    "python3",
+                    str(REPO_ROOT / "controller" / "advance_stage.py"),
+                    "--previous-run-dir",
+                    str(previous_run_dir),
+                    "--collections-file",
+                    str(collections_file),
+                    "--output-root",
+                    str(root / "runs"),
+                ],
+                check=True,
+                capture_output=True,
+                text=True,
+                cwd=REPO_ROOT,
+            )
+            run_dir = Path(result.stdout.strip())
+            manifest = json.loads((run_dir / "run_manifest.json").read_text(encoding="utf-8"))
+            self.assertEqual(manifest["stage"], "bulk_run_scraper")
+
 
 if __name__ == "__main__":
     unittest.main()

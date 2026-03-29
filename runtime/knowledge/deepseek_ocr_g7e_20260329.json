@@ -1,0 +1,41 @@
+{
+  "knowledge_id": "deepseek_ocr_g7e_20260329",
+  "machine_profile": "aws_g7e_48xlarge",
+  "date": "2026-03-29",
+  "summary": [
+    "DeepSeek multi-GPU workers should be isolated with CUDA_VISIBLE_DEVICES and use --device cuda.",
+    "On this machine, workers_per_gpu=2 clearly outperformed workers_per_gpu=1 on the native Corpus.ocr path.",
+    "Cold-start overhead is significant for DeepSeek OCR v2 due to model load, page rasterization, and sequential per-page inference."
+  ],
+  "benchmarks": {
+    "single_gpu_one_worker": {
+      "pages": 16,
+      "elapsed_seconds": 241.23266887664795,
+      "seconds_per_page": 15.077041804790497,
+      "pages_per_second": 0.06632600830769504,
+      "avg_gpu_utilization": 0.187,
+      "peak_worker_memory_gib": 16.1
+    },
+    "single_gpu_two_workers": {
+      "pages": 16,
+      "elapsed_seconds": 150.60595703125,
+      "seconds_per_page": 9.412872314453125,
+      "pages_per_second": 0.10623749760894304,
+      "avg_gpu_utilization": 0.582,
+      "peak_worker_memory_gib": 32.3
+    }
+  },
+  "recommended_starting_point": {
+    "workers_per_gpu": 4,
+    "sweep": [
+      3,
+      4,
+      5
+    ],
+    "reason": "memory, CPU, and utilization heuristics all suggest headroom above 2 workers; 2 already beat 1 decisively."
+  },
+  "artifact_refs": [
+    "/opt/dlami/nvme/glossapi/library_bench_1gpu_1w/benchmark_summary.json",
+    "/opt/dlami/nvme/glossapi/library_bench_1gpu_2w/benchmark_summary.json"
+  ]
+}

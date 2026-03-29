@@ -15,6 +15,15 @@ The main generated files are:
 - `generated/active_sources.csv`
 - `generated/backlog_summary.md`
 
+`generated/active_sources.csv` now also carries the latest exact progress and review state when available, including:
+
+- `overall_progress_percent`
+- `stage_completion_percent`
+- `count_completeness_percent`
+- `eta_health_percent`
+- `review_decision`
+- `user_decision_pending`
+
 The manual overlays are:
 
 - `manual/potential_sources_enrichment.csv`
