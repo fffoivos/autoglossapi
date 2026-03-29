@@ -144,6 +144,13 @@ AWS S3 should store the raw PDFs, extracted artifacts, and large run outputs.
 - [x] Wire the runtime lane into a first-class non-collection controller flow.
 - [ ] Add true provision-mode host creation and selection for tasks that do not yet have a public IP.
 - [ ] Capture benchmark baselines and recommended OCR configs per machine profile.
+- [x] Replace OCR-vs-reference similarity scoring with a review-bundle workflow for Codex/manual inspection:
+  - `runtime/ocr/build_ocr_review_bundle.py`
+  - `runtime/ocr/evaluate_ocr_quality.py` now delegates to the review-bundle builder for backward compatibility
+- [ ] Capture the current `g7e.48xlarge` DeepSeek blocker explicitly in runtime knowledge and prompts:
+  - the current DeepSeek path still rejects `sdpa` and falls back to `eager`
+  - guarded `plain_ocr` on the 43 selected OA pages reduced repeat flags to `13/43` but slowed to `15.8 s/page`
+  - attention/runtime fit is still the main bottleneck before any further worker-per-GPU tuning
 - [ ] Feed runtime findings back upstream into GlossAPI defaults and preflight checks.
 - [ ] Add automated artifact syncing from runtime executions into tracked run directories or S3.
 
@@ -232,6 +239,15 @@ AWS S3 should store the raw PDFs, extracted artifacts, and large run outputs.
 - [x] Add manual enrichment overlays so the backlogs can be extended without clobbering generated data.
 - [x] Refresh the local Projects MCP catalog so `automated-glossapi` is discoverable there.
 - [x] Expose progress percentages, review decisions, and user-decision flags in the generated active-source backlog.
+
+## Phase 6.8: OpenArchives OCR Remediation
+
+- [ ] Provision the first dedicated OA OCR host on `p5en.48xlarge`.
+- [ ] Patch GlossAPI DeepSeek fallback from `eager` to `sdpa`.
+- [ ] Add OCR mode and inference-size controls to GlossAPI for throughput benchmarking.
+- [ ] Download OA metadata and build the 50-PDF benchmark/quality sample.
+- [ ] Run the workers-per-GPU sweep and quality review before the full OA OCR run.
+- [ ] Follow [docs/oa_ocr_execution_plan_20260329.md](/home/foivos/Projects/automated-glossapi/docs/oa_ocr_execution_plan_20260329.md).
 
 ## Phase 7: Expansion
 

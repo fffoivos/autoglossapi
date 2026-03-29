@@ -1,0 +1,24 @@
+{
+  "task_type": "provision_glossapi_host",
+  "target_name": "aws-p5en-deepseek",
+  "provider": "aws",
+  "instance_profile": "aws_p5en_48xlarge",
+  "glossapi_branch": "development",
+  "requirements": {
+    "expect_gpu": true,
+    "needs_rust": true,
+    "needs_cleaner": true,
+    "needs_deepseek_ocr": true,
+    "benchmark_ocr": true,
+    "auto_worker_tuning": true,
+    "minimum_gpu_count": 8,
+    "minimum_gpu_memory_gib": 120,
+    "preferred_gpu_model": "H200 or better",
+    "minimum_vcpu": 128,
+    "minimum_ram_gib": 512
+  },
+  "notes": [
+    "The host should be optimized for OpenArchives OCR throughput and quality benchmarking.",
+    "The first benchmark stage should compare plain OCR and grounded markdown modes."
+  ]
+}

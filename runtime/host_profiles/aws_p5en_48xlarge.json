@@ -1,0 +1,46 @@
+{
+  "profile_id": "aws_p5en_48xlarge",
+  "provider": "aws",
+  "instance_type": "p5en.48xlarge",
+  "hardware": {
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA H200",
+    "gpu_architecture": "Hopper",
+    "gpu_memory_gib": 141.0,
+    "vcpu": 192,
+    "ram_gib": 2048
+  },
+  "software_fit": {
+    "minimum_torch_cuda": "12.4",
+    "preferred_torch_stack": "Torch 2.9+ on a current CUDA 12.x/13.x-compatible stack",
+    "preferred_attention_backend": "flash_attention_2",
+    "preferred_no_flash_fallback": "sdpa",
+    "avoid": [
+      "eager attention fallback for DeepSeek OCR"
+    ]
+  },
+  "intended_use": [
+    "deepseek_ocr",
+    "multi_gpu_benchmark",
+    "high_throughput_ocr",
+    "openarchives_ocr_remediation"
+  ],
+  "runtime_defaults": {
+    "expect_gpu": true,
+    "needs_rust": true,
+    "needs_cleaner": true,
+    "needs_deepseek_ocr": true,
+    "glossapi_branch": "development",
+    "target_dir": "/opt/dlami/nvme/glossapi/glossAPI"
+  },
+  "benchmark_inputs": {
+    "peak_worker_memory_gib": 16.1,
+    "single_worker_utilization": 0.25,
+    "cpu_cores_per_gpu": 24,
+    "cpu_cores_per_worker": 6,
+    "headroom_gib": 20.0,
+    "target_utilization": 0.85,
+    "hard_max_workers": 6
+  },
+  "knowledge_refs": []
+}
