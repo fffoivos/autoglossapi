@@ -15,6 +15,7 @@ if __package__ in {None, ""}:
 
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+from controller.reviewer_memory import knowledge_ref_strings, problem_tags, review_artifact_dirs
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SCHEMA = PROJECT_ROOT / "schemas" / "improvement_plan.schema.json"
@@ -103,6 +104,14 @@ def fallback_review_plan(report: dict[str, Any], validation: dict[str, Any], pro
         user_decision_required = True
         user_decision_question = "Progress remains weak after repeated attempts. Choose whether to continue or pause."
 
+    tags = problem_tags(report=report, validation=validation, progress=progress)
+    knowledge_refs = knowledge_ref_strings(str(report.get("stage") or ""))
+    matched_solution_ids = sorted(
+        tag.replace("checklist:", "")
+        for tag in tags
+        if tag.startswith("checklist:")
+    )
+
     return {
         "collection_slug": report.get("collection_slug"),
         "stage": report.get("stage"),
@@ -116,9 +125,13 @@ def fallback_review_plan(report: dict[str, Any], validation: dict[str, Any], pro
         "issue_labels": _issue_label_strings(progress),
         "decision": decision,
         "decision_reason": decision_reason,
+        "problem_tags": tags,
+        "matched_solution_ids": matched_solution_ids,
+        "knowledge_refs": knowledge_refs,
         "improvement_hypotheses": list(report.get("alternative_hypotheses") or report.get("tried_hypotheses") or []),
         "changes_to_try": list(report.get("failed_checklist_ids") or validation.get("non_done_checklist_ids") or []),
         "expected_gain_percent": round(expected_gain, 2),
+        "target_progress_percent": round(success_threshold, 2),
         "user_decision_required": user_decision_required,
         "user_decision_question": user_decision_question,
         "confidence": "medium",
@@ -134,6 +147,16 @@ def build_prompt(
     schema_path: Path,
 ) -> str:
     events_line = f"- events_path: `{events_path}`\n" if events_path else ""
+    stage = str(read_json(report_path).get("stage") or "")
+    knowledge_refs = knowledge_ref_strings(stage)
+    knowledge_block = ""
+    if knowledge_refs:
+        rendered = "\n".join(f"- knowledge_ref: `{path}`" for path in knowledge_refs)
+        knowledge_block = (
+            "Reviewer knowledge assets:\n"
+            f"{rendered}\n"
+            "- Read the stage knowledge first, then consult matched solution patterns and recovery stats before deciding.\n"
+        )
     return f"""You are the stage-review agent for automated GlossAPI upstream recovery.
 
 Mission:
@@ -147,11 +170,17 @@ Read these artifacts before deciding:
 - report_path: `{report_path}`
 - validation_path: `{validation_path}`
 - progress_path: `{progress_path}`
-{events_line}Decision rules:
+{events_line}{knowledge_block}Decision rules:
 - Choose `advance` only if the current stage is already good enough, typically at or above the success threshold, and the likely incremental gain from more retries is small.
 - Choose `retry_same_stage` only if there is a concrete, bounded set of improvements that should materially increase completeness or confidence.
 - Choose `decision_pending_user` for ETA breaches, hard repository constraints, exhausted paths, or any tradeoff that should be reviewed by the user.
 - Choose `stop_exhausted` only if nothing meaningful remains and there is no real user decision left to make.
+
+You must:
+- use exact progress, count, throughput, and ETA numbers from the supplied artifacts when available
+- label the concrete problem types you see
+- cite any matched solution IDs or knowledge files that informed your decision
+- set `target_progress_percent` to the next progress level worth pushing toward, usually the success threshold or `100` when incremental gains still matter
 
 Output must be JSON only and must satisfy `{schema_path}`.
 """
@@ -193,15 +222,24 @@ def main() -> None:
         'approval_policy="never"',
         "-s",
         args.sandbox_mode,
-        "--add-dir",
-        str(args.report.parent),
-        "--output-schema",
-        str(args.schema),
-        "-o",
-        str(args.output),
-        "--json",
-        "-",
     ]
+    seen_dirs: set[str] = set()
+    for add_dir in [args.report.parent, *review_artifact_dirs(str(report.get("stage") or ""))]:
+        add_dir_str = str(add_dir)
+        if add_dir_str in seen_dirs:
+            continue
+        seen_dirs.add(add_dir_str)
+        command.extend(["--add-dir", add_dir_str])
+    command.extend(
+        [
+            "--output-schema",
+            str(args.schema),
+            "-o",
+            str(args.output),
+            "--json",
+            "-",
+        ]
+    )
 
     review_failed = False
     failure_note = None

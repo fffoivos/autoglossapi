@@ -15,9 +15,13 @@
     "issue_labels",
     "decision",
     "decision_reason",
+    "problem_tags",
+    "matched_solution_ids",
+    "knowledge_refs",
     "improvement_hypotheses",
     "changes_to_try",
     "expected_gain_percent",
+    "target_progress_percent",
     "user_decision_required",
     "user_decision_question",
     "confidence"
@@ -68,6 +72,24 @@
     "decision_reason": {
       "type": "string"
     },
+    "problem_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "matched_solution_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "knowledge_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "improvement_hypotheses": {
       "type": "array",
       "items": {
@@ -81,6 +103,9 @@
       }
     },
     "expected_gain_percent": {
+      "type": "number"
+    },
+    "target_progress_percent": {
       "type": "number"
     },
     "user_decision_required": {

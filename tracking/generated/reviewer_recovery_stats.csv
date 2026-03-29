@@ -1,0 +1,9 @@
+stage,problem_tag,cases,paired_cases,improved_cases,promotable_next_cases,avg_start_progress_percent,avg_end_progress_percent,avg_delta_progress_percent,open_cases_without_followup
+discover,failure:runtime_failed,2,0,0,1,0.0,,,0
+discover,failure:success,2,0,0,1,0.0,,,0
+discover,failure:partial,1,1,0,0,0.0,96.68,0.0,0
+discover,issue:count_completeness,1,0,0,0,96.68,,,1
+discover,issue:eta_health,1,0,0,0,96.68,,,1
+discover,issue:overall_progress,1,0,0,0,96.68,,,1
+discover,issue:quality_fit,1,0,0,0,96.68,,,1
+discover,issue:stage_completion,1,0,0,0,96.68,,,1

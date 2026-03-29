@@ -71,6 +71,13 @@ def load_json(path: Path) -> Any:
     return json.loads(path.read_text())
 
 
+def load_csv_rows(path: Path) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+    with path.open(newline="") as handle:
+        return list(csv.DictReader(handle))
+
+
 def write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: list[str]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="") as handle:
@@ -126,6 +133,15 @@ def modality_counts(entries: list[dict[str, Any]]) -> dict[str, int]:
 
 def bool_string(value: bool) -> str:
     return "yes" if value else "no"
+
+
+def safe_float(value: Any) -> float | None:
+    if value in {"", None}:
+        return None
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
 
 
 def slug_map(rows: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
@@ -286,7 +302,177 @@ def improvement_fields(record: dict[str, Any] | None) -> dict[str, Any]:
         "review_expected_gain_percent": improvement.get("expected_gain_percent"),
         "review_confidence": improvement.get("confidence"),
         "review_user_decision_required": improvement.get("user_decision_required"),
+        "problem_tags": "; ".join(improvement.get("problem_tags") or []),
+        "matched_solution_ids": "; ".join(improvement.get("matched_solution_ids") or []),
+        "target_progress_percent": improvement.get("target_progress_percent"),
     }
+
+
+def progress_issue_labels(record: dict[str, Any] | None) -> list[str]:
+    progress = (record or {}).get("progress") or {}
+    labels: list[str] = []
+    for entry in progress.get("issue_labels") or []:
+        if not isinstance(entry, dict):
+            continue
+        label = str(entry.get("label") or "").strip()
+        if label:
+            labels.append(f"issue:{label}")
+    return labels
+
+
+def grouped_stage_records(history: dict[str, list[dict[str, Any]]]) -> dict[tuple[str, str], list[dict[str, Any]]]:
+    grouped: dict[tuple[str, str], list[dict[str, Any]]] = {}
+    for slug, records in history.items():
+        for record in records:
+            grouped.setdefault((slug, record["stage"]), []).append(record)
+    for records in grouped.values():
+        records.sort(key=lambda item: item["run_id"])
+    return grouped
+
+
+def generate_review_memory_outputs(
+    history: dict[str, list[dict[str, Any]]]
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]], list[str]]:
+    grouped = grouped_stage_records(history)
+    generated_index_rows: list[dict[str, Any]] = []
+    recovery_case_rows: list[dict[str, Any]] = []
+    stats: dict[tuple[str, str], dict[str, Any]] = {}
+
+    for (slug, stage), records in sorted(grouped.items()):
+        for idx, record in enumerate(records):
+            progress = (record.get("progress") or {})
+            improvement = (record.get("improvement") or {})
+            validation = (record.get("validation") or {})
+            next_record = records[idx + 1] if idx + 1 < len(records) else None
+            next_progress = (next_record or {}).get("progress") or {}
+            next_validation = (next_record or {}).get("validation") or {}
+
+            start_progress = safe_float(progress.get("overall_progress_percent"))
+            end_progress = safe_float(next_progress.get("overall_progress_percent"))
+            delta_progress = None
+            if start_progress is not None and end_progress is not None:
+                delta_progress = round(end_progress - start_progress, 2)
+
+            problem_tags = list(improvement.get("problem_tags") or progress_issue_labels(record) or [])
+            if not problem_tags:
+                failure_class = str(validation.get("failure_class") or "").strip()
+                if failure_class:
+                    problem_tags = [f"failure:{failure_class}"]
+            issue_labels = "; ".join(progress_issue_labels(record))
+            changes = list(improvement.get("changes_to_try") or [])
+            hypotheses = list(improvement.get("improvement_hypotheses") or [])
+            review_decision = improvement.get("decision")
+            next_promotable = bool(next_validation.get("promotable")) if next_record else False
+
+            recovery_case_rows.append(
+                {
+                    "collection_slug": slug,
+                    "stage": stage,
+                    "from_run_id": record["run_id"],
+                    "to_run_id": (next_record or {}).get("run_id", ""),
+                    "from_failure_class": validation.get("failure_class"),
+                    "to_failure_class": next_validation.get("failure_class") if next_record else "",
+                    "problem_tags": "; ".join(problem_tags),
+                    "issue_labels": issue_labels,
+                    "review_decision": review_decision,
+                    "changes_to_try": "; ".join(changes),
+                    "improvement_hypotheses": "; ".join(hypotheses),
+                    "start_progress_percent": start_progress,
+                    "end_progress_percent": end_progress,
+                    "delta_progress_percent": delta_progress,
+                    "next_promotable": bool_string(next_promotable),
+                    "target_progress_percent": improvement.get("target_progress_percent"),
+                    "evidence_path": str(Path(record["job_dir"]) / "improvement_plan.json") if improvement else "",
+                }
+            )
+
+            for problem_tag in problem_tags:
+                stat = stats.setdefault(
+                    (stage, problem_tag),
+                    {
+                        "stage": stage,
+                        "problem_tag": problem_tag,
+                        "cases": 0,
+                        "paired_cases": 0,
+                        "improved_cases": 0,
+                        "promotable_next_cases": 0,
+                        "start_progress_total": 0.0,
+                        "end_progress_total": 0.0,
+                        "delta_progress_total": 0.0,
+                        "open_cases_without_followup": 0,
+                    },
+                )
+                stat["cases"] += 1
+                if start_progress is not None:
+                    stat["start_progress_total"] += start_progress
+                if next_record is None:
+                    stat["open_cases_without_followup"] += 1
+                if end_progress is not None:
+                    stat["paired_cases"] += 1
+                    stat["end_progress_total"] += end_progress
+                if delta_progress is not None:
+                    stat["delta_progress_total"] += delta_progress
+                    if delta_progress > 0:
+                        stat["improved_cases"] += 1
+                if next_promotable:
+                    stat["promotable_next_cases"] += 1
+
+            if improvement:
+                for position, change in enumerate(changes or [""]):
+                    solution_id = f"{record['run_id']}::{slug}::{stage}::{position + 1}"
+                    generated_index_rows.append(
+                        {
+                            "solution_id": solution_id,
+                            "source_type": "generated_from_run",
+                            "collection_slug": slug,
+                            "stage": stage,
+                            "problem_tag": "; ".join(problem_tags),
+                            "trigger_pattern": issue_labels or str(validation.get("failure_class") or ""),
+                            "suggested_actions": "; ".join(filter(None, [change, *hypotheses])),
+                            "decision_boundary": improvement.get("decision_reason") or "",
+                            "implementation_path": "",
+                            "evidence_path": str(Path(record["job_dir"]) / "improvement_plan.json"),
+                            "run_id": record["run_id"],
+                        }
+                    )
+
+    stat_rows: list[dict[str, Any]] = []
+    for stat in sorted(stats.values(), key=lambda item: (-item["cases"], item["stage"], item["problem_tag"])):
+        paired_cases = stat["paired_cases"] or 0
+        cases = stat["cases"] or 0
+        stat_rows.append(
+            {
+                "stage": stat["stage"],
+                "problem_tag": stat["problem_tag"],
+                "cases": cases,
+                "paired_cases": paired_cases,
+                "improved_cases": stat["improved_cases"],
+                "promotable_next_cases": stat["promotable_next_cases"],
+                "avg_start_progress_percent": round(stat["start_progress_total"] / cases, 2) if cases else "",
+                "avg_end_progress_percent": round(stat["end_progress_total"] / paired_cases, 2) if paired_cases else "",
+                "avg_delta_progress_percent": round(stat["delta_progress_total"] / paired_cases, 2) if paired_cases else "",
+                "open_cases_without_followup": stat["open_cases_without_followup"],
+            }
+        )
+
+    summary_lines = [
+        "# Reviewer Recovery Summary",
+        "",
+        f"- Recovery cases tracked: `{len(recovery_case_rows)}`",
+        f"- Generated solution rows: `{len(generated_index_rows)}`",
+        f"- Aggregated problem stats: `{len(stat_rows)}`",
+        "",
+        "## Top Problem Tags",
+        "",
+        "| Stage | Problem Tag | Cases | Avg Start % | Avg End % | Avg Delta % | Promotable Next | Open |",
+        "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |",
+    ]
+    for row in stat_rows[:20]:
+        summary_lines.append(
+            f"| {row['stage']} | {row['problem_tag']} | {row['cases']} | {row['avg_start_progress_percent']} | {row['avg_end_progress_percent']} | {row['avg_delta_progress_percent']} | {row['promotable_next_cases']} | {row['open_cases_without_followup']} |"
+        )
+
+    return generated_index_rows, recovery_case_rows, stat_rows, summary_lines + [""]
 
 
 def generate() -> None:
@@ -404,6 +590,9 @@ def generate() -> None:
                 "review_expected_gain_percent": improvement["review_expected_gain_percent"],
                 "review_confidence": improvement["review_confidence"],
                 "review_user_decision_required": improvement["review_user_decision_required"],
+                "review_problem_tags": improvement["problem_tags"],
+                "review_matched_solution_ids": improvement["matched_solution_ids"],
+                "review_target_progress_percent": improvement["target_progress_percent"],
                 "content_type_summary": (best or {}).get("content_type_summary"),
                 "latest_summary": (best or {}).get("summary"),
                 "manual_owner": "",
@@ -497,6 +686,9 @@ def generate() -> None:
         "review_expected_gain_percent",
         "review_confidence",
         "review_user_decision_required",
+        "review_problem_tags",
+        "review_matched_solution_ids",
+        "review_target_progress_percent",
         "content_type_summary",
         "latest_summary",
         "manual_owner",
@@ -507,6 +699,74 @@ def generate() -> None:
 
     write_csv(GENERATED_DIR / "potential_sources.csv", potential_rows, potential_fieldnames)
     write_csv(GENERATED_DIR / "active_sources.csv", active_rows, active_fieldnames)
+
+    generated_solution_rows, recovery_case_rows, recovery_stat_rows, recovery_summary_lines = generate_review_memory_outputs(history)
+    manual_solution_rows = load_csv_rows(MANUAL_DIR / "problem_solution_index.csv")
+    merged_solution_rows = [
+        {
+            "solution_id": row.get("solution_id", ""),
+            "source_type": "manual",
+            "collection_slug": row.get("collection_slug", ""),
+            "stage": row.get("stage", ""),
+            "problem_tag": row.get("problem_tag", ""),
+            "trigger_pattern": row.get("trigger_pattern", ""),
+            "suggested_actions": row.get("suggested_actions", ""),
+            "decision_boundary": row.get("decision_boundary", ""),
+            "implementation_path": row.get("implementation_path", ""),
+            "evidence_path": "",
+            "run_id": "",
+        }
+        for row in manual_solution_rows
+    ] + generated_solution_rows
+
+    solution_fieldnames = [
+        "solution_id",
+        "source_type",
+        "collection_slug",
+        "stage",
+        "problem_tag",
+        "trigger_pattern",
+        "suggested_actions",
+        "decision_boundary",
+        "implementation_path",
+        "evidence_path",
+        "run_id",
+    ]
+    recovery_case_fieldnames = [
+        "collection_slug",
+        "stage",
+        "from_run_id",
+        "to_run_id",
+        "from_failure_class",
+        "to_failure_class",
+        "problem_tags",
+        "issue_labels",
+        "review_decision",
+        "changes_to_try",
+        "improvement_hypotheses",
+        "start_progress_percent",
+        "end_progress_percent",
+        "delta_progress_percent",
+        "next_promotable",
+        "target_progress_percent",
+        "evidence_path",
+    ]
+    recovery_stat_fieldnames = [
+        "stage",
+        "problem_tag",
+        "cases",
+        "paired_cases",
+        "improved_cases",
+        "promotable_next_cases",
+        "avg_start_progress_percent",
+        "avg_end_progress_percent",
+        "avg_delta_progress_percent",
+        "open_cases_without_followup",
+    ]
+    write_csv(GENERATED_DIR / "reviewer_problem_solution_index.csv", merged_solution_rows, solution_fieldnames)
+    write_csv(GENERATED_DIR / "reviewer_recovery_cases.csv", recovery_case_rows, recovery_case_fieldnames)
+    write_csv(GENERATED_DIR / "reviewer_recovery_stats.csv", recovery_stat_rows, recovery_stat_fieldnames)
+    write_text(GENERATED_DIR / "reviewer_recovery_summary.md", "\n".join(recovery_summary_lines))
 
     ensure_manual_overlay(
         MANUAL_DIR / "potential_sources_enrichment.csv",
