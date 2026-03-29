@@ -1,0 +1,3 @@
+- Focus only on the missing checklist evidence and missing artifact references called out by validation.
+- Reuse confirmed findings from the previous run and add only the minimal extra probes needed to close the gaps.
+- If a checklist item truly cannot be completed, mark it explicitly and explain the blocker.

@@ -1,0 +1,3 @@
+- Start from the recorded blockers, failed hypotheses, and alternative hypotheses in the previous report.
+- Test a different viable route instead of repeating the same blocked approach.
+- Record which alternative was tried, what evidence it produced, and whether the lineage is now exhausted.

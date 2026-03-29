@@ -1,0 +1,5 @@
+- Work only from candidate items supported by the feasibility evidence.
+- Download at most the stage sample limit and keep each sample auditable with headers, metadata, and local notes.
+- Capture first-page evidence or equivalent textual proof for each sample and note whether the file looks text-based or scan-heavy.
+- Explicitly reject notice pages, attachment stubs, duplicate repository boilerplate, and restricted-access masquerades.
+- If the sample set is mixed quality, separate the high-confidence subcollection targets from the lower-value branches.

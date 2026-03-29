@@ -27,9 +27,9 @@
 
 ## Active Sources
 
-| Collection | Status | Latest Stage | Repo Items | Repo Collections | Next Stage |
-| --- | --- | --- | ---: | ---: | --- |
-| ntua | queued_wave1 |  |  |  |  |
-| psepheda | queued_wave1 |  |  |  |  |
-| pyxida | discover_completed_promotable | discover | 12265 | 18 | feasibility |
-| uth_rep | queued_wave1 |  |  |  |  |
+| Collection | Status | Latest Stage | Progress % | Repo Items | ETA h | Review | Next Stage |
+| --- | --- | --- | ---: | ---: | ---: | --- | --- |
+| ntua | queued_wave1 |  |  |  |  |  |  |
+| psepheda | queued_wave1 |  |  |  |  |  |  |
+| pyxida | feasibility_incomplete | feasibility |  | 12265 |  |  |  |
+| uth_rep | queued_wave1 |  |  |  |  |  |  |

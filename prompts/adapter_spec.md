@@ -1,0 +1,5 @@
+- Translate the prior evidence into a deterministic handoff for a repository-specific downloader.
+- Name the exact crawl entrypoints, list/item traversal rules, pagination mechanics, metadata mapping, and PDF filtering rules.
+- Specify pacing, backoff, checkpointing, telemetry logging, and the investigation trigger conditions in concrete terms.
+- Call out repository-specific failure modes, restricted-entry signals, and any routes that must not be used.
+- Save any structured notes or mini-spec artifacts under the job directory so the scraper stage can cite them directly.

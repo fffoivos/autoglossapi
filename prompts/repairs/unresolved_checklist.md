@@ -1,0 +1,3 @@
+- Focus on checklist items still marked partial or unresolved.
+- Keep the prior confirmed evidence intact and close only the outstanding stage requirements.
+- If the stage remains partial, make the remaining blocker and best next hypothesis explicit.

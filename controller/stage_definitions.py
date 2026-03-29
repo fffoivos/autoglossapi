@@ -137,3 +137,14 @@ def next_stage_name(stage: str) -> str | None:
     if next_index >= len(STAGE_ORDER):
         return None
     return STAGE_ORDER[next_index]
+
+
+def previous_stage_name(stage: str) -> str | None:
+    try:
+        index = STAGE_ORDER.index(stage)
+    except ValueError:
+        return None
+    previous_index = index - 1
+    if previous_index < 0:
+        return None
+    return STAGE_ORDER[previous_index]

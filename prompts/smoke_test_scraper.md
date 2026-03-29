@@ -1,0 +1,5 @@
+- Run the implemented scraper in a tightly bounded mode against a handful of items only.
+- Save the exact command, logs, telemetry snapshot, and sample outputs under the job directory.
+- Verify list fetch, item parsing, PDF detection, and telemetry emission with direct evidence.
+- Stop early if the scraper shows a systematic problem; record the failure precisely instead of papering over it.
+- Treat the goal as implementation validation, not dataset production.

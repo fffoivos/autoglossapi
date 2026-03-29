@@ -1,0 +1,5 @@
+- Confirm the canonical repository root, platform family, and high-priority collection branches.
+- Save direct evidence under the job directory: HTML captures, API responses, headers, and short notes.
+- Prefer machine-readable routes over brittle rendered HTML where both exist.
+- Record count claims separately for the website, any API surface, and your own observed scope probes.
+- Stop body-download probing as soon as the safe request pattern becomes unclear; record the boundary instead.

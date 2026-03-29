@@ -1,0 +1,3 @@
+- Do not redo the whole investigation unless the existing artifacts are unusable.
+- Repair the final JSON so it satisfies the schema and reflects the evidence already saved in the job directory.
+- Keep checklist statuses and artifact references consistent with the actual saved outputs.

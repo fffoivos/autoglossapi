@@ -1,0 +1,5 @@
+- Treat the previous discover report as baseline context and focus on proving deterministic traversal.
+- Demonstrate one concrete high-priority path from collection entry to paginated item enumeration to public PDF detection.
+- Save listing responses, pagination probes, count reconciliations, and item/PDF evidence under the job directory.
+- Prefer stable APIs, feeds, or structured endpoints over UI scraping when they expose the same holdings.
+- Make the output implementation-ready: exact endpoints, scope parameters, pagination rules, and access checks.

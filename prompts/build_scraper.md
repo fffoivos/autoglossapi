@@ -1,0 +1,6 @@
+- Implement code in the repository rather than only describing the approach.
+- Keep the scraper repository-specific, bounded, and deterministic; do not build a vague generic crawler.
+- Prefer placing adapter code under `scrapers/adapters/` and tests or fixtures under `tests/` or a nearby bounded fixture path.
+- Integrate the shared rolling download telemetry helper where file or metadata throughput matters.
+- Avoid bulk corpus execution here; small local probes are acceptable only when needed to validate the implementation.
+- Reference the changed file paths and any bounded local outputs in the final stage report artifacts.

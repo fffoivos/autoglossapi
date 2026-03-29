@@ -162,9 +162,13 @@ def parse_run_history() -> dict[str, list[dict[str, Any]]]:
             final_path = job_dir / "final.json"
             validation_path = job_dir / "validation.json"
             next_action_path = job_dir / "next_action.json"
+            progress_path = job_dir / "progress_evaluation.json"
+            improvement_path = job_dir / "improvement_plan.json"
             final = load_json(final_path) if final_path.exists() else None
             validation = load_json(validation_path) if validation_path.exists() else None
             next_action = load_json(next_action_path) if next_action_path.exists() else None
+            progress = load_json(progress_path) if progress_path.exists() else None
+            improvement = load_json(improvement_path) if improvement_path.exists() else None
             active = str(job_dir) in running_paths
             if active:
                 run_state = "in_progress"
@@ -191,6 +195,8 @@ def parse_run_history() -> dict[str, list[dict[str, Any]]]:
                 "priority_assessment": (final or {}).get("priority_assessment", {}),
                 "count_evidence": (final or {}).get("count_evidence") if final else None,
                 "throughput_evidence": (final or {}).get("throughput_evidence") if final else None,
+                "progress": progress if isinstance(progress, dict) else None,
+                "improvement": improvement if isinstance(improvement, dict) else None,
             }
             history.setdefault(job_dir.name, []).append(record)
     for records in history.values():
@@ -259,6 +265,30 @@ def throughput_fields(record: dict[str, Any] | None) -> dict[str, Any]:
     }
 
 
+def progress_fields(record: dict[str, Any] | None) -> dict[str, Any]:
+    progress = (record or {}).get("progress") or {}
+    return {
+        "overall_progress_percent": progress.get("overall_progress_percent"),
+        "stage_completion_percent": progress.get("stage_completion_percent"),
+        "count_completeness_percent": progress.get("count_completeness_percent"),
+        "eta_health_percent": progress.get("eta_health_percent"),
+        "quality_fit_percent": progress.get("quality_fit_percent"),
+        "user_decision_pending": progress.get("user_decision_pending"),
+        "user_decision_reason": progress.get("user_decision_reason"),
+    }
+
+
+def improvement_fields(record: dict[str, Any] | None) -> dict[str, Any]:
+    improvement = (record or {}).get("improvement") or {}
+    return {
+        "review_decision": improvement.get("decision"),
+        "review_decision_reason": improvement.get("decision_reason"),
+        "review_expected_gain_percent": improvement.get("expected_gain_percent"),
+        "review_confidence": improvement.get("confidence"),
+        "review_user_decision_required": improvement.get("user_decision_required"),
+    }
+
+
 def generate() -> None:
     all_rows = load_json(COLLECTIONS_DIR / "all_strict_target_collections.json")
     wave1_rows = load_json(COLLECTIONS_DIR / "wave1_high_quality_easy.json")
@@ -323,6 +353,8 @@ def generate() -> None:
         best = best_promotable_run(records)
         count_fields = count_evidence_fields(best)
         speed_fields = throughput_fields(best)
+        progress = progress_fields(latest or best)
+        improvement = improvement_fields(latest or best)
         active_rows.append(
             {
                 "collection_slug": slug,
@@ -360,6 +392,18 @@ def generate() -> None:
                 "estimated_eta_hours": speed_fields["estimated_eta_hours"],
                 "slow_eta_threshold_hours": speed_fields["slow_eta_threshold_hours"],
                 "throughput_threshold_breach": speed_fields["throughput_threshold_breach"],
+                "overall_progress_percent": progress["overall_progress_percent"],
+                "stage_completion_percent": progress["stage_completion_percent"],
+                "count_completeness_percent": progress["count_completeness_percent"],
+                "eta_health_percent": progress["eta_health_percent"],
+                "quality_fit_percent": progress["quality_fit_percent"],
+                "user_decision_pending": progress["user_decision_pending"],
+                "user_decision_reason": progress["user_decision_reason"],
+                "review_decision": improvement["review_decision"],
+                "review_decision_reason": improvement["review_decision_reason"],
+                "review_expected_gain_percent": improvement["review_expected_gain_percent"],
+                "review_confidence": improvement["review_confidence"],
+                "review_user_decision_required": improvement["review_user_decision_required"],
                 "content_type_summary": (best or {}).get("content_type_summary"),
                 "latest_summary": (best or {}).get("summary"),
                 "manual_owner": "",
@@ -441,6 +485,18 @@ def generate() -> None:
         "estimated_eta_hours",
         "slow_eta_threshold_hours",
         "throughput_threshold_breach",
+        "overall_progress_percent",
+        "stage_completion_percent",
+        "count_completeness_percent",
+        "eta_health_percent",
+        "quality_fit_percent",
+        "user_decision_pending",
+        "user_decision_reason",
+        "review_decision",
+        "review_decision_reason",
+        "review_expected_gain_percent",
+        "review_confidence",
+        "review_user_decision_required",
         "content_type_summary",
         "latest_summary",
         "manual_owner",
@@ -507,13 +563,13 @@ def generate() -> None:
             "",
             "## Active Sources",
             "",
-            "| Collection | Status | Latest Stage | Repo Items | Repo Collections | Next Stage |",
-            "| --- | --- | --- | ---: | ---: | --- |",
+            "| Collection | Status | Latest Stage | Progress % | Repo Items | ETA h | Review | Next Stage |",
+            "| --- | --- | --- | ---: | ---: | ---: | --- | --- |",
         ]
     )
     for row in active_rows:
         summary_lines.append(
-            f"| {row['collection_slug']} | {row['latest_status']} | {row['latest_stage'] or ''} | {row['repo_claimed_total_items'] or ''} | {row['repo_claimed_collection_count'] or ''} | {row['latest_next_stage'] or ''} |"
+            f"| {row['collection_slug']} | {row['latest_status']} | {row['latest_stage'] or ''} | {row['overall_progress_percent'] or ''} | {row['repo_claimed_total_items'] or ''} | {row['estimated_eta_hours'] or ''} | {row['review_decision'] or ''} | {row['latest_next_stage'] or ''} |"
         )
     write_text(GENERATED_DIR / "backlog_summary.md", "\n".join(summary_lines) + "\n")
 

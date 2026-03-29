@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpenArchives Stage Improvement Plan",
+  "type": "object",
+  "required": [
+    "collection_slug",
+    "stage",
+    "failure_class",
+    "overall_progress_percent",
+    "stage_completion_percent",
+    "count_completeness_percent",
+    "eta_health_percent",
+    "quality_fit_percent",
+    "success_threshold_percent",
+    "issue_labels",
+    "decision",
+    "decision_reason",
+    "improvement_hypotheses",
+    "changes_to_try",
+    "expected_gain_percent",
+    "user_decision_required",
+    "user_decision_question",
+    "confidence"
+  ],
+  "properties": {
+    "collection_slug": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "failure_class": {
+      "type": "string"
+    },
+    "overall_progress_percent": {
+      "type": "number"
+    },
+    "stage_completion_percent": {
+      "type": "number"
+    },
+    "count_completeness_percent": {
+      "type": "number"
+    },
+    "eta_health_percent": {
+      "type": "number"
+    },
+    "quality_fit_percent": {
+      "type": "number"
+    },
+    "success_threshold_percent": {
+      "type": "number"
+    },
+    "issue_labels": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "retry_same_stage",
+        "advance",
+        "decision_pending_user",
+        "stop_exhausted"
+      ]
+    },
+    "decision_reason": {
+      "type": "string"
+    },
+    "improvement_hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "changes_to_try": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "expected_gain_percent": {
+      "type": "number"
+    },
+    "user_decision_required": {
+      "type": "boolean"
+    },
+    "user_decision_question": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

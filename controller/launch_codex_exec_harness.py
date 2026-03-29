@@ -7,6 +7,7 @@ import json
 import shlex
 import subprocess
 import time
+from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
@@ -17,7 +18,7 @@ if __package__ in {None, ""}:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from controller.route_next_action import decide_next_action
-from controller.stage_definitions import STAGES, StageSpec
+from controller.stage_definitions import STAGES, StageSpec, previous_stage_name
 from controller.validate_stage_report import validate_report_payload
 
 
@@ -25,6 +26,26 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_COLLECTIONS_FILE = PROJECT_ROOT / "config" / "collections" / "all_strict_target_collections.json"
 DEFAULT_SCHEMA_FILE = PROJECT_ROOT / "schemas" / "stage_report.schema.json"
 DEFAULT_OUTPUT_ROOT = PROJECT_ROOT / "runs"
+PROMPTS_DIR = PROJECT_ROOT / "prompts"
+REPAIR_PROMPTS_DIR = PROMPTS_DIR / "repairs"
+RETRY_PROMPT_MODES = (
+    "runtime_repair",
+    "schema_repair",
+    "missing_evidence",
+    "unresolved_checklist",
+    "alternative_hypotheses",
+)
+
+
+@dataclass(frozen=True)
+class PreviousJobContext:
+    stage: str | None
+    job_dir: Path
+    report_path: Path | None
+    validation_path: Path | None
+    next_action_path: Path | None
+    validation: dict[str, Any] | None
+    next_action: dict[str, Any] | None
 
 
 def parse_args() -> argparse.Namespace:
@@ -37,6 +58,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT_ROOT)
     parser.add_argument("--workdir", type=Path, default=PROJECT_ROOT)
     parser.add_argument("--previous-run-dir", type=Path, default=None)
+    parser.add_argument("--review-plan-path", type=Path, default=None)
     parser.add_argument("--codex-bin", default="codex")
     parser.add_argument("--model", default="gpt-5.4")
     parser.add_argument("--reasoning-effort", default="xhigh")
@@ -44,6 +66,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-parallel", type=int, default=10)
     parser.add_argument("--collection-slugs", nargs="*", default=None)
     parser.add_argument("--disable-search", action="store_true")
+    parser.add_argument("--retry-prompt-mode", choices=RETRY_PROMPT_MODES, default=None)
     parser.add_argument(
         "--apply",
         action="store_true",
@@ -58,6 +81,12 @@ def write_json(path: Path, payload: Any) -> None:
 
 def read_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def read_json_if_exists(path: Path) -> Any | None:
+    if not path.exists():
+        return None
+    return read_json(path)
 
 
 def load_collections(path: Path, slugs: list[str] | None) -> list[dict[str, Any]]:
@@ -88,23 +117,165 @@ def previous_report_path(previous_run_dir: Path | None, collection_slug: str) ->
     return candidate if candidate.exists() else None
 
 
+def load_previous_job_context(previous_run_dir: Path | None, collection_slug: str) -> PreviousJobContext | None:
+    if previous_run_dir is None:
+        return None
+    job_dir = previous_run_dir / "jobs" / collection_slug
+    if not job_dir.exists():
+        return None
+    report_path = previous_report_path(previous_run_dir, collection_slug)
+    validation_path = job_dir / "validation.json"
+    next_action_path = job_dir / "next_action.json"
+    validation = read_json_if_exists(validation_path)
+    next_action = read_json_if_exists(next_action_path)
+    stage = None
+    if validation is not None:
+        stage = str(validation.get("stage") or "")
+    if not stage and report_path is not None:
+        report_payload = read_json_if_exists(report_path)
+        if isinstance(report_payload, dict):
+            stage = str(report_payload.get("stage") or "")
+    return PreviousJobContext(
+        stage=stage or None,
+        job_dir=job_dir,
+        report_path=report_path,
+        validation_path=validation_path if validation_path.exists() else None,
+        next_action_path=next_action_path if next_action_path.exists() else None,
+        validation=validation if isinstance(validation, dict) else None,
+        next_action=next_action if isinstance(next_action, dict) else None,
+    )
+
+
+def resolve_retry_prompt_mode(
+    stage: str,
+    requested_mode: str | None,
+    previous_context: PreviousJobContext | None,
+) -> str | None:
+    if requested_mode:
+        return requested_mode
+    if previous_context is None or previous_context.stage != stage:
+        return None
+    if not previous_context.next_action:
+        return None
+    if previous_context.next_action.get("decision") != "retry_same_stage":
+        return None
+    retry_prompt_mode = previous_context.next_action.get("retry_prompt_mode")
+    if retry_prompt_mode in RETRY_PROMPT_MODES:
+        return str(retry_prompt_mode)
+    return None
+
+
+def validate_stage_transition(
+    stage: str,
+    collection_slug: str,
+    previous_context: PreviousJobContext | None,
+) -> None:
+    if stage == "discover":
+        return
+    if previous_context is None or previous_context.report_path is None:
+        raise ValueError(
+            f"stage `{stage}` for `{collection_slug}` requires a previous stage report under `--previous-run-dir`"
+        )
+
+    previous_stage = previous_context.stage
+    if not previous_stage:
+        raise ValueError(f"previous stage for `{collection_slug}` could not be determined")
+    if previous_stage == stage:
+        return
+
+    expected_previous_stage = previous_stage_name(stage)
+    if expected_previous_stage != previous_stage:
+        raise ValueError(
+            f"stage `{stage}` for `{collection_slug}` expects previous stage `{expected_previous_stage}`, "
+            f"but found `{previous_stage}`"
+        )
+
+    validation = previous_context.validation or {}
+    next_action = previous_context.next_action or {}
+    failure_class = str(validation.get("failure_class") or "")
+    decision = str(next_action.get("decision") or "")
+    next_stage = str(next_action.get("next_stage") or "")
+    if failure_class != "success" or decision != "advance" or next_stage != stage:
+        raise ValueError(
+            f"previous stage `{previous_stage}` for `{collection_slug}` is not promotable into `{stage}` "
+            f"(failure_class={failure_class or 'unknown'}, decision={decision or 'unknown'}, "
+            f"next_stage={next_stage or 'unknown'})"
+        )
+
+
+def load_prompt_text(path: Path) -> str:
+    if not path.exists():
+        return ""
+    return path.read_text(encoding="utf-8").strip()
+
+
 def render_prompt(
     collection: dict[str, Any],
     stage_spec: StageSpec,
     stage: str,
     job_dir: Path,
     schema_file: Path,
-    previous_report: Path | None,
+    previous_context: PreviousJobContext | None,
+    retry_prompt_mode: str | None,
+    review_plan_path: Path | None,
 ) -> str:
     checklist_lines = "\n".join(
         f"- `{item_id}`: {label}" for item_id, label in stage_spec.checklist
     )
+    stage_guidance = load_prompt_text(PROMPTS_DIR / f"{stage}.md")
+    retry_guidance = ""
+    if retry_prompt_mode is not None:
+        retry_guidance = load_prompt_text(REPAIR_PROMPTS_DIR / f"{retry_prompt_mode}.md")
+
     previous_block = ""
-    if previous_report is not None:
-        previous_block = (
-            "\nPrevious stage report:\n"
-            f"- path: `{previous_report}`\n"
-            "- read it before doing new work and preserve any correct findings.\n"
+    if previous_context is not None and previous_context.report_path is not None:
+        previous_lines = [
+            "\nPrevious lineage context:",
+            f"- previous_stage: `{previous_context.stage}`",
+            f"- previous_job_dir: `{previous_context.job_dir}`",
+            f"- previous_report_path: `{previous_context.report_path}`",
+            "- read the previous report before doing new work and preserve any correct findings.",
+        ]
+        validation = previous_context.validation or {}
+        next_action = previous_context.next_action or {}
+        if validation:
+            previous_lines.extend(
+                [
+                    f"- previous_failure_class: `{validation.get('failure_class')}`",
+                    f"- previous_missing_checklist_ids: `{validation.get('missing_checklist_ids', [])}`",
+                    f"- previous_non_done_checklist_ids: `{validation.get('non_done_checklist_ids', [])}`",
+                    f"- previous_validation_notes: `{validation.get('notes', [])}`",
+                ]
+            )
+        if next_action:
+            previous_lines.extend(
+                [
+                    f"- previous_decision: `{next_action.get('decision')}`",
+                    f"- previous_next_stage: `{next_action.get('next_stage')}`",
+                    f"- previous_retry_prompt_mode: `{next_action.get('retry_prompt_mode')}`",
+                    f"- previous_decision_reason: `{next_action.get('reason')}`",
+                ]
+            )
+        previous_block = "\n".join(previous_lines) + "\n"
+
+    stage_guidance_block = ""
+    if stage_guidance:
+        stage_guidance_block = f"\nStage-specific guidance:\n{stage_guidance}\n"
+
+    retry_block = ""
+    if retry_prompt_mode is not None:
+        retry_block = (
+            "\nRetry guidance:\n"
+            f"- retry_prompt_mode: `{retry_prompt_mode}`\n"
+        )
+        if retry_guidance:
+            retry_block += f"{retry_guidance}\n"
+    review_block = ""
+    if review_plan_path is not None:
+        review_block = (
+            "\nLatest improvement review:\n"
+            f"- review_plan_path: `{review_plan_path}`\n"
+            "- read it before doing new work and explicitly address its issue labels, hypotheses, and recommended changes.\n"
         )
     sample_block = ""
     if stage_spec.sample_limit:
@@ -129,9 +300,16 @@ Goal:
 - search query hint: `{collection.get('search_query_hint', '')}`
 - notes: `{collection['notes']}`
 
+Mission:
+- Maximize large quantities of high-quality Greek text and other useful artifacts that improve knowledge of Greece and the Greek language, including images when they add real value.
+- Push toward full collection completeness whenever feasible.
+- Prefer plans that can finish the full download in roughly 48 hours or less.
+- If ETA exceeds the target or the next move requires a non-routine tradeoff, mark it as `decision pending by user`.
+
 Stage objective:
 - {stage_spec.description}
 {previous_block}
+{stage_guidance_block}{retry_block}{review_block}
 Hard constraints:
 - Work directly against the upstream repository, not `openarchives.gr`, except to use the provided host hint.
 - Do not launch a bulk crawl.
@@ -150,6 +328,8 @@ Focus:
 - Probe request tolerance conservatively. If you see temporary 429s or similar throttling, stop escalating and record the apparent safe request pattern instead of forcing retries.
 - Benchmark both metadata/API requests and file-download requests enough to estimate sustained download rate, viable parallelism, and whole-corpus ETA.
 - Record whether the recent measured throughput would finish the target corpus inside roughly two days; if not, treat that as an investigation trigger and explain what the downloader should log and pass to Codex.
+- Use exact numbers whenever possible: counts, percentages, throughput, and ETA.
+- When you can justify it from observed evidence, express completeness numerically rather than vaguely.
 - If you hit a blocker, explicitly record failed checklist items, tried hypotheses, alternative hypotheses, the best next hypothesis, and whether you think the lineage is exhausted.
 
 Required checklist:
@@ -346,16 +526,27 @@ def main() -> None:
 
     for collection in collections:
         slug = str(collection["collection_slug"])
+        previous_context = load_previous_job_context(args.previous_run_dir, slug)
+        try:
+            validate_stage_transition(args.stage, slug, previous_context)
+        except ValueError as exc:
+            raise SystemExit(str(exc)) from exc
+        retry_prompt_mode = resolve_retry_prompt_mode(
+            stage=args.stage,
+            requested_mode=args.retry_prompt_mode,
+            previous_context=previous_context,
+        )
         job_dir = run_dir / "jobs" / slug
         job_dir.mkdir(parents=True, exist_ok=False)
-        previous_report = previous_report_path(args.previous_run_dir, slug)
         prompt_text = render_prompt(
             collection=collection,
             stage_spec=stage_spec,
             stage=args.stage,
             job_dir=job_dir,
             schema_file=args.schema_file,
-            previous_report=previous_report,
+            previous_context=previous_context,
+            retry_prompt_mode=retry_prompt_mode,
+            review_plan_path=args.review_plan_path,
         )
         prompt_path = job_dir / "prompt.txt"
         final_path = job_dir / "final.json"
@@ -378,7 +569,10 @@ def main() -> None:
                 "validation_path": str(validation_path),
                 "next_action_path": str(next_action_path),
                 "lineage_state_path": str(lineage_state_path),
-                "previous_report": str(previous_report) if previous_report else None,
+                "previous_report": str(previous_context.report_path) if previous_context and previous_context.report_path else None,
+                "previous_stage": previous_context.stage if previous_context else None,
+                "retry_prompt_mode": retry_prompt_mode,
+                "review_plan_path": str(args.review_plan_path) if args.review_plan_path else None,
                 "command": command,
                 "command_shell": " ".join(shlex.quote(part) for part in command) + f" < {shlex.quote(str(prompt_path))}",
                 "status": "pending" if args.apply else "prepared",
@@ -396,6 +590,7 @@ def main() -> None:
         "max_parallel": args.max_parallel,
         "collections_file": str(args.collections_file),
         "previous_run_dir": str(args.previous_run_dir) if args.previous_run_dir else None,
+        "review_plan_path": str(args.review_plan_path) if args.review_plan_path else None,
         "jobs": manifest,
     }
     write_json(run_dir / "run_manifest.json", run_summary)
