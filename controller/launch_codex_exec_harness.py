@@ -145,6 +145,9 @@ Focus:
 - Prioritize high-quality, academically meaningful, easy-to-extract material.
 - Deprioritize content that is likely to extract poorly or be low value, such as handwritten scans, image-only artifacts, repository notices, and attachment stubs.
 - Pay close attention to website levels: repo home, collection page, listing page, item page, and PDF access path.
+- Explicitly record any stated total-count claims and per-collection count claims, and distinguish website claims from API-reported counts and scraper-observed counts.
+- Explore any public API or machine-readable endpoint that can improve metadata enumeration, file discovery, or count reconciliation.
+- Probe request tolerance conservatively. If you see temporary 429s or similar throttling, stop escalating and record the apparent safe request pattern instead of forcing retries.
 - If you hit a blocker, explicitly record failed checklist items, tried hypotheses, alternative hypotheses, the best next hypothesis, and whether you think the lineage is exhausted.
 
 Required checklist:
@@ -159,6 +162,7 @@ Expected useful fields in the final JSON:
 - `content_type_summary`
 - `claimed_item_count`
 - `observed_item_count`
+- `count_evidence`
 - `pagination_strategy`
 - `pdf_detection_strategy`
 - `metadata_richness_note`

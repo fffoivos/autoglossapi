@@ -25,8 +25,11 @@ STAGES: dict[str, StageSpec] = {
             ("entry_path", "Show how to enter the relevant collection from the repository home."),
             ("website_levels", "Describe the page levels from repo home to collection to list to item to PDF."),
             ("platform", "Identify the platform or architecture family."),
+            ("api_surface", "Identify any public APIs or machine-readable endpoints for metadata or file discovery."),
+            ("count_claims", "Find any claim about total files overall and per collection, and record how site claims compare to API-reported counts."),
             ("content_types", "List the dominant content types and low-priority content."),
             ("priority_scope", "Define the subcollections worth crawling first."),
+            ("request_capacity", "Probe request tolerance conservatively and record what metadata/file request frequency appears safe."),
             ("priority_assessment", "Assess Greek fit, content quality, and extraction ease."),
         ),
     ),
@@ -42,9 +45,12 @@ STAGES: dict[str, StageSpec] = {
             ("detect_lists", "Detect item listing pages or search endpoints."),
             ("pagination", "Explain pagination or batch traversal."),
             ("count_reconciliation", "Compare claimed item counts against observed pages."),
+            ("count_source_comparison", "Record the website claim, API-reported count, and scraper-observed count for the target collection where possible."),
+            ("api_route_validation", "Validate the preferred metadata and file-access API routes if any exist."),
             ("pdf_detection", "Show how to detect true PDFs versus restricted or notice pages."),
             ("pdf_presence", "Show how to tell whether an item has an openly accessible PDF or not."),
             ("metadata_capture", "List the fields that can be scraped for parquet enrichment."),
+            ("rate_limit_behavior", "Characterize rate limiting or request-capacity constraints for metadata and file downloads."),
             ("content_quality_routing", "Identify high-quality easy-to-extract content versus low-priority content."),
         ),
     ),
@@ -77,6 +83,7 @@ STAGES: dict[str, StageSpec] = {
             ("selectors_or_endpoints", "Name the selectors, URL patterns, or APIs to use."),
             ("website_levels", "Preserve the verified page-level traversal from repo home to PDF."),
             ("download_rules", "Define PDF filtering, file naming, and access checks."),
+            ("request_budget", "Define the request pacing and backoff policy for metadata and file downloads."),
             ("metadata_mapping", "Map repository fields to parquet columns."),
             ("failure_modes", "List the known repository-specific failure modes."),
         ),
@@ -121,4 +128,3 @@ def next_stage_name(stage: str) -> str | None:
     if next_index >= len(STAGE_ORDER):
         return None
     return STAGE_ORDER[next_index]
-

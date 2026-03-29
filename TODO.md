@@ -108,6 +108,12 @@ AWS S3 should store the raw PDFs, extracted artifacts, and large run outputs.
 - [x] Implement `controller/route_next_action.py`.
 - [x] Implement a persistent lineage state bundle per collection.
 - [x] Add stage-specific evidence checks, not only JSON schema checks.
+- [x] Require explicit count evidence in stage reports:
+  - repository-claimed totals
+  - per-collection claimed counts when available
+  - API-reported counts
+  - scraper-observed counts
+  - discrepancy notes and request-capacity observations
 - [ ] Add repair prompts for:
   - invalid JSON
   - missing evidence

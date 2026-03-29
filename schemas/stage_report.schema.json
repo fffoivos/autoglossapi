@@ -16,6 +16,7 @@
     "content_type_summary",
     "claimed_item_count",
     "observed_item_count",
+    "count_evidence",
     "pagination_strategy",
     "pdf_detection_strategy",
     "metadata_richness_note",
@@ -187,6 +188,149 @@
         "integer",
         "null"
       ]
+    },
+    "count_evidence": {
+      "type": "object",
+      "required": [
+        "repository_claimed_total",
+        "repository_claim_unit",
+        "repository_claim_source",
+        "api_reported_total",
+        "api_report_unit",
+        "scraper_observed_total",
+        "scraper_observed_unit",
+        "collection_count_comparison",
+        "discrepancy_note"
+      ],
+      "properties": {
+        "repository_claimed_total": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "repository_claim_unit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "repository_claim_source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "api_reported_total": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "api_report_unit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "scraper_observed_total": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "scraper_observed_unit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "collection_count_comparison": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "url",
+              "website_claimed_count",
+              "website_claim_unit",
+              "claim_source",
+              "api_reported_count",
+              "api_report_unit",
+              "scraper_observed_count",
+              "scraper_observed_unit",
+              "note"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "website_claimed_count": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "website_claim_unit": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "claim_source": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "api_reported_count": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "api_report_unit": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "scraper_observed_count": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "scraper_observed_unit": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "note": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "discrepancy_note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
     },
     "pagination_strategy": {
       "type": [

@@ -27,8 +27,11 @@ class ValidateStageReportTests(unittest.TestCase):
             "entry_path",
             "website_levels",
             "platform",
+            "api_surface",
+            "count_claims",
             "content_types",
             "priority_scope",
+            "request_capacity",
             "priority_assessment",
         ]
         return {
@@ -54,6 +57,30 @@ class ValidateStageReportTests(unittest.TestCase):
             "content_type_summary": ["theses"],
             "claimed_item_count": 100,
             "observed_item_count": 100,
+            "count_evidence": {
+                "repository_claimed_total": 100,
+                "repository_claim_unit": "items",
+                "repository_claim_source": "home page",
+                "api_reported_total": 100,
+                "api_report_unit": "items",
+                "scraper_observed_total": 100,
+                "scraper_observed_unit": "items",
+                "collection_count_comparison": [
+                    {
+                        "name": "Example collection",
+                        "url": "https://pyxida.aueb.gr/collections/example",
+                        "website_claimed_count": 100,
+                        "website_claim_unit": "items",
+                        "claim_source": "collection page",
+                        "api_reported_count": 100,
+                        "api_report_unit": "items",
+                        "scraper_observed_count": 100,
+                        "scraper_observed_unit": "items",
+                        "note": "counts agree",
+                    }
+                ],
+                "discrepancy_note": None,
+            },
             "pagination_strategy": "follow next-page links",
             "pdf_detection_strategy": "look for PDF bitstream links",
             "metadata_richness_note": "title, author, date, abstract",
